@@ -44,8 +44,12 @@ $(document).ready(function() {
     });
     
     function active () {
+        console.log(current, nextPj, nextPj+1);
+        $mainSlider.children().eq(current).addClass('on').stop().animate({top: 132,right: 0,width: 950,height: 635}).find('.sub').removeAttr('style').parent().siblings().removeClass('on');
+        $mainSlider.children().eq(nextPj).stop().animate({top: 800,right: 175,width: 540,height: 351}).find('.sub').hide();
+        $mainSlider.children().eq(nextPj+1).stop().animate({top:-300,right: 175,width: 540,height: 351}).find('.sub').hide();
+                
         current = nextPj;
-        /* 수직 슬라이드 움직임 추가하기 */
     }
 
     function playTimer () {
@@ -115,8 +119,16 @@ $(document).ready(function() {
     $pj1.hide();
     $mainTit.find('.tit_pj1 .btn_view').on('click', function(e) {
         e.preventDefault();
+        clearInterval(timer);
         $main.hide();
         $('#header').hide();
         $pj1.show().find('.tit_top').css({height: winH});
+        $pj1.find('> .tit_top .logo a').on('click', function(e) {
+            e.preventDefault();
+            $pj1.hide();
+            $main.show();
+            playTimer();
+            $('#header .util ul .profile a .fa-off').css({display: 'block'}).next('.fa-on').removeAttr('style').next('.msg').text('ABOUT ME').removeAttr('style');
+        })
     });
 });
