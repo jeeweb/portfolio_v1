@@ -97,31 +97,24 @@ $pj3Color : #164556;
     .slider{
         position: absolute; right: 10%;top: 0;width: 950px;height: 100%;
         > div{
-            position: absolute;@include transform(scale(0.6));@include opacity(0.7, 70%);
-            &.on{@include transform(scale(1));@include opacity(1, 100%)}
+            position: absolute;@include opacity(0.7, 70%);
+            &.on{
+                @include transform(scale(1));@include opacity(1, 100%);right: 0;
+                .sub{display: inline-block}
+            }
             img{
                 position: absolute;
                 &.main{right: 50px;top: 50px;z-index: 3}
                 &.sub1{right: 25px;top: 25px;z-index: 2}
                 &.sub2{right: 0px;top: 0;z-index: 1}
             }
-            .mask{display: none;}
-            .mask:hover, .mask a:focus{background: #000;@include opacity(0.5, 50%)}
-            /* sub{display: none} */
+            .sub, .mask{display: none;}
+            .mask:hover, .mask a:focus{background: #000;@include opacity(0.5, 50%);z-index: 5}
         }
-        .slider_pj1{
-            right: 0;top: 50%;margin-top: -317px;width: 950px;height: 635px;
-            
-        }
-        .slider_pj2{
-            left: 50%;margin-left: -245px;bottom: -175px;width: 540px;height: 351px;
-            .sub{display: none;}
-            
-        }
-        .slider_pj3{
-            left: 50%;margin-left: -245px;top: -175px;width: 540px;height: 351px;
-            .sub{display: none;}            
-        }
+        /* 처음 보여지는 화면
+        .slider_pj1{right: 0;top: 50%;margin-top: -317px;width: 950px;height: 635px;}
+        .slider_pj2{bottom: -175px;left: 50%;margin-left: -245px;width: 540px;height: 351px;}
+        .slider_pj3{top: -175px;left: 50%;margin-left: -245px;width: 540px;height: 351px;} */
     }
 }
 

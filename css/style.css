@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ============================ #main ============================= */
 #header {
   position: relative;
@@ -115,17 +116,15 @@
   right: 10%;
   top: 0;
   width: 950px;
-  height: 100%; }
+  height: 100%;
+  /* 처음 보여지는 화면
+  .slider_pj1{right: 0;top: 50%;margin-top: -317px;width: 950px;height: 635px;}
+  .slider_pj2{bottom: -175px;left: 50%;margin-left: -245px;width: 540px;height: 351px;}
+  .slider_pj3{top: -175px;left: 50%;margin-left: -245px;width: 540px;height: 351px;} */ }
   #content #main .slider > div {
     position: absolute;
-    -webkit-transform: scale(0.6);
-    -moz-transform: scale(0.6);
-    -o-transform: scale(0.6);
-    -ms-transform: scale(0.6);
-    transform: scale(0.6);
     opacity: 0.7;
-    filter: Alpha(opacity=70%);
-    /* sub{display: none} */ }
+    filter: Alpha(opacity=70%); }
     #content #main .slider > div.on {
       -webkit-transform: scale(1);
       -moz-transform: scale(1);
@@ -133,7 +132,10 @@
       -ms-transform: scale(1);
       transform: scale(1);
       opacity: 1;
-      filter: Alpha(opacity=100%); }
+      filter: Alpha(opacity=100%);
+      right: 0; }
+      #content #main .slider > div.on .sub {
+        display: inline-block; }
     #content #main .slider > div img {
       position: absolute; }
       #content #main .slider > div img.main {
@@ -148,34 +150,13 @@
         right: 0px;
         top: 0;
         z-index: 1; }
-    #content #main .slider > div .mask {
+    #content #main .slider > div .sub, #content #main .slider > div .mask {
       display: none; }
     #content #main .slider > div .mask:hover, #content #main .slider > div .mask a:focus {
       background: #000;
       opacity: 0.5;
-      filter: Alpha(opacity=50%); }
-  #content #main .slider .slider_pj1 {
-    right: 0;
-    top: 50%;
-    margin-top: -317px;
-    width: 950px;
-    height: 635px; }
-  #content #main .slider .slider_pj2 {
-    left: 50%;
-    margin-left: -245px;
-    bottom: -175px;
-    width: 540px;
-    height: 351px; }
-    #content #main .slider .slider_pj2 .sub {
-      display: none; }
-  #content #main .slider .slider_pj3 {
-    left: 50%;
-    margin-left: -245px;
-    top: -175px;
-    width: 540px;
-    height: 351px; }
-    #content #main .slider .slider_pj3 .sub {
-      display: none; }
+      filter: Alpha(opacity=50%);
+      z-index: 5; }
 
 /* ============================ #profile ============================= */
 #content #profile {
