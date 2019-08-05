@@ -113,4 +113,10 @@ $(document).ready(function() {
 
     /* ====================== #project1 ======================== */
     $pj1.hide();
+    $mainTit.find('.tit_pj1 .btn_view').on('click', function(e) {
+        e.preventDefault();
+        $main.hide();
+        $('#header').hide();
+        $pj1.show().find('.tit_top').css({height: winH});
+    });
 });
