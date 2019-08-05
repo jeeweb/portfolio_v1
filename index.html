@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title> Jiee Kong - Web Publisher </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!--[if lt IE 9]>
+        <script type="text/javascript" src="js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <script src="js/common.js"></script>
+</head>
+<body>
+    <div id="skip">
+        <a href="">본문 바로가기</a>
+    </div>
+    <header id="header">
+        <h1 class="logo">
+            <a href="#main">                
+                <img src="images/common/logo_b.png" alt="공지이" class="img_logo">
+            </a>
+        </h1>
+        <div class="util">
+            <ul>
+                <li class="project">
+                    <a href="#main"><!-- only Mobile -->
+                        <i class="far fa-folder fa-off"></i>
+                        <i class="far fa-folder-open fa-on"></i><!-- :selected / :hover -->
+                        <span class="msg">PROJECT</span><!-- :hover -->
+                    </a>
+                </li>
+                <li class="profile">
+                    <a href="#profile">                
+                        <i class="far fa-meh-blank fa-off"></i>
+                        <i class="far fa-laugh fa-on"></i><!-- :selected / :hover -->
+                        <span class="msg">ABOUT ME</span><!-- :hover -->
+                    </a>
+                </li>
+                <li class="mail">
+                    <a href="mailto:jee.vvvv@gmail.com">
+                        <i class="far fa-envelope"></i>
+                        <span class="msg">MAIL ME!</span><!-- :hover -->
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="content">
+        <article id="main">
+            <h2 class="blind">공지이의 포트폴리오</h2>
+            <div class="bg">
+                <div class="bg_img"></div>
+                <div class="bg_color">
+                    <svg width="2000" height="1000">
+                        <rect width="2000" height="1500" class="rect" fill="#fff">
+                        <!-- pj1 
+                            <rect width="2000" height="1500" class="rect" transform = "rotate(145, 850, 200)" fill="#ee1c25" /> 
+                            pj2
+                            <rect width="2000" height="1500" class="rect" transform = "rotate(120, 800, 200)" fill="#99001c" />
+                            pj3
+                            <rect width="2000" height="1500" class="rect" transform = "rotate(70, 700, 200)" fill="#164556"/>
+                        -->
+                    </svg>
+                </div>
+            </div>
+            <div class="tit">
+                <div class="tit_pj1">
+                    <a href="" class="show"><p class="pj_tit">illy 일리</p></a>
+                    <p class="pj_type">반응형 웹 / 리뉴얼 작업</p>
+                    <a href="#project1" class="btn_view">VIEW</a>
+                </div>
+                <div class="tit_pj2">
+                    <a href="" class="show"><p class="pj_tit">belle 벨르</p></a>
+                    <p class="pj_type">PC 웹 / 팀프로젝트</p>
+                    <a href="#project2" class="btn_view">VIEW</a>
+                </div>
+                <div class="tit_pj3">
+                    <a href="" class="show"><p class="pj_tit">Let's Surf 렛츠서프</p></a>
+                    <p class="pj_type">반응형 웹 / 모바일 앱</p>
+                    <a href="#project3" class="btn_view">VIEW</a>
+                </div>
+            </div>
+            <div class="slider">
+                <div class="slider_pj1">
+                    <img src="images/main/pj1_1.jpg" alt="첫번째 프로젝트 일리 메인페이지" class="main">
+                    <img src="images/main/pj1_2.jpg" alt="일리 첫번째 서브페이지 History" class="sub sub1">
+                    <img src="images/main/pj1_3.jpg" alt="일리 두번째 서브페이지 Product의 Coffee" class="sub sub2">
+                    <div class="mask">
+                        <a href="#project1" class="btn_view">VIEW</a>
+                    </div>
+                </div>
+                <div class="slider_pj2">
+                    <img src="images/main/pj2_1.jpg" alt="두번째 프로젝트 벨르 메인페이지 중 Best 섹션" class="main">
+                    <img src="images/main/pj2_2.jpg" alt="벨르 첫번째 서브페이지 Best" class="sub sub1">
+                    <img src="images/main/pj2_3.jpg" alt="벨르 두번째 서브페이지 Review" class="sub sub2">
+                    <img src="images/main/pj2_4.jpg" alt="벨르 세번째 서브페이지 Brand" class="sub sub3">
+                    <div class="mask">
+                        <a href="#project2" class="btn_view">VIEW</a>
+                    </div>
+                </div>
+                <div class="slider_pj3">
+                    <img src="images/main/pj3_1.jpg" alt="세번째 프로젝트 렛츠서프 메인페이지" class="main">
+                    <img src="images/main/pj3_2.jpg" alt="렛츠서프 첫번째 서브페이지 강습안내" class="sub sub1">
+                    <img src="images/main/pj3_3.jpg" alt="렛츠서프 두번째 서브페이지 예약 및 위치" class="sub sub2">
+                    <div class="mask">
+                        <a href="#project3" class="btn_view">VIEW</a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article id="profile">
+            <h2 class="blind">공지이 소개</h2>
+            <div class="skills">
+                <div class="skill_btn">
+                    <button type="button">Coding Skills</button>
+                    <button type="button">Graphic Tool Skills</button>
+                </div>
+                <a href="#main">
+                    <span>PROJECT<span class="blind">로 돌아가기</span></span>
+                </a>
+            </div>
+            <div class="graph">
+                <div class="graph_bg"></div>
+                <div class="coding">
+                    <div class="html">
+                        <p>100%</p>
+                        <p>HTML5</p>
+                    </div>
+                    <div class="css">
+                        <p>80%</p>
+                        <p>CSS3.0</p>
+                    </div>
+                    <div class="js">
+                        <p>70%</p>
+                        <p>Javascript</p>
+                    </div>
+                    <div class="jq">
+                        <p>80%</p>
+                        <p>jQuery</p>
+                    </div>
+                    <div class="sass">
+                        <p>80%</p>
+                        <p>SASS</p>
+                    </div>
+                    <div class="bs">
+                        <p>80%</p>
+                        <p>Bootstrap</p>
+                    </div>
+                </div>
+                <div class="graphic">
+                    <div class="ps">
+                        <p>90%</p>
+                        <p>Adobe<br>Photoshop</p>
+                    </div>
+                    <div class="ai">
+                        <p>90%</p>
+                        <p>Adobe<br>Illustrator</p>
+                    </div>
+                    <div class="zeplin">
+                        <p>70%</p>
+                        <p>Zeplin</p>
+                    </div>
+                    <div class="xd">
+                        <p>60%</p>
+                        <p>Adobe XD</p>
+                    </div>
+                </div>
+                <div class="img_graph">
+                    <div class="graph_coding">
+                        <svg width="427" height="494">
+                            <polygon points="59,494 0,364 59,104 199,0 427,226 341,494" fill="#e35025"  >
+                        </svg>
+                    </div>
+                    <div class="graph_graphic">
+                        <svg width="514" height="354">
+                            <polygon points="0,61 362,0 512,230 256,354" fill="#252653"  >
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="typing">
+                <span>I'm</span>
+                <div>
+                    <p class="word1">a coffee lover</p>
+                    <p class="word2">a dog person</p>
+                    <p class="word3">a beer holic</p>
+                    <p class="word4">a traveller</p>
+                    <p class="word5">an Apple user</p>
+                    <p class="word6">a hard worker</p>
+                    <p class="word7">a quick-learner</p>
+                    <p class="word8">passionate</p>
+                </div>
+            </div>
+        </article>
+
+        <article id="project1">
+            <div class="tit_top">
+                <h1 class="logo">
+                    <a href="#main">                
+                        <img src="images/common/logo_w.png" alt="공지이" class="img_logo">
+                    </a>
+                </h1>
+                <h2>illy 일리</h2>
+            </div>
+            <div class="overview">
+                <img src="images/project1/logo_illy.jpg" alt="일리">
+                <p>이탈리아 커피 브랜드<br>원두, 캡슐, 커피머신 판매 및 프렌차이즈 카페 운영</p>
+                <dl>
+                    <dt>TYPE</dt>
+                    <dd>Renewal Project, Responsive Web</dd>
+                    <dt>PAGES</dt>
+                    <dd>Main, History, Product_Coffee</dd>
+                    <dt>APPLICATION</dt>
+                    <dd>HTML5, CSS3.0, Javascript, jQuery</dd>
+                    <dd>Adobe Photoshop, Adobe Illustrator</dd>
+                    <dt>SIZE</dt>
+                    <dd>PC : 1440px ~ 1920px</dd>
+                    <dd>Tablet: 1024px</dd>
+                    <dd></dd>Mobile: 320px</dd>
+                    <dt>BROWSER COMPATIBILITY</dt>
+                    <dd>IE8+, Chrome, Firefox, Safari</dd>
+                    <dt>PRODUCTION PERIOD</dt>
+                    <dd>v1.0: 2019.03.25~2019.04.19</dd>
+                    <dd>v2.0: 2019.06.10~2019.06.21</dd>
+                    <dt>OVERVIEW</dt>
+                    <dd>웹사이트의 첫 이미지인 메인페이지의 부족한 컨텐츠양을 늘려 한눈에 사이트를 파악 할 수 있도록 구성하였으며, 기존 사이트의 컨텐츠 단순 나열로 인한 불편한 가독성을 개선하고자 하였습니다.<br>마우스의 움직임을 최소화 할 수 있는 스크립트를 적용하여 사이트 이용을 좀 더 효율적일 수 있게 하였으며,부족한 제품 소개 부분을 구체화하여 방문객을 구매사이트까지 유도하도록 개선하였습니다.</dd>
+                </dl>
+                <div class="btn_site">
+                    <a href="">View Website</a>
+                    <a href="http://http://www.illycaffe.co.kr/">Original Website</a>
+                </div>
+            </div>
+            <div class="cnt_main">
+                <h3 class="cnt_tit">MAIN</h3>
+                <img src="images/project1/pj1_main.png" alt="">
+                <strong>DETAIL#1</strong>
+                <p>메인페이지의 3개 이미지로 구성된 이벤트 소개 슬라이드는
+                페이지 로딩 시 자동으로 작동되지만, 하단 인디케이터나 좌우에 위치한 화살표버튼으로 원하는 이미지를 선택 제어할 수 있으며, 마우스가 슬라이드 위에 Hover되거나 키보드 포커스가 슬라이드 내에 위치할 경우 자동 움직임이 멈출 수 있도록 스트립트를 작성하여 방문객이 원하는 이벤트 내용을 자세히 볼 수 있도록 하였습니다.</p>
+                <img src="images/project1/pj1_detail1_coding.jpg" alt="">
+            </div>
+            <div class="cnt_sub1">
+                <h3 class="cnt_tit">SUB_HISTORY</h3>
+                <img src="images/project1/pj1_sub1.png" alt="">
+                <strong>DETAIL#2</strong>
+                <p>오랜 역사를 가진 브랜드인 만큼 그 역사를 소개하는 컨텐츠 양이 많지만, 주요 연혁을 인디케이터로 배치하여 클릭 시 해당 컨텐츠로 페이지가 이동될 수 있도록 제어하였습니다.<br>여기에 top버튼을 함께 배치하여 페이지 상단까지의 이동을 쉽게 하였습니다.</p>
+            </div>
+            <div class="cnt_sub2">
+                <h3 class="cnt_tit">SUB_PRODUCT: COFFEE</h3>
+                <img src="images/project1/pj1_sub2.png" alt="">
+                <strong>DETAIL#3</strong>
+                <p>브랜드가 가지고 있는 비주얼을 적극 활용하여 다양한 제품군을 한눈에 구분할 수 있도록 배치하였으며, 탭브라우징과 모달 스크립트를 함께 사용하여 스크롤 이동 없이도 많은 제품군을 한 눈에 확인 할 수 있도록 구성 하였습니다.</p>
+                <img src="images/project1/pj1_sub2_modal.jpg" alt="캡슐 카테고리를 클릭하면 보여지는 모달 창">
+            </div>
+            <div class="bg_btm"></div>
+        </article>
+        <article id="project2">
+
+        </article>
+        <article id="project3">
+
+        </article>
+        
+    </section>
+
+    <footer id="footer">
+        <p>COPYRIGHT &copy; by JIEEKONG. All RIGHTS RESERVED</p>
+    </footer>
+</body>
+</html>

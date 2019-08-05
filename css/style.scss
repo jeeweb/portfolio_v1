@@ -1,0 +1,202 @@
+@charset "utf-8";
+
+@mixin pos($val, $top, $left) {
+    position: $val;
+    top: $top;
+    left: $left;
+}
+@mixin alignMid($val) {
+    height: $val;
+    line-height: $val;
+}
+@mixin bgSizeCv{
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+@mixin transition($val, $sec){
+    -webkit-transition: $val $sec;
+    -moz-transition: $val $sec;
+    -o-transition: $val $sec;
+    transition: $val $sec;
+}
+@mixin transform($val){
+    -webkit-transform: $val;
+    -moz-transform: $val;
+    -o-transform: $val;
+    -ms-transform: $val;
+    transform: $val;
+}
+
+@mixin opacity($val1, $val2){
+    opacity: $val1; filter: Alpha(opacity = $val2);
+}
+
+$pj1Color : #ee1c25;
+$pj2Color : #99001c;
+$pj3Color : #164556;
+
+/* ============================ #main ============================= */
+
+#header{
+    position: relative;z-index: 800;
+    .logo{
+        @include pos(fixed, 80px, 11.3%);
+        a .logo_w{@include pos(absolute, 0, 0);}
+    }
+    .util{
+        @include pos(fixed, auto, 11.3%);bottom: 80px;
+        .project, .fa-on, .profile .fa-laugh, .profile span, .mail span{display: none}
+        ul li{
+            position: relative;
+            +li{margin-top: 25px}
+            &:hover .fa-off, a:focus .fa-off{display: none}
+            &:hover .fa-on, a:focus .fa-on, &:hover span.msg{display: inline-block}
+            &.select .fa-on, &.select .msg{display: inline-block}
+            a{
+                display: inline-block;width: 180px;@include alignMid(36px);vertical-align: middle;
+                i{
+                    font-size: 36px;
+                    &.fa-on{@include pos(absolute, 0, 0);}
+                }
+                span{@include pos(absolute, 0, 56px);font-size: 24px;}
+            }
+        }         
+    }
+}
+
+#content #main{
+    .bg{    //스크립트로 height값 불러오기
+        @include pos(fixed, 0, 0);width: 100%;height: 100%;
+        &.on{display: block;}
+        .bg_img{background-repeat: no-repeat;@include bgSizeCv;width: 100%;height: 100%;}
+        .bg_color{
+            @include pos(absolute, 0, 0);
+            .rect{@include transition(all, 0.5s)}
+        }
+    }
+    .tit{
+        @include pos(absolute, calc(50% - 110px), 11.3%);
+        div{
+            *{vertical-align: middle;@include transition(all, 0.3s);}      +div{margin-top: 50px}
+            .pj_type, .btn_view{display: none}
+            .pj_tit{display: inline-block;font-size: 35px;}
+            &.on .pj_tit{font-size: 50px;font-family: NanumSqB;}
+            &.on .pj_type{display: inline-block;margin-left: 60px;font-size: 25px;}
+            &.on .btn_view{display: inline-block;margin-left: 36px;width: 50px;@include alignMid(28px);;font-size: 14px;text-align: center;font-family: NanumSqB;background: #fff}
+        }
+        .tit_pj1 .btn_view{color: $pj1Color}
+        .tit_pj2 .btn_view{color: $pj2Color}
+        .tit_pj3 .btn_view{color: $pj3Color}
+    }
+    .slider{
+        position: absolute; right: 11.3%;width: 100%;height: 100%;
+        > div{
+            position: absolute;right: 0;@include transform(scale(0.6));@include opacity(0.7, 70%);
+            &.on{@include transform(scale(1));@include opacity(1, 100%)}
+            .mask{display: none;}
+            .mask:hover, .mask a:focus{background: #000;@include opacity(0.5, 50%)}
+            /* sub{display: none} */
+        }
+        .slider_pj1{
+            top: 50%;margin-top: -292px
+        }
+        .slider_pj2{
+            bottom: -175px;
+            
+        }
+        .slider_pj3{
+            top: -175px;
+            
+        }
+    }
+}
+
+/* ============================ #profile ============================= */
+#content #profile{
+    @include pos(absolute, 0, 0);width: 100%;z-index: 300;
+    .skills{
+        @include pos(absolute, 40%, 11.3%);z-index: 10;
+        button{
+            display: block;font-size: 30px;
+            + button{margin-top: 50px}
+        }
+        a{
+            display: block;position: absolute;bottom: -100px;left: 0;width: 154px;height: 30px;font-size: 24px;
+            &:after{content: "";position: absolute;width: 154px;height: 17px;bottom: -3px;right: 0;background: url("../images/profile/btn_prev.png") no-repeat 0 0;@include bgSizeCv}
+            span{padding-left: 56px;}
+        }
+    }
+    .graph {
+        position: relative;width: 100%;height: 100%;text-align: center;
+        .graph_bg{width: 600px;height: 600px;margin: 8% 0 0 40%;background: url("../images/profile/graph_bg.png") no-repeat 50% 50%;@include bgSizeCv;}
+        .coding, .graphic{@include pos(absolute, -100px, calc(40% - 100px));width: 800px;height: 800px;}
+        .coding > div, .graphic > div{
+            position: absolute;
+            p + p{padding-top: 5px}
+        }
+        .coding.on > div, .graphic.on > div{
+            font-size: 25px;
+            p + p{font-family: NanumSqB;}
+        }
+        .coding{
+            .html{left: calc(50% - 32px);top: 30px}
+            .css{left: 150px;bottom: 104px;}
+            .js{left: 0px;bottom: 270px;}
+            .jq{right: 20px;top: 273px;}
+            .sass{right: 157px;bottom: 110px}
+            .bs{left: 105px;top: 103px}
+        }
+        .coding.on{
+            .html p + p{color: #e35025}
+            .css p + p{color: #0b72b7}
+            .js p + p{color: #e3a127}
+            .jq p + p{color: #0a6bae}
+            .sass p + p{color: #cf649a}
+            .bs p + p{color: #563e7d}
+        }
+        .graphic{
+            .ps{right: 0;bottom: 260px}
+            .ai{left: 0;top: 255px}
+            .zeplin{left: calc(50% - 32px);bottom: 29px}
+            .xd{top: 96px; right: 118px}
+        }
+        .graphic.on{
+            .ps p + p{color: #252653}
+            .ai p + P{color: #ff7c00}
+            .zeplin p + p{color: #fecf33}
+            .xd p + p{color: #ff2bc2}
+        }
+        .img_graph{
+            @include pos(absolute, 0, 0);margin: 0 0 0 40%;
+            .graph_coding, .graph_graphic{width: 600px;height: 600px;@include opacity(0.7, 70%)}
+            .graph_coding{margin-left: 15px;}
+            .graph_graphic{@include pos(absolute, 155px, 0);}
+            .graph_coding.on, .graph_graphic.on{@include opacity(1, 100%);z-index: 10}
+        }
+    }
+    .typing{
+        position: absolute;bottom: 142px;right: 11.3%;
+        > div{
+            display: inline-block;width: 160px;height: 25px;margin-left: 5px;border-bottom: 1px solid #181616;
+            p{
+                text-align: center;display: none;
+                &.on{display: block}
+            } 
+        }
+    }
+}
+
+/* ========================== #project1 ============================== */
+#content #project1{
+    .tit_top{
+        position: relative;z-index: 500;
+        .logo{@include pos(absolute, 80px, 11.3%);}
+        h2{font-size: 100px;font-family: NanumSqB}
+    }
+    
+}
+
+/* ========================== #footer ============================== */
+#footer p{position: absolute;bottom: 80px;right: 11.3%}

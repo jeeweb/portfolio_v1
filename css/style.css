@@ -1,0 +1,322 @@
+/* ============================ #main ============================= */
+#header {
+  position: relative;
+  z-index: 800; }
+  #header .logo {
+    position: fixed;
+    top: 80px;
+    left: 11.3%; }
+    #header .logo a .logo_w {
+      position: absolute;
+      top: 0;
+      left: 0; }
+  #header .util {
+    position: fixed;
+    top: auto;
+    left: 11.3%;
+    bottom: 80px; }
+    #header .util .project, #header .util .fa-on, #header .util .profile .fa-laugh, #header .util .profile span, #header .util .mail span {
+      display: none; }
+    #header .util ul li {
+      position: relative; }
+      #header .util ul li + li {
+        margin-top: 25px; }
+      #header .util ul li:hover .fa-off, #header .util ul li a:focus .fa-off {
+        display: none; }
+      #header .util ul li:hover .fa-on, #header .util ul li a:focus .fa-on, #header .util ul li:hover span.msg {
+        display: inline-block; }
+      #header .util ul li.select .fa-on, #header .util ul li.select .msg {
+        display: inline-block; }
+      #header .util ul li a {
+        display: inline-block;
+        width: 180px;
+        height: 36px;
+        line-height: 36px;
+        vertical-align: middle; }
+        #header .util ul li a i {
+          font-size: 36px; }
+          #header .util ul li a i.fa-on {
+            position: absolute;
+            top: 0;
+            left: 0; }
+        #header .util ul li a span {
+          position: absolute;
+          top: 0;
+          left: 56px;
+          font-size: 24px; }
+
+#content #main .bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+  #content #main .bg.on {
+    display: block; }
+  #content #main .bg .bg_img {
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 100%;
+    height: 100%; }
+  #content #main .bg .bg_color {
+    position: absolute;
+    top: 0;
+    left: 0; }
+    #content #main .bg .bg_color .rect {
+      -webkit-transition: all 0.5s;
+      -moz-transition: all 0.5s;
+      -o-transition: all 0.5s;
+      transition: all 0.5s; }
+#content #main .tit {
+  position: absolute;
+  top: calc(50% - 110px);
+  left: 11.3%; }
+  #content #main .tit div * {
+    vertical-align: middle;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s; }
+  #content #main .tit div + div {
+    margin-top: 50px; }
+  #content #main .tit div .pj_type, #content #main .tit div .btn_view {
+    display: none; }
+  #content #main .tit div .pj_tit {
+    display: inline-block;
+    font-size: 35px; }
+  #content #main .tit div.on .pj_tit {
+    font-size: 50px;
+    font-family: NanumSqB; }
+  #content #main .tit div.on .pj_type {
+    display: inline-block;
+    margin-left: 60px;
+    font-size: 25px; }
+  #content #main .tit div.on .btn_view {
+    display: inline-block;
+    margin-left: 36px;
+    width: 50px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 14px;
+    text-align: center;
+    font-family: NanumSqB;
+    background: #fff; }
+  #content #main .tit .tit_pj1 .btn_view {
+    color: #ee1c25; }
+  #content #main .tit .tit_pj2 .btn_view {
+    color: #99001c; }
+  #content #main .tit .tit_pj3 .btn_view {
+    color: #164556; }
+#content #main .slider {
+  position: absolute;
+  right: 11.3%;
+  width: 100%;
+  height: 100%; }
+  #content #main .slider > div {
+    position: absolute;
+    right: 0;
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+    -o-transform: scale(0.6);
+    -ms-transform: scale(0.6);
+    transform: scale(0.6);
+    opacity: 0.7;
+    filter: Alpha(opacity=70%);
+    /* sub{display: none} */ }
+    #content #main .slider > div.on {
+      -webkit-transform: scale(1);
+      -moz-transform: scale(1);
+      -o-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1);
+      opacity: 1;
+      filter: Alpha(opacity=100%); }
+    #content #main .slider > div .mask {
+      display: none; }
+    #content #main .slider > div .mask:hover, #content #main .slider > div .mask a:focus {
+      background: #000;
+      opacity: 0.5;
+      filter: Alpha(opacity=50%); }
+  #content #main .slider .slider_pj1 {
+    top: 50%;
+    margin-top: -292px; }
+  #content #main .slider .slider_pj2 {
+    bottom: -175px; }
+  #content #main .slider .slider_pj3 {
+    top: -175px; }
+
+/* ============================ #profile ============================= */
+#content #profile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 300; }
+  #content #profile .skills {
+    position: absolute;
+    top: 40%;
+    left: 11.3%;
+    z-index: 10; }
+    #content #profile .skills button {
+      display: block;
+      font-size: 30px; }
+      #content #profile .skills button + button {
+        margin-top: 50px; }
+    #content #profile .skills a {
+      display: block;
+      position: absolute;
+      bottom: -100px;
+      left: 0;
+      width: 154px;
+      height: 30px;
+      font-size: 24px; }
+      #content #profile .skills a:after {
+        content: "";
+        position: absolute;
+        width: 154px;
+        height: 17px;
+        bottom: -3px;
+        right: 0;
+        background: url("../images/profile/btn_prev.png") no-repeat 0 0;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover; }
+      #content #profile .skills a span {
+        padding-left: 56px; }
+  #content #profile .graph {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center; }
+    #content #profile .graph .graph_bg {
+      width: 600px;
+      height: 600px;
+      margin: 8% 0 0 40%;
+      background: url("../images/profile/graph_bg.png") no-repeat 50% 50%;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover; }
+    #content #profile .graph .coding, #content #profile .graph .graphic {
+      position: absolute;
+      top: -100px;
+      left: calc(40% - 100px);
+      width: 800px;
+      height: 800px; }
+    #content #profile .graph .coding > div, #content #profile .graph .graphic > div {
+      position: absolute; }
+      #content #profile .graph .coding > div p + p, #content #profile .graph .graphic > div p + p {
+        padding-top: 5px; }
+    #content #profile .graph .coding.on > div, #content #profile .graph .graphic.on > div {
+      font-size: 25px; }
+      #content #profile .graph .coding.on > div p + p, #content #profile .graph .graphic.on > div p + p {
+        font-family: NanumSqB; }
+    #content #profile .graph .coding .html {
+      left: calc(50% - 32px);
+      top: 30px; }
+    #content #profile .graph .coding .css {
+      left: 150px;
+      bottom: 104px; }
+    #content #profile .graph .coding .js {
+      left: 0px;
+      bottom: 270px; }
+    #content #profile .graph .coding .jq {
+      right: 20px;
+      top: 273px; }
+    #content #profile .graph .coding .sass {
+      right: 157px;
+      bottom: 110px; }
+    #content #profile .graph .coding .bs {
+      left: 105px;
+      top: 103px; }
+    #content #profile .graph .coding.on .html p + p {
+      color: #e35025; }
+    #content #profile .graph .coding.on .css p + p {
+      color: #0b72b7; }
+    #content #profile .graph .coding.on .js p + p {
+      color: #e3a127; }
+    #content #profile .graph .coding.on .jq p + p {
+      color: #0a6bae; }
+    #content #profile .graph .coding.on .sass p + p {
+      color: #cf649a; }
+    #content #profile .graph .coding.on .bs p + p {
+      color: #563e7d; }
+    #content #profile .graph .graphic .ps {
+      right: 0;
+      bottom: 260px; }
+    #content #profile .graph .graphic .ai {
+      left: 0;
+      top: 255px; }
+    #content #profile .graph .graphic .zeplin {
+      left: calc(50% - 32px);
+      bottom: 29px; }
+    #content #profile .graph .graphic .xd {
+      top: 96px;
+      right: 118px; }
+    #content #profile .graph .graphic.on .ps p + p {
+      color: #252653; }
+    #content #profile .graph .graphic.on .ai p + P {
+      color: #ff7c00; }
+    #content #profile .graph .graphic.on .zeplin p + p {
+      color: #fecf33; }
+    #content #profile .graph .graphic.on .xd p + p {
+      color: #ff2bc2; }
+    #content #profile .graph .img_graph {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 0 0 0 40%; }
+      #content #profile .graph .img_graph .graph_coding, #content #profile .graph .img_graph .graph_graphic {
+        width: 600px;
+        height: 600px;
+        opacity: 0.7;
+        filter: Alpha(opacity=70%); }
+      #content #profile .graph .img_graph .graph_coding {
+        margin-left: 15px; }
+      #content #profile .graph .img_graph .graph_graphic {
+        position: absolute;
+        top: 155px;
+        left: 0; }
+      #content #profile .graph .img_graph .graph_coding.on, #content #profile .graph .img_graph .graph_graphic.on {
+        opacity: 1;
+        filter: Alpha(opacity=100%);
+        z-index: 10; }
+  #content #profile .typing {
+    position: absolute;
+    bottom: 142px;
+    right: 11.3%; }
+    #content #profile .typing > div {
+      display: inline-block;
+      width: 160px;
+      height: 25px;
+      margin-left: 5px;
+      border-bottom: 1px solid #181616; }
+      #content #profile .typing > div p {
+        text-align: center;
+        display: none; }
+        #content #profile .typing > div p.on {
+          display: block; }
+
+/* ========================== #project1 ============================== */
+#content #project1 .tit_top {
+  position: relative;
+  z-index: 500; }
+  #content #project1 .tit_top .logo {
+    position: absolute;
+    top: 80px;
+    left: 11.3%; }
+  #content #project1 .tit_top h2 {
+    font-size: 100px;
+    font-family: NanumSqB; }
+
+/* ========================== #footer ============================== */
+#footer p {
+  position: absolute;
+  bottom: 80px;
+  right: 11.3%; }
+
+/*# sourceMappingURL=style.css.map */
