@@ -5,7 +5,7 @@
   #header .logo {
     position: fixed;
     top: 80px;
-    left: 11.3%; }
+    left: 10%; }
     #header .logo a .logo_w {
       position: absolute;
       top: 0;
@@ -13,7 +13,7 @@
   #header .util {
     position: fixed;
     top: auto;
-    left: 11.3%;
+    left: 10%;
     bottom: 80px; }
     #header .util .project, #header .util .fa-on, #header .util .profile .fa-laugh, #header .util .profile span, #header .util .mail span {
       display: none; }
@@ -73,7 +73,7 @@
 #content #main .tit {
   position: absolute;
   top: calc(50% - 110px);
-  left: 11.3%; }
+  left: 10%; }
   #content #main .tit div * {
     vertical-align: middle;
     -webkit-transition: all 0.3s;
@@ -112,12 +112,12 @@
     color: #164556; }
 #content #main .slider {
   position: absolute;
-  right: 11.3%;
-  width: 100%;
+  right: 10%;
+  top: 0;
+  width: 950px;
   height: 100%; }
   #content #main .slider > div {
     position: absolute;
-    right: 0;
     -webkit-transform: scale(0.6);
     -moz-transform: scale(0.6);
     -o-transform: scale(0.6);
@@ -134,6 +134,20 @@
       transform: scale(1);
       opacity: 1;
       filter: Alpha(opacity=100%); }
+    #content #main .slider > div img {
+      position: absolute; }
+      #content #main .slider > div img.main {
+        right: 50px;
+        top: 50px;
+        z-index: 3; }
+      #content #main .slider > div img.sub1 {
+        right: 25px;
+        top: 25px;
+        z-index: 2; }
+      #content #main .slider > div img.sub2 {
+        right: 0px;
+        top: 0;
+        z-index: 1; }
     #content #main .slider > div .mask {
       display: none; }
     #content #main .slider > div .mask:hover, #content #main .slider > div .mask a:focus {
@@ -141,12 +155,27 @@
       opacity: 0.5;
       filter: Alpha(opacity=50%); }
   #content #main .slider .slider_pj1 {
+    right: 0;
     top: 50%;
-    margin-top: -292px; }
+    margin-top: -317px;
+    width: 950px;
+    height: 635px; }
   #content #main .slider .slider_pj2 {
-    bottom: -175px; }
+    left: 50%;
+    margin-left: -245px;
+    bottom: -175px;
+    width: 540px;
+    height: 351px; }
+    #content #main .slider .slider_pj2 .sub {
+      display: none; }
   #content #main .slider .slider_pj3 {
-    top: -175px; }
+    left: 50%;
+    margin-left: -245px;
+    top: -175px;
+    width: 540px;
+    height: 351px; }
+    #content #main .slider .slider_pj3 .sub {
+      display: none; }
 
 /* ============================ #profile ============================= */
 #content #profile {
@@ -158,7 +187,7 @@
   #content #profile .skills {
     position: absolute;
     top: 40%;
-    left: 11.3%;
+    left: 10%;
     z-index: 10; }
     #content #profile .skills button {
       display: block;
@@ -288,7 +317,7 @@
   #content #profile .typing {
     position: absolute;
     bottom: 142px;
-    right: 11.3%; }
+    right: 10%; }
     #content #profile .typing > div {
       display: inline-block;
       width: 160px;
@@ -304,19 +333,165 @@
 /* ========================== #project1 ============================== */
 #content #project1 .tit_top {
   position: relative;
+  background: url("../images/project1/pj1_topbg.jpg") fixed no-repeat 50% 0;
   z-index: 500; }
   #content #project1 .tit_top .logo {
     position: absolute;
     top: 80px;
-    left: 11.3%; }
+    left: 10%; }
   #content #project1 .tit_top h2 {
+    position: absolute;
+    bottom: 152px;
+    left: 10%;
     font-size: 100px;
-    font-family: NanumSqB; }
+    font-family: NanumSqB;
+    color: #fff; }
+#content #project1 .overview > div {
+  position: relative;
+  width: 58%;
+  margin: 150px 0 150px 10%; }
+  #content #project1 .overview > div > p {
+    margin-top: 25px;
+    font-size: 24px;
+    line-height: 1.5;
+    padding-bottom: 10px; }
+  #content #project1 .overview > div > div > div {
+    border-top: 1px solid #ee1c25;
+    padding: 12px 0 12px 10px;
+    font-size: 24px; }
+    #content #project1 .overview > div > div > div strong {
+      font-family: NanumSqR;
+      color: #ee1c25; }
+    #content #project1 .overview > div > div > div p {
+      font-family: NanumSqB; }
+      #content #project1 .overview > div > div > div p.ib {
+        display: inline-block;
+        padding-left: 25px; }
+      #content #project1 .overview > div > div > div p.pl {
+        padding-top: 8px; }
+    #content #project1 .overview > div > div > div.ov3 .pl {
+      padding-left: 176px; }
+    #content #project1 .overview > div > div > div.ov4 .pl {
+      padding-left: 79.64px; }
+    #content #project1 .overview > div > div > div.ov6 .pl {
+      padding-left: 264.56px; }
+    #content #project1 .overview > div > div > div.ov7 p {
+      font-size: 20px;
+      line-height: 1.5;
+      padding-top: 5px;
+      word-break: keep-all; }
+  #content #project1 .overview > div .btn_site {
+    position: absolute;
+    top: 123px;
+    left: auto;
+    right: 0; }
+    #content #project1 .overview > div .btn_site a {
+      display: inline-block;
+      width: 180px;
+      border: 1px solid #ee1c25;
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      border-radius: 20px;
+      height: 60px;
+      line-height: 60px;
+      text-align: center;
+      color: #ee1c25; }
+      #content #project1 .overview > div .btn_site a:hover, #content #project1 .overview > div .btn_site a:focus {
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+        background: #ee1c25;
+        color: #fff; }
+      #content #project1 .overview > div .btn_site a + a {
+        margin-left: 20px; }
+#content #project1 .cnt > div {
+  padding: 150px 0 0; }
+  #content #project1 .cnt > div .cnt_tit {
+    font-size: 40px;
+    margin-bottom: 140px; }
+  #content #project1 .cnt > div strong, #content #project1 .cnt > div p {
+    line-height: 1.5; }
+  #content #project1 .cnt > div strong {
+    color: #ee1c25;
+    font-size: 24px; }
+  #content #project1 .cnt > div p {
+    word-break: keep-all;
+    margin-bottom: 25px; }
+#content #project1 .cnt_main {
+  background: #1e1e1e;
+  color: #fff; }
+  #content #project1 .cnt_main:after {
+    content: "";
+    display: block;
+    clear: both; }
+  #content #project1 .cnt_main > div {
+    position: relative;
+    height: 2209px; }
+    #content #project1 .cnt_main > div > * {
+      float: left; }
+    #content #project1 .cnt_main > div > img {
+      margin-top: -40px; }
+  #content #project1 .cnt_main > div > div {
+    position: relative;
+    width: 633px;
+    margin-left: -100px; }
+    #content #project1 .cnt_main > div > div:before {
+      content: "";
+      position: absolute;
+      top: 25px;
+      left: -9px;
+      height: 5px;
+      width: 120px;
+      background: #ee1c25; }
+    #content #project1 .cnt_main > div > div + img {
+      position: absolute;
+      top: 610px;
+      left: auto;
+      right: 25px; }
+#content #project1 .cnt_sub1 {
+  position: relative;
+  height: 2737px; }
+  #content #project1 .cnt_sub1 > div {
+    width: 625px;
+    margin-left: 10%; }
+  #content #project1 .cnt_sub1 img {
+    position: absolute;
+    top: 100px;
+    left: auto;
+    right: -60px;
+    z-index: -1; }
+#content #project1 .cnt_sub2 {
+  position: relative;
+  background: #e0e0e2;
+  height: 1580px; }
+  #content #project1 .cnt_sub2 > * {
+    float: left; }
+  #content #project1 .cnt_sub2 > img:first-child {
+    margin-top: 120px; }
+  #content #project1 .cnt_sub2 > div {
+    width: 670px; }
+    #content #project1 .cnt_sub2 > div .cnt_tit {
+      margin-bottom: 330px; }
+    #content #project1 .cnt_sub2 > div + img {
+      position: absolute;
+      bottom: 150px;
+      right: 50px; }
+#content #project1 .bg_btm {
+  background: url("../images/project1/pj1_btmbg.jpg") no-repeat 50% 50%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 800px; }
 
+/* ========================== #project2 ============================== */
+/* ========================== #project3 ============================== */
 /* ========================== #footer ============================== */
 #footer p {
   position: absolute;
   bottom: 80px;
-  right: 11.3%; }
+  right: 10%;
+  font-size: 14px; }
 
 /*# sourceMappingURL=style.css.map */

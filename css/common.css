@@ -63,6 +63,10 @@ header, section, article, footer {
   left: -9999px;
   text-indent: -9999px; }
 
+.area {
+  width: 77.4%;
+  margin: 0 auto; }
+
 #skip a {
   position: absolute;
   top: 0;
