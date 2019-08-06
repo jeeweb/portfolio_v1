@@ -44,7 +44,7 @@ $pj3Color : #164556;
 /* ============================ #main ============================= */
 
 #header{
-    position: relative;z-index: 800;
+    position: relative;color: #fff;z-index: 800;
     .logo{
         @include pos(fixed, 80px, 10%);
         a .logo_w{@include pos(absolute, 0, 0);}
@@ -73,48 +73,48 @@ $pj3Color : #164556;
 #content #main{
     .bg{    //스크립트로 height값 불러오기
         @include pos(fixed, 0, 0);width: 100%;height: 100%;
-        &.on{display: block;}
-        .bg_img{background-repeat: no-repeat;@include bgSizeCv;width: 100%;height: 100%;}
+        //&.on{display: block;}
+        .bg_img{background-repeat: no-repeat;background-image: url("../images/main/bg_pj1.jpg");@include bgSizeCv;width: 100%;height: 100%;}
         .bg_color{
             @include pos(absolute, 0, 0);
             .rect{@include transition(all, 0.5s)}
         }
     }
-    .tit{
-        @include pos(absolute, calc(50% - 110px), 10%);
-        div{
-            *{vertical-align: middle;@include transition(all, 0.3s);}      +div{margin-top: 50px}
-            .pj_type, .btn_view{display: none}
-            .pj_tit{display: inline-block;font-size: 35px;}
-            &.on .pj_tit{font-size: 50px;font-family: NanumSqB;}
-            &.on .pj_type{display: inline-block;margin-left: 60px;font-size: 25px;}
-            &.on .btn_view{display: inline-block;margin-left: 36px;width: 50px;@include alignMid(28px);;font-size: 14px;text-align: center;font-family: NanumSqB;background: #fff}
-        }
-        .tit_pj1 .btn_view{color: $pj1Color}
-        .tit_pj2 .btn_view{color: $pj2Color}
-        .tit_pj3 .btn_view{color: $pj3Color}
+}
+#content #main .tit{
+    @include pos(absolute, calc(50% - 110px), 10%);
+    div{
+        *{vertical-align: middle;@include transition(all, 0.3s);}
+        +div{margin-top: 50px}
+        .pj_type, .btn_view{display: none}
+        .pj_tit{display: inline-block;font-size: 35px;}
+        &.on .pj_tit{font-size: 45px;font-family: NanumSqB;}
+        &.on .pj_type{display: inline-block;margin-left: 35px;font-size: 25px;}
+        &.on .btn_view{display: inline-block;margin-left: 25px;width: 50px;@include alignMid(28px);font-size: 14px;text-align: center;font-family: NanumSqB;background: #fff}
     }
-    .slider{
-        position: absolute; right: 10%;top: 0;width: 950px;height: 100%;
-        > div{
-            position: absolute;@include opacity(0.7, 70%);
-            &.on{
-                @include transform(scale(1));@include opacity(1, 100%);right: 0;
-                .sub{display: inline-block}
-            }
-            img{
-                position: absolute;
-                &.main{right: 50px;top: 50px;z-index: 3}
-                &.sub1{right: 25px;top: 25px;z-index: 2}
-                &.sub2{right: 0px;top: 0;z-index: 1}
-            }
-            .sub, .mask{display: none;}
-            .mask:hover, .mask a:focus{background: #000;@include opacity(0.5, 50%);z-index: 5}
+    .tit_pj1 .btn_view{color: $pj1Color}
+    .tit_pj2 .btn_view{color: $pj2Color}
+    .tit_pj3 .btn_view{color: $pj3Color}
+}
+#content #main .slider{
+    position: absolute; right: 5%;top: 0;width: 950px;height: 100%;
+    > div{
+        position: absolute;@include opacity(0.7, 70%);
+        &.slider_pj1{top: 132px;right: 0;width: 950px;height: 635px}
+        &.slider_pj2{top: 800px;right: 175px;width: 540px;height: 351px}
+        &.slider_pj3{top:-300px;right: 175px;width: 540px;height: 351px}
+        &.on{
+            @include transform(scale(0.8));@include opacity(1, 100%);right: 0;
+            .sub{display: inline-block}
         }
-        /* 처음 보여지는 화면
-        .slider_pj1{right: 0;top: 50%;margin-top: -317px;width: 950px;height: 635px;}
-        .slider_pj2{bottom: -175px;left: 50%;margin-left: -245px;width: 540px;height: 351px;}
-        .slider_pj3{top: -175px;left: 50%;margin-left: -245px;width: 540px;height: 351px;} */
+        img{
+            position: absolute;
+            &.main{right: 50px;top: 50px;z-index: 3}
+            &.sub1{right: 25px;top: 25px;z-index: 2}
+            &.sub2{right: 0px;top: 0;z-index: 1}
+        }
+        .sub, .mask{display: none;}
+        .mask:hover, .mask a:focus{background: #000;@include opacity(0.5, 50%);z-index: 5}
     }
 }
 
@@ -133,79 +133,80 @@ $pj3Color : #164556;
             span{padding-left: 56px;}
         }
     }
-    .graph {
-        position: relative;width: 100%;height: 100%;text-align: center;
-        .graph_bg{width: 600px;height: 600px;margin: 8% 0 0 40%;background: url("../images/profile/graph_bg.png") no-repeat 50% 50%;@include bgSizeCv;}
-        .coding, .graphic{@include pos(absolute, -100px, calc(40% - 100px));width: 800px;height: 800px;}
-        .coding > div, .graphic > div{
-            position: absolute;
-            p + p{padding-top: 5px}
-        }
-        .coding.on > div, .graphic.on > div{
-            font-size: 25px;
-            p + p{font-family: NanumSqB;}
-        }
-        .coding{
-            .html{left: calc(50% - 32px);top: 30px}
-            .css{left: 150px;bottom: 104px;}
-            .js{left: 0px;bottom: 270px;}
-            .jq{right: 20px;top: 273px;}
-            .sass{right: 157px;bottom: 110px}
-            .bs{left: 105px;top: 103px}
-        }
-        .coding.on{
-            .html p + p{color: #e35025}
-            .css p + p{color: #0b72b7}
-            .js p + p{color: #e3a127}
-            .jq p + p{color: #0a6bae}
-            .sass p + p{color: #cf649a}
-            .bs p + p{color: #563e7d}
-        }
-        .graphic{
-            .ps{right: 0;bottom: 260px}
-            .ai{left: 0;top: 255px}
-            .zeplin{left: calc(50% - 32px);bottom: 29px}
-            .xd{top: 96px; right: 118px}
-        }
-        .graphic.on{
-            .ps p + p{color: #252653}
-            .ai p + P{color: #ff7c00}
-            .zeplin p + p{color: #fecf33}
-            .xd p + p{color: #ff2bc2}
-        }
-        .img_graph{
-            @include pos(absolute, 0, 0);margin: 0 0 0 40%;
-            .graph_coding, .graph_graphic{width: 600px;height: 600px;@include opacity(0.7, 70%)}
-            .graph_coding{margin-left: 15px;}
-            .graph_graphic{@include pos(absolute, 155px, 0);}
-            .graph_coding.on, .graph_graphic.on{@include opacity(1, 100%);z-index: 10}
-        }
+}
+#content #profile .graph {
+    position: relative;width: 100%;height: 100%;text-align: center;
+    .graph_bg{width: 600px;height: 600px;margin: 8% 0 0 40%;background: url("../images/profile/graph_bg.png") no-repeat 50% 50%;@include bgSizeCv;}
+    .coding, .graphic{@include pos(absolute, -100px, calc(40% - 100px));width: 800px;height: 800px;}
+    .coding > div, .graphic > div{
+        position: absolute;
+        p + p{padding-top: 5px}
     }
-    .typing{
-        position: absolute;bottom: 142px;right: 10%;
-        > div{
-            display: inline-block;width: 160px;height: 25px;margin-left: 5px;border-bottom: 1px solid #181616;
-            p{
-                text-align: center;display: none;
-                &.on{display: block}
-            } 
-        }
+    .coding.on > div, .graphic.on > div{
+        font-size: 25px;
+        p + p{font-family: NanumSqB;}
+    }
+    .coding{
+        .html{left: calc(50% - 32px);top: 30px}
+        .css{left: 150px;bottom: 104px;}
+        .js{left: 0px;bottom: 270px;}
+        .jq{right: 20px;top: 273px;}
+        .sass{right: 157px;bottom: 110px}
+        .bs{left: 105px;top: 103px}
+    }
+    .coding.on{
+        .html p + p{color: #e35025}
+        .css p + p{color: #0b72b7}
+        .js p + p{color: #e3a127}
+        .jq p + p{color: #0a6bae}
+        .sass p + p{color: #cf649a}
+        .bs p + p{color: #563e7d}
+    }
+    .graphic{
+        .ps{right: 0;bottom: 260px}
+        .ai{left: 0;top: 255px}
+        .zeplin{left: calc(50% - 32px);bottom: 29px}
+        .xd{top: 96px; right: 118px}
+    }
+    .graphic.on{
+        .ps p + p{color: #252653}
+        .ai p + P{color: #ff7c00}
+        .zeplin p + p{color: #fecf33}
+        .xd p + p{color: #ff2bc2}
+    }
+    .img_graph{
+        @include pos(absolute, 0, 0);margin: 0 0 0 40%;
+        .graph_coding, .graph_graphic{width: 600px;height: 600px;@include opacity(0.7, 70%)}
+        .graph_coding{margin-left: 15px;}
+        .graph_graphic{@include pos(absolute, 155px, 0);}
+        .graph_coding.on, .graph_graphic.on{@include opacity(1, 100%);z-index: 10}
+    }
+}
+#content #profile .typing{
+    position: absolute;bottom: 142px;right: 10%;
+    > div{
+        display: inline-block;width: 160px;height: 25px;margin-left: 5px;border-bottom: 1px solid #181616;
+        p{
+            text-align: center;display: none;
+            &.on{display: block}
+        } 
     }
 }
 
-/* ========================== #project1 ============================== */
-#content #project1{
+/* ============================ project common ============================= */
+
+#content article.pj_detail{
     .tit_top{
-        position: relative;background: url("../images/project1/pj1_topbg.jpg") fixed no-repeat 50% 0;z-index: 500;
+        position: relative;background: fixed no-repeat 50% 0;z-index: 500;
         .logo{@include pos(absolute, 80px, 10%);}
-        h2{position: absolute;bottom: 152px;left: 10%;font-size: 100px;font-family: NanumSqB;color: #fff;}
+        h3{position: absolute;bottom: 152px;left: 10%;font-size: 100px;font-family: NanumSqB;color: #fff;}
     }
     .overview > div{
-        position: relative;width: 58%;margin: 150px 0 150px 10%;
+        position: relative;margin: 150px 0 150px 10%;
         > p{margin-top: 25px;font-size: 24px;line-height: 1.5;padding-bottom: 10px}
         > div > div{
-            border-top: 1px solid $pj1Color;padding: 12px 0 12px 10px;font-size: 24px;
-            strong{font-family: NanumSqR;color: $pj1Color}
+            padding: 12px 0 12px 10px;font-size: 24px;
+            strong{font-family: NanumSqR;}
             p{
                 font-family: NanumSqB;
                 &.ib{display: inline-block;padding-left: 25px}
@@ -219,56 +220,195 @@ $pj3Color : #164556;
         .btn_site{
             @include pos(absolute, 123px, auto); right: 0;
             a{
-                display: inline-block;width: 180px;border: 1px solid $pj1Color;@include bdRadius(20px);@include alignMid(60px);text-align: center;color: $pj1Color;
-                &:hover, &:focus{@include bdRadius(0);background: $pj1Color;color: #fff}
-                + a{margin-left: 20px}                
+                display: inline-block;width: 180px;@include bdRadius(20px);@include alignMid(60px);text-align: center;
+                &:hover, &:focus{@include bdRadius(0);color: #fff}
             } 
         }
     }
-    .cnt > div{
-        padding: 150px 0 0;
-        .cnt_tit{font-size: 40px;margin-bottom: 140px}
+    .cnt > div{            
+        .cnt_tit{font-size: 40px;}
         strong, p{line-height: 1.5;}
-        strong{color: $pj1Color;font-size: 24px;}
+        strong{font-size: 24px;}
         p{word-break: keep-all;margin-bottom: 25px}
     }
-    .cnt_main{
-        background: #1e1e1e;color: #fff;
-        &:after{content: "";display: block;clear: both;}
-        > div{
-            position: relative;height: 2209px;
-            > *{float: left}
-            > img{margin-top: -40px}
-        }
-        > div > div{
-            position: relative; width: 633px;margin-left: -100px;
-            &:before{content: "";@include pos(absolute, 25px, -9px);height: 5px;width: 120px;background: $pj1Color;}
-            + img{@include pos(absolute, 610px, auto);right: 25px}
-        }
-    }
-    .cnt_sub1{
-        position: relative;height: 2737px;
-        > div{width: 625px;margin-left: 10%}
-        img{@include pos(absolute, 100px, auto);right: -60px;z-index: -1}
-    }
-    .cnt_sub2{
-        position: relative;background: #e0e0e2;height: 1580px;
-        > *{float: left}
-        > img:first-child{margin-top: 120px}
-        > div{
-            width: 670px;
-            .cnt_tit{margin-bottom: 330px}
-            + img{position: absolute;bottom: 150px;right: 50px}
-        }
-    }
-    .bg_btm{
-        background: url("../images/project1/pj1_btmbg.jpg") no-repeat 50% 50%;@include bgSizeCv;width: 100%;height: 800px;
-    }
+    .bg_btm{background: no-repeat 50% 50%;@include bgSizeCv;width: 100%;height: 800px;}
 }
 
+/* ========================== #project1 ============================== */
+#content #project1{
+    .tit_top{background-image: url("../images/project1/pj1_topbg.jpg")}
+    .overview > div{
+        width: 58%;
+        > div > div{
+            border-top: 1px solid $pj1Color;
+            strong{color: $pj1Color}           
+            &.ov3 .pl{padding-left: 176px;}
+            &.ov4 .pl{padding-left: 79.64px}
+            &.ov6 .pl{padding-left: 264.56px}            
+        }
+        .btn_site a{
+            border: 1px solid $pj1Color;color: $pj1Color;
+            &:hover, &:focus{background: $pj1Color;}
+            + a{margin-left: 20px}                
+        }
+    }
+    .cnt > div {
+        padding-top: 150px;
+        .cnt_tit{margin-bottom: 140px}
+        strong{color: $pj1Color} 
+    }
+    
+}
+#content #project1 .cnt_main{
+    background: #1e1e1e;color: #fff;
+    &:after{content: "";display: block;clear: both;}
+    > div{
+        position: relative;height: 2209px;
+        > *{float: left}
+        > img{margin-top: -40px}
+    }
+    > div > div{
+        position: relative; width: 633px;margin-left: -100px;
+        &:before{content: "";@include pos(absolute, 25px, -9px);height: 5px;width: 120px;background: $pj1Color;}
+        + img{@include pos(absolute, 610px, auto);right: 25px}
+    }
+}
+#content #project1 .cnt_sub1{
+    position: relative;height: 2737px;
+    > div{width: 625px;margin-left: 10%}
+    img{@include pos(absolute, 100px, auto);right: -60px;z-index: -1}
+}
+#content #project1 .cnt_sub2{
+    position: relative;background: #e0e0e2;height: 1580px;
+    > *{float: left}
+    > img:first-child{margin-top: 120px}
+    > div{
+        width: 670px;
+        .cnt_tit{margin-bottom: 330px}
+        + img{position: absolute;bottom: 150px;right: 50px}
+    }
+}
+#content #project1 .bg_btm{background-image: url("../images/project1/pj1_btmbg.jpg");}
+
 /* ========================== #project2 ============================== */
+#content #project2{
+    .tit_top{background-image: url("../images/project2/pj2_topbg.jpg")}
+    .overview{position: relative;}
+    .overview > div{
+        width: 45%;
+        > div > div{
+            border-top: 1px solid $pj2Color;
+            strong{color: $pj2Color}           
+        }
+        .btn_site a{
+            border: 1px solid $pj2Color;color: $pj2Color;
+            &:hover, &:focus{background: $pj2Color;color: #fff}
+        }
+    }
+    .overview > img{@include pos(absolute, 140px, auto);right: 0}
+    .cnt {
+        padding-top: 150px;
+        > div strong{color: $pj2Color}         
+    }
+    
+}
+#content #project2 .cnt_main{
+    background: #1e1e1e;color: #fff;height: 663px;
+    > div{float: left}
+    .main_img{
+        position: relative;margin-left: 10%;width: 889.2px;height: 513px;padding-right: 40px;overflow: hidden;
+        ul {
+            height: 2850px;
+            li{
+                background: no-repeat 50% 50%;@include bgSizeCv;width: 889.2px;height: 513px;
+                &.main1{background-image: url("../images/project2/pj2_main1.jpg")}
+                &.main2{background-image: url("../images/project2/pj2_main2.jpg")}
+                &.main3{background-image: url("../images/project2/pj2_main3.jpg")}
+                &.main4{background-image: url("../images/project2/pj2_main4.jpg")}
+                &.main5{background-image: url("../images/project2/pj2_main5.jpg")}
+            }
+        }
+        div{
+            @include pos(absolute, 235px, auto);right: 0px;height: 100px;
+            button{
+                font-size: 30px;
+                &.btn_down{@include pos(absolute, 70px, 0)}
+            }
+        }
+    }
+    .cnt_txt{  
+        width: 30%;margin-left: 20px;
+        .cnt_tit{margin-bottom: 170px}
+    }
+}
+#content #project2 .cnt_sub1{
+    position: relative;width: 100%;height: 3033px;
+    .cnt_txt{
+        position: relative;width: 35%;height: 537px;margin-left: 10%;
+        .cnt_tit{margin-bottom: 100px;}
+        .text2{
+            @include pos(absolute, 95px, 0);@include opacity(0, 0);
+            .sub1_txt3{margin-top: 100px;}
+        }
+    }
+    .sub1_img{@include pos(absolute, 60px, auto);right: 10px;}    
+}
+#content #project2 .cnt_sub2{
+    background: #e0e0e2; height: 2025px;
+    > *{float: left}
+    .sub_img{
+        margin-top: -25px;height: 2050px;width: 1000px;overflow: hidden;
+        img{margin-left: -30px;}
+    }
+    .cnt_txt{
+        width: 35%;
+        .cnt_tit{margin-bottom: 600px;}
+        .sub2_txt2{
+            margin-top: 300px;
+            i{font-size: 30px;margin-left: 10px;}
+            span{display: inline-block;font-size: 18px;padding-left: 10px;height: 30px;}
+        }
+        .mask, .modal_cnt{display: none;;position: fixed;z-indeX: 100}
+        .mask{top: 0; left: 0; width: 100%;height: 100%;background: rgba(0,0,0,0.8)}
+    }
+    .cnt_txt .modal_cnt{
+        width: 300px;border: 1px solid #999;text-align: left;padding: 20px;background: #fff;
+        img{padding-bottom: 10px;}
+        div{
+            padding: 5px 10px;
+            .modal_txt{font-size: 14px;padding-top: 10px}
+            .modal_user{font-size: 12px;font-family: NotoSansM;padding: 30px 0 10px}
+            .close_btn{position: absolute;font-size: 20px;color: #999;bottom: 10px;right: 10px}
+        }
+    }
+}
+#content #project2 .cnt_sub3{
+    position: relative;height: 2975px;overflow: hidden;
+    .cnt_txt{
+        margin-left: 10%;width: 30%;
+        .cnt_tit{margin-bottom: 1650px}
+    }
+    img{@include pos(absolute, 100px, auto);right: -50px}
+}
+#content #project2 .bg_btm{background-image: url("../images/project2/pj2_btmbg.jpg");}
 
 /* ========================== #project3 ============================== */
+#content #project3{
+    .tit_top{background-image: url("../images/project3/pj3_topbg.jpg")}
+    .overview > div{
+        width: 50%;
+        > div > div{
+            border-top: 1px solid $pj3Color;
+            strong{color: $pj3Color}           
+            &.ov3 .pl{padding-left: 176px;}
+        }
+        .btn_site a{
+            border: 1px solid $pj3Color;color: $pj3Color;
+            &:hover, &:focus{background: $pj3Color;color: #fff}
+        }
+    }
+}
+#content #project3 .bg_btm{background-image: url("../images/project3/pj3_btmbg.jpg");}
 
 
 /* ========================== #footer ============================== */
