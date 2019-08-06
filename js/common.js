@@ -99,7 +99,7 @@ $(document).ready(function() {
             
             $(this).css({fontSize: 40,fontFamily: 'NanumSqB'}).siblings().removeAttr('style');
             $profGrph.children().eq(btnNum+1).addClass('on').siblings().removeClass('on');
-            $profGrph.find('.img_graph > div').eq(btnNum).addClass('on').siblings().removeClass('on');
+            $profGrph.find('.img_graph > svg').eq(btnNum).addClass('on').siblings().removeClass('on');
         });
 
         $profile.find('.skills a').on('click', function(e) {
@@ -110,7 +110,6 @@ $(document).ready(function() {
             $('#header .util ul .profile a .fa-off').css({display: 'block'}).next('.fa-on').removeAttr('style').next('.msg').text('ABOUT ME').removeAttr('style');
         })
 
-        //$profile.find('.typing > div p').eq(0).addClass('on');
         function typing () {
             timer = setInterval(function () {
                 var $word = $profile.find('.typing > div > div');
