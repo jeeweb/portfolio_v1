@@ -73,7 +73,7 @@
 
 #content #main .tit {
   position: absolute;
-  top: calc(50% - 110px);
+  top: 35%;
   left: 10%; }
   #content #main .tit div * {
     vertical-align: middle;
@@ -87,7 +87,8 @@
     display: none; }
   #content #main .tit div .pj_tit {
     display: inline-block;
-    font-size: 35px; }
+    font-size: 35px;
+    color: #fff; }
   #content #main .tit div.on .pj_tit {
     font-size: 45px;
     font-family: NanumSqB; }
@@ -312,18 +313,18 @@
 #content #profile .typing {
   position: absolute;
   bottom: 142px;
-  right: 10%; }
+  right: 10%;
+  vertical-align: bottom; }
   #content #profile .typing > div {
     display: inline-block;
     width: 160px;
     height: 25px;
     margin-left: 5px;
-    border-bottom: 1px solid #181616; }
+    border-bottom: 1px solid #181616;
+    overflow: hidden;
+    margin-top: 5px; }
     #content #profile .typing > div p {
-      text-align: center;
-      display: none; }
-      #content #profile .typing > div p.on {
-        display: block; }
+      text-align: center; }
 
 /* ============================ project common ============================= */
 #content article.pj_detail .tit_top {
@@ -341,6 +342,8 @@
     font-size: 100px;
     font-family: NanumSqB;
     color: #fff; }
+#content article.pj_detail .overview {
+  position: relative; }
 #content article.pj_detail .overview > div {
   position: relative;
   margin: 150px 0 150px 10%; }
@@ -506,8 +509,6 @@
 /* ========================== #project2 ============================== */
 #content #project2 .tit_top {
   background-image: url("../images/project2/pj2_topbg.jpg"); }
-#content #project2 .overview {
-  position: relative; }
 #content #project2 .overview > div {
   width: 45%; }
   #content #project2 .overview > div > div > div {
@@ -701,29 +702,96 @@
     #content #project3 .overview > div .btn_site a:hover, #content #project3 .overview > div .btn_site a:focus {
       background: #164556;
       color: #fff; }
+#content #project3 .cnt > div strong {
+  color: #164556; }
+#content #project3 .overview > img {
+  position: absolute;
+  top: 0;
+  left: auto;
+  right: 0; }
 
 #content #project3 .cnt_main {
   position: relative;
   width: 100%;
-  padding-left: 10%;
-  height: 950px;
+  padding-left: 3%;
+  height: 800px;
   background: #1e1e1e;
   color: #fff;
+  padding-top: 150px;
   overflow: hidden; }
-  #content #project3 .cnt_main > div {
-    position: absolute;
-    left: 100%;
-    top: 150px;
+  #content #project3 .cnt_main .main_img {
+    position: relative;
     width: 1000px;
-    height: 650px; }
-  #content #project3 .cnt_main .main1 {
-    background-image: url("../images/project3/pj3_main1.jpg"); }
-  #content #project3 .cnt_main .main2 {
-    background-image: url("../images/project3/pj3_main2.jpg"); }
-  #content #project3 .cnt_main .main3 {
-    background-image: url("../images/project3/pj3_main3.jpg"); }
-  #content #project3 .cnt_main .main4 {
-    background-image: url("../images/project3/pj3_main4.jpg"); }
+    height: 650px;
+    overflow: hidden;
+    margin-left: 0; }
+    #content #project3 .cnt_main .main_img > div {
+      position: absolute;
+      left: 810px;
+      top: 0;
+      width: 1000px;
+      height: 650px;
+      background: no-repeat 50% 50%;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      opacity: 0;
+      filter: Alpha(opacity=0); }
+    #content #project3 .cnt_main .main_img .main1 {
+      background-image: url("../images/project3/pj3_main1.jpg"); }
+    #content #project3 .cnt_main .main_img .main2 {
+      background-image: url("../images/project3/pj3_main2.jpg"); }
+    #content #project3 .cnt_main .main_img .main3 {
+      background-image: url("../images/project3/pj3_main3.jpg"); }
+    #content #project3 .cnt_main .main_img .main4 {
+      background-image: url("../images/project3/pj3_main4.jpg"); }
+  #content #project3 .cnt_main .cnt_txt {
+    position: absolute;
+    top: 150px;
+    left: auto;
+    left: 60%;
+    width: 30%; }
+    #content #project3 .cnt_main .cnt_txt strong {
+      color: #ee1c25; }
+
+#content #project3 .cnt_sub1 {
+  position: relative; }
+  #content #project3 .cnt_sub1 .cnt_txt {
+    padding-top: 150px;
+    margin-left: 10%;
+    width: 30%; }
+    #content #project3 .cnt_sub1 .cnt_txt .cnt_tit {
+      margin-bottom: 140px; }
+    #content #project3 .cnt_sub1 .cnt_txt .sub1_txt2 {
+      position: absolute;
+      top: 1000px;
+      left: 60%;
+      width: 550px; }
+  #content #project3 .cnt_sub1 .sub1_img1 {
+    position: absolute;
+    top: 80px;
+    left: 37%;
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9); }
+  #content #project3 .cnt_sub1 .sub1_img2 {
+    margin-top: 200px; }
+
+#content #project3 .cnt_sub2 {
+  background: #e0e0e2;
+  height: 2066px;
+  padding-top: 150px; }
+  #content #project3 .cnt_sub2 > * {
+    float: left; }
+  #content #project3 .cnt_sub2 img {
+    margin-top: -28px; }
+  #content #project3 .cnt_sub2 .cnt_txt {
+    width: 30%; }
+    #content #project3 .cnt_sub2 .cnt_txt .cnt_tit {
+      margin-bottom: 500px; }
 
 #content #project3 .bg_btm {
   background-image: url("../images/project3/pj3_btmbg.jpg"); }
