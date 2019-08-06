@@ -408,6 +408,14 @@ $pj3Color : #164556;
         }
     }
 }
+#content #project3 .cnt_main{
+    position: relative;width: 100%;padding-left: 10%;height: 950px;background: #1e1e1e;color: #fff;overflow: hidden;
+    > div{position: absolute;left: 100%;top: 150px;width: 1000px;height: 650px;}
+    .main1{background-image: url("../images/project3/pj3_main1.jpg")}
+    .main2{background-image: url("../images/project3/pj3_main2.jpg")}
+    .main3{background-image: url("../images/project3/pj3_main3.jpg")}
+    .main4{background-image: url("../images/project3/pj3_main4.jpg")}
+}
 #content #project3 .bg_btm{background-image: url("../images/project3/pj3_btmbg.jpg");}
 
 
