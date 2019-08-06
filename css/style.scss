@@ -89,7 +89,7 @@ $pj3Color : #164556;
         .pj_type, .btn_view{display: none}
         .pj_tit{display: inline-block;font-size: 35px;color: #fff}
         &.on .pj_tit{font-size: 45px;font-family: NanumSqB;}
-        &.on .pj_type{display: inline-block;margin-left: 35px;font-size: 25px;}
+        &.on .pj_type{display: inline-block;margin-left: 35px;font-size: 25px;color: #fff}
         &.on .btn_view{display: inline-block;margin-left: 25px;width: 50px;@include alignMid(28px);font-size: 14px;text-align: center;font-family: NanumSqB;background: #fff}
     }
     .tit_pj1 .btn_view{color: $pj1Color}
