@@ -119,24 +119,25 @@ $(document).ready(function() {
     })
 
     /* ====================== #project1 ======================== */
-    $pj1.hide();
+    $pj1.slideUp();
     $mainTit.find('.tit_pj1 .btn_view').on('click', function(e) {
         e.preventDefault();
         clearInterval(timer);
+
         $main.hide();
         $('#header').hide();
-        $pj1.show().find('.tit_top').css({height: winH});
+        $pj1.slideDown().find('.tit_top').css({height: winH});
         
     });
 
     /* ====================== #project2 ======================== */
-    $pj2.hide();
+    $pj2.slideUp();
     $mainTit.find('.tit_pj2 .btn_view').on('click', function(e) {
         e.preventDefault();
         clearInterval(timer);
         $main.hide();
         $('#header').hide();
-        $pj2.show().find('.tit_top').css({height: winH});
+        $pj2.slideDown().find('.tit_top').css({height: winH});
     });
 
     $pj2.find('.cnt_main .main_img div button').on('click', function() {
@@ -211,16 +212,18 @@ $(document).ready(function() {
     modal();
 
     /* ====================== #project3 ======================== */
-    
-    $pj3.hide();
-     
+    $pj3.slideDown();
+    $main.hide();
+    $('#header').hide();
+    $pj3.show().find('.tit_top').css({height: winH});
+    /* $pj3.hide();
     $mainTit.find('.tit_pj3 .btn_view').on('click', function(e) {
         e.preventDefault();
         clearInterval(timer);
         $main.hide();
         $('#header').hide();
         $pj3.show().find('.tit_top').css({height: winH});
-    });
+    }); */
     
 
 
