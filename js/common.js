@@ -212,18 +212,18 @@ $(document).ready(function() {
     modal();
 
     /* ====================== #project3 ======================== */
-    $pj3.slideDown();
+    /* $pj3.slideDown();
     $main.hide();
     $('#header').hide();
-    $pj3.show().find('.tit_top').css({height: winH});
-    /* $pj3.hide();
+    $pj3.show().find('.tit_top').css({height: winH}); */
+    $pj3.hide();
     $mainTit.find('.tit_pj3 .btn_view').on('click', function(e) {
         e.preventDefault();
         clearInterval(timer);
         $main.hide();
         $('#header').hide();
         $pj3.show().find('.tit_top').css({height: winH});
-    }); */
+    });
     
 
 
