@@ -176,9 +176,9 @@ $pj3Color : #164556;
     }
     .img_graph{
         @include pos(absolute, 0, 0);margin: 0 0 0 40%;
-        .graph_coding, .graph_graphic{width: 600px;height: 600px;@include opacity(0.7, 70%)}
-        .graph_coding{margin-left: 15px;}
-        .graph_graphic{@include pos(absolute, 155px, 0);}
+        .graph_coding, .graph_graphic{/* width: 600px;height: 600px; */@include opacity(0.7, 70%)}
+        .graph_coding{margin-left: 100px;}
+        .graph_graphic{@include pos(absolute, 155px, 45px);}
         .graph_coding.on, .graph_graphic.on{@include opacity(1, 100%);z-index: 10}
     }
 }
