@@ -110,12 +110,18 @@ $(document).ready(function() {
             $('#header .util ul .profile a .fa-off').css({display: 'block'}).next('.fa-on').removeAttr('style').next('.msg').text('ABOUT ME').removeAttr('style');
         })
 
-        $profile.find('.typing > div p').eq(0).addClass('on');
+        //$profile.find('.typing > div p').eq(0).addClass('on');
         function typing () {
             timer = setInterval(function () {
+                var $word = $profile.find('.typing > div > div');
                 
-            }, 1000)
+                if ($word.is(':animated')) return false;
+                $word.append($word.children().first().clone()).animate({marginTop: -23}, function() {
+                    $(this).children().first().remove();
+                });
+            }, 2000)
         } 
+        typing();
     })
 
     /* ====================== #project1 ======================== */
@@ -159,7 +165,7 @@ $(document).ready(function() {
         scrollT = $(this).scrollTop();
         var sub1T = $pj2.find('.cnt_sub1').offset().top;
         //var sub1ImgT = $pj2.find('.cnt_sub1 .sub_img').outerHeight(); //3093
-        console.log(sub1T,scrollT);
+        //console.log(sub1T,scrollT);
 
         if (scrollT >= sub1T && scrollT < (sub1T + 2200)) $pj2.find('.cnt_sub1 .cnt_txt').css({position: 'fixed',top: 150});
         else if ( scrollT >= (sub1T + 2200) || scrollT < sub1T ) $pj2.find('.cnt_sub1 .cnt_txt').css({position: 'relative'});
@@ -212,19 +218,50 @@ $(document).ready(function() {
     modal();
 
     /* ====================== #project3 ======================== */
-    /* $pj3.slideDown();
-    $main.hide();
-    $('#header').hide();
-    $pj3.show().find('.tit_top').css({height: winH}); */
-    $pj3.hide();
+    $pj3.slideUp();
     $mainTit.find('.tit_pj3 .btn_view').on('click', function(e) {
         e.preventDefault();
         clearInterval(timer);
         $main.hide();
         $('#header').hide();
-        $pj3.show().find('.tit_top').css({height: winH});
+        $pj3.slideDown().find('.tit_top').css({height: winH});
     });
-    
+    var timerWheel = 0;
+    var $cntDetail = $pj3.find('.cnt_main .main_img div');
+    var tgIdx = 0;
+    var total = $cntDetail.length;
+    //console.log(total);
+
+    $pj3.find('.cnt_main').on('mousewheel DOMMouseScroll', function (e) {
+        e.preventDefault();
+        clearTimeout(timerWheel);
+        setTimeout(function () {
+            if ($cntDetail.is(':animated')) return false;
+            TweenLite.to('html, body', 1, {scrollTop: $pj3.find('.cnt_main').offset().top, ease:Power1.easeOut});
+
+            var delta = e.originalEvent.wheelDelta || e.originalEvent.detail * -1;
+            //console.log(delta); //120, -120
+            
+            if (delta < 0 && tgIdx <= total) {
+                $cntDetail.eq(tgIdx).stop().animate({left: 0,opacity: 1, filter: 'alpha(opacity=100)'}); 
+                if (tgIdx == total) {                    
+                    TweenLite.to('html, body', 1, {scrollTop: $pj3.find('.cnt_sub1').offset().top, ease:Power1.easeOut});
+                    return false;
+                }
+                tgIdx++;	//1,2,3,4
+            }
+            else if (delta > 0 && tgIdx >= 0) {
+                $cntDetail.eq(tgIdx).stop().animate({left: 810,opacity: 0, filter: 'alpha(opacity=0)'}); 
+                if (tgIdx == 0) {
+                    TweenLite.to('html, body', 1, {scrollTop: $pj3.find('.overview').offset().top, ease:Power1.easeOut});
+                    return false;
+                }
+                tgIdx--;	//3,2,1,0
+            }
+            console.log(tgIdx);
+
+        }, 50);
+    });
 
 
    $('#content article .tit_top .logo a').on('click', function() {
