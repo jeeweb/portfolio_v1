@@ -6,7 +6,7 @@
   #header .logo {
     position: fixed;
     top: 80px;
-    left: 10%; }
+    left: 8%; }
     #header .logo a .logo_w {
       position: absolute;
       top: 0;
@@ -14,7 +14,7 @@
   #header .util {
     position: fixed;
     top: auto;
-    left: 10%;
+    left: 8%;
     bottom: 80px; }
     #header .util .project, #header .util .fa-on, #header .util .profile .fa-laugh, #header .util .profile span, #header .util .mail span {
       display: none; }
@@ -74,7 +74,7 @@
 #content #main .tit {
   position: absolute;
   top: 35%;
-  left: 10%; }
+  left: 8%; }
   #content #main .tit div * {
     vertical-align: middle;
     -webkit-transition: all 0.3s;
@@ -83,7 +83,7 @@
     transition: all 0.3s; }
   #content #main .tit div + div {
     margin-top: 50px; }
-  #content #main .tit div .pj_type, #content #main .tit div .btn_view {
+  #content #main .tit div .btn_view {
     display: none; }
   #content #main .tit div .pj_tit {
     display: inline-block;
@@ -92,34 +92,35 @@
   #content #main .tit div.on .pj_tit {
     font-size: 45px;
     font-family: NanumSqB; }
-  #content #main .tit div.on .pj_type {
-    display: inline-block;
-    margin-left: 35px;
-    font-size: 25px;
-    color: #fff; }
   #content #main .tit div.on .btn_view {
-    display: inline-block;
-    margin-left: 25px;
-    width: 50px;
-    height: 28px;
-    line-height: 28px;
-    font-size: 14px;
-    text-align: center;
-    font-family: NanumSqB;
-    background: #fff; }
-  #content #main .tit .tit_pj1 .btn_view {
+    display: inline-block; }
+    #content #main .tit div.on .btn_view .pj_type {
+      display: inline-block;
+      margin-left: 35px;
+      font-size: 25px;
+      color: #fff; }
+    #content #main .tit div.on .btn_view .pj_view {
+      display: inline-block;
+      margin-left: 25px;
+      width: 50px;
+      height: 28px;
+      line-height: 28px;
+      font-size: 14px;
+      text-align: center;
+      font-family: NanumSqB;
+      background: #fff; }
+  #content #main .tit .tit_pj1 .btn_view .pj_view {
     color: #ee1c25; }
-  #content #main .tit .tit_pj2 .btn_view {
+  #content #main .tit .tit_pj2 .btn_view .pj_view {
     color: #99001c; }
-  #content #main .tit .tit_pj3 .btn_view {
+  #content #main .tit .tit_pj3 .btn_view .pj_view {
     color: #164556; }
 
 #content #main .slider {
   position: absolute;
-  right: 5%;
+  right: 0;
   top: 0;
-  width: 950px;
-  height: 100%; }
+  width: 950px; }
   #content #main .slider > div {
     position: absolute;
     opacity: 0.7;
@@ -151,21 +152,31 @@
       #content #main .slider > div.on .sub {
         display: inline-block; }
     #content #main .slider > div img {
-      position: absolute; }
+      position: absolute;
+      z-index: 99; }
       #content #main .slider > div img.main {
         right: 50px;
         top: 50px;
-        z-index: 3; }
+        z-index: 4; }
       #content #main .slider > div img.sub1 {
         right: 25px;
         top: 25px;
-        z-index: 2; }
+        z-index: 3; }
       #content #main .slider > div img.sub2 {
         right: 0px;
         top: 0;
+        z-index: 2; }
+      #content #main .slider > div img.sub3 {
+        right: -25px;
+        top: -25px;
         z-index: 1; }
-    #content #main .slider > div .sub, #content #main .slider > div .mask {
+    #content #main .slider > div img.on {
+      z-index: 100; }
+    #content #main .slider > div .sub {
       display: none; }
+    #content #main .slider > div .mask {
+      opacity: 0;
+      filter: Alpha(opacity=0); }
     #content #main .slider > div .mask:hover, #content #main .slider > div .mask a:focus {
       background: #000;
       opacity: 0.5;
@@ -182,7 +193,7 @@
   #content #profile .skills {
     position: absolute;
     top: 40%;
-    left: 10%;
+    left: 8%;
     z-index: 10; }
     #content #profile .skills button {
       display: block;
@@ -296,24 +307,32 @@
     left: 0;
     margin: 0 0 0 40%; }
     #content #profile .graph .img_graph .graph_coding, #content #profile .graph .img_graph .graph_graphic {
-      /* width: 600px;height: 600px; */
-      opacity: 0.7;
-      filter: Alpha(opacity=70%); }
+      opacity: 0.5;
+      filter: Alpha(opacity=50%); }
     #content #profile .graph .img_graph .graph_coding {
-      margin-left: 100px; }
+      position: absolute;
+      top: 0;
+      left: 100px; }
+      #content #profile .graph .img_graph .graph_coding polygon {
+        stroke-dasharray: 1475;
+        stroke-dashoffset: 1475; }
     #content #profile .graph .img_graph .graph_graphic {
       position: absolute;
       top: 155px;
       left: 45px; }
+      #content #profile .graph .img_graph .graph_graphic polygon {
+        stroke-dasharray: 1320;
+        stroke-dashoffset: 1320; }
     #content #profile .graph .img_graph .graph_coding.on, #content #profile .graph .img_graph .graph_graphic.on {
-      opacity: 1;
-      filter: Alpha(opacity=100%);
-      z-index: 10; }
+      z-index: 10;
+      animation: opacity 0.7s linear 2s forwards; }
+      #content #profile .graph .img_graph .graph_coding.on polygon, #content #profile .graph .img_graph .graph_graphic.on polygon {
+        animation: svgBd 2s linear 0s forwards; }
 
 #content #profile .typing {
   position: absolute;
   bottom: 142px;
-  right: 10%;
+  right: 8%;
   vertical-align: bottom; }
   #content #profile .typing > div {
     display: inline-block;
@@ -326,61 +345,81 @@
     #content #profile .typing > div p {
       text-align: center; }
 
-/* ============================ project common ============================= */
+/* ======================= project common =========================== */
+#content #pjImg > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: no-repeat 50% 0;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+  #content #pjImg > div.pj1_top {
+    background-image: url("../images/project1/pj1_topbg.jpg"); }
+  #content #pjImg > div.pj2_top {
+    background-image: url("../images/project2/pj2_topbg.jpg"); }
+  #content #pjImg > div.pj3_top {
+    background-image: url("../images/project3/pj3_topbg.jpg"); }
+
 #content article.pj_detail .tit_top {
   position: relative;
   background: fixed no-repeat 50% 0;
+  opacity: 0;
+  filter: Alpha(opacity=0);
   z-index: 500; }
   #content article.pj_detail .tit_top .logo {
     position: absolute;
     top: 80px;
-    left: 10%; }
+    left: 8%; }
   #content article.pj_detail .tit_top h3 {
     position: absolute;
     bottom: 152px;
-    left: 10%;
+    left: 8%;
     font-size: 100px;
     font-family: NanumSqB;
     color: #fff; }
 #content article.pj_detail .overview {
   position: relative; }
-#content article.pj_detail .overview > div {
+#content article.pj_detail .overview .ov_txt {
   position: relative;
-  margin: 150px 0 150px 10%; }
-  #content article.pj_detail .overview > div > p {
+  margin: 150px 0 150px 8%; }
+  #content article.pj_detail .overview .ov_txt > p {
     margin-top: 25px;
     font-size: 24px;
     line-height: 1.5;
     padding-bottom: 10px; }
-  #content article.pj_detail .overview > div > div > div {
+  #content article.pj_detail .overview .ov_txt > div > div {
     padding: 12px 0 12px 10px;
     font-size: 24px; }
-    #content article.pj_detail .overview > div > div > div strong {
+    #content article.pj_detail .overview .ov_txt > div > div strong {
       font-family: NanumSqR; }
-    #content article.pj_detail .overview > div > div > div p {
+    #content article.pj_detail .overview .ov_txt > div > div p {
       font-family: NanumSqB; }
-      #content article.pj_detail .overview > div > div > div p.ib {
+      #content article.pj_detail .overview .ov_txt > div > div p.ib {
         display: inline-block;
         padding-left: 25px; }
-      #content article.pj_detail .overview > div > div > div p.pl {
+      #content article.pj_detail .overview .ov_txt > div > div p.pl {
         padding-top: 8px; }
-    #content article.pj_detail .overview > div > div > div.ov3 .pl {
+    #content article.pj_detail .overview .ov_txt > div > div.ov3 .pl {
       padding-left: 176px; }
-    #content article.pj_detail .overview > div > div > div.ov4 .pl {
+    #content article.pj_detail .overview .ov_txt > div > div.ov4 .pl {
       padding-left: 79.64px; }
-    #content article.pj_detail .overview > div > div > div.ov6 .pl {
+    #content article.pj_detail .overview .ov_txt > div > div.ov6 .pl {
       padding-left: 264.56px; }
-    #content article.pj_detail .overview > div > div > div.ov7 p {
+    #content article.pj_detail .overview .ov_txt > div > div.ov7 p {
       font-size: 20px;
       line-height: 1.5;
       padding-top: 5px;
       word-break: keep-all; }
-  #content article.pj_detail .overview > div .btn_site {
+  #content article.pj_detail .overview .ov_txt .btn_site {
     position: absolute;
     top: 123px;
     left: auto;
     right: 0; }
-    #content article.pj_detail .overview > div .btn_site a {
+    #content article.pj_detail .overview .ov_txt .btn_site a {
       display: inline-block;
       width: 180px;
       -webkit-border-radius: 20px;
@@ -389,7 +428,7 @@
       height: 60px;
       line-height: 60px;
       text-align: center; }
-      #content article.pj_detail .overview > div .btn_site a:hover, #content article.pj_detail .overview > div .btn_site a:focus {
+      #content article.pj_detail .overview .ov_txt .btn_site a:hover, #content article.pj_detail .overview .ov_txt .btn_site a:focus {
         -webkit-border-radius: 0;
         -moz-border-radius: 0;
         border-radius: 0;
@@ -415,25 +454,37 @@
 /* ========================== #project1 ============================== */
 #content #project1 .tit_top {
   background-image: url("../images/project1/pj1_topbg.jpg"); }
-#content #project1 .overview > div {
+#content #project1 .overview .ov_txt {
   width: 58%; }
-  #content #project1 .overview > div > div > div {
+  #content #project1 .overview .ov_txt > div > div {
     border-top: 1px solid #ee1c25; }
-    #content #project1 .overview > div > div > div strong {
+    #content #project1 .overview .ov_txt > div > div strong {
       color: #ee1c25; }
-    #content #project1 .overview > div > div > div.ov3 .pl {
+    #content #project1 .overview .ov_txt > div > div.ov3 .pl {
       padding-left: 176px; }
-    #content #project1 .overview > div > div > div.ov4 .pl {
+    #content #project1 .overview .ov_txt > div > div.ov4 .pl {
       padding-left: 79.64px; }
-    #content #project1 .overview > div > div > div.ov6 .pl {
+    #content #project1 .overview .ov_txt > div > div.ov6 .pl {
       padding-left: 264.56px; }
-  #content #project1 .overview > div .btn_site a {
+  #content #project1 .overview .ov_txt .btn_site a {
     border: 1px solid #ee1c25;
     color: #ee1c25; }
-    #content #project1 .overview > div .btn_site a:hover, #content #project1 .overview > div .btn_site a:focus {
-      background: #ee1c25; }
-    #content #project1 .overview > div .btn_site a + a {
+    #content #project1 .overview .ov_txt .btn_site a:hover, #content #project1 .overview .ov_txt .btn_site a:focus {
+      background: #ee1c25;
+      color: #fff; }
+    #content #project1 .overview .ov_txt .btn_site a + a {
       margin-left: 20px; }
+#content #project1 .overview #cap div {
+  position: absolute; }
+  #content #project1 .overview #cap div.cap1 {
+    bottom: 150px;
+    right: 5%; }
+  #content #project1 .overview #cap div.cap2 {
+    top: 250px;
+    right: 18%; }
+  #content #project1 .overview #cap div.cap3 {
+    top: 140px;
+    right: 10%; }
 #content #project1 .cnt > div {
   padding-top: 150px; }
   #content #project1 .cnt > div .cnt_tit {
@@ -478,7 +529,7 @@
   height: 2737px; }
   #content #project1 .cnt_sub1 > div {
     width: 625px;
-    margin-left: 10%; }
+    margin-left: 8%; }
   #content #project1 .cnt_sub1 img {
     position: absolute;
     top: 100px;
@@ -509,19 +560,19 @@
 /* ========================== #project2 ============================== */
 #content #project2 .tit_top {
   background-image: url("../images/project2/pj2_topbg.jpg"); }
-#content #project2 .overview > div {
+#content #project2 .overview .ov_txt {
   width: 45%; }
-  #content #project2 .overview > div > div > div {
+  #content #project2 .overview .ov_txt > div > div {
     border-top: 1px solid #99001c; }
-    #content #project2 .overview > div > div > div strong {
+    #content #project2 .overview .ov_txt > div > div strong {
       color: #99001c; }
-  #content #project2 .overview > div .btn_site a {
+  #content #project2 .overview .ov_txt .btn_site a {
     border: 1px solid #99001c;
     color: #99001c; }
-    #content #project2 .overview > div .btn_site a:hover, #content #project2 .overview > div .btn_site a:focus {
+    #content #project2 .overview .ov_txt .btn_site a:hover, #content #project2 .overview .ov_txt .btn_site a:focus {
       background: #99001c;
       color: #fff; }
-#content #project2 .overview > img {
+#content #project2 .overview #brush {
   position: absolute;
   top: 140px;
   left: auto;
@@ -539,7 +590,7 @@
     float: left; }
   #content #project2 .cnt_main .main_img {
     position: relative;
-    margin-left: 10%;
+    margin-left: 8%;
     width: 889.2px;
     height: 513px;
     padding-right: 40px;
@@ -590,7 +641,7 @@
     position: relative;
     width: 35%;
     height: 537px;
-    margin-left: 10%; }
+    margin-left: 8%; }
     #content #project2 .cnt_sub1 .cnt_txt .cnt_tit {
       margin-bottom: 100px; }
     #content #project2 .cnt_sub1 .cnt_txt .text2 {
@@ -672,7 +723,7 @@
   height: 2975px;
   overflow: hidden; }
   #content #project2 .cnt_sub3 .cnt_txt {
-    margin-left: 10%;
+    margin-left: 8%;
     width: 30%; }
     #content #project2 .cnt_sub3 .cnt_txt .cnt_tit {
       margin-bottom: 1650px; }
@@ -688,27 +739,30 @@
 /* ========================== #project3 ============================== */
 #content #project3 .tit_top {
   background-image: url("../images/project3/pj3_topbg.jpg"); }
-#content #project3 .overview > div {
+#content #project3 .overview .ov_txt {
   width: 50%; }
-  #content #project3 .overview > div > div > div {
+  #content #project3 .overview .ov_txt > div > div {
     border-top: 1px solid #164556; }
-    #content #project3 .overview > div > div > div strong {
+    #content #project3 .overview .ov_txt > div > div strong {
       color: #164556; }
-    #content #project3 .overview > div > div > div.ov3 .pl {
+    #content #project3 .overview .ov_txt > div > div.ov3 .pl {
       padding-left: 176px; }
-  #content #project3 .overview > div .btn_site a {
+  #content #project3 .overview .ov_txt .btn_site a {
     border: 1px solid #164556;
     color: #164556; }
-    #content #project3 .overview > div .btn_site a:hover, #content #project3 .overview > div .btn_site a:focus {
+    #content #project3 .overview .ov_txt .btn_site a:hover, #content #project3 .overview .ov_txt .btn_site a:focus {
       background: #164556;
       color: #fff; }
-#content #project3 .cnt > div strong {
-  color: #164556; }
-#content #project3 .overview > img {
+#content #project3 .overview #flash {
   position: absolute;
   top: 0;
   left: auto;
-  right: 0; }
+  right: 0;
+  overflow: hidden; }
+  #content #project3 .overview #flash img {
+    margin-right: -100px; }
+#content #project3 .cnt > div strong {
+  color: #164556; }
 
 #content #project3 .cnt_main {
   position: relative;
@@ -759,7 +813,7 @@
   position: relative; }
   #content #project3 .cnt_sub1 .cnt_txt {
     padding-top: 150px;
-    margin-left: 10%;
+    margin-left: 8%;
     width: 30%; }
     #content #project3 .cnt_sub1 .cnt_txt .cnt_tit {
       margin-bottom: 140px; }
@@ -800,7 +854,20 @@
 #footer p {
   position: absolute;
   bottom: 80px;
-  right: 10%;
+  right: 8%;
   font-size: 14px; }
+
+/* @keyframes */
+@keyframes svgBd {
+  to {
+    stroke-dashoffset: 0;
+    stroke-width: 0; } }
+@keyframes svgBdW {
+  to {
+    stroke-width: 0; } }
+@keyframes opacity {
+  to {
+    opacity: 1;
+    filter: Alpha(opacity=100); } }
 
 /*# sourceMappingURL=style.css.map */

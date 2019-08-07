@@ -46,11 +46,11 @@ $pj3Color : #164556;
 #header{
     position: relative;color: #fff;z-index: 800;
     .logo{
-        @include pos(fixed, 80px, 10%);
+        @include pos(fixed, 80px, 8%);
         a .logo_w{@include pos(absolute, 0, 0);}
     }
     .util{
-        @include pos(fixed, auto, 10%);bottom: 80px;
+        @include pos(fixed, auto, 8%);bottom: 80px;
         .project, .fa-on, .profile .fa-laugh, .profile span, .mail span{display: none}
         ul li{
             position: relative;
@@ -82,22 +82,25 @@ $pj3Color : #164556;
     }
 }
 #content #main .tit{
-    @include pos(absolute, 35%, 10%);
+    @include pos(absolute, 35%, 8%);
     div{
         *{vertical-align: middle;@include transition(all, 0.3s);}
         +div{margin-top: 50px}
-        .pj_type, .btn_view{display: none}
+        .btn_view{display: none}
         .pj_tit{display: inline-block;font-size: 35px;color: #fff}
         &.on .pj_tit{font-size: 45px;font-family: NanumSqB;}
-        &.on .pj_type{display: inline-block;margin-left: 35px;font-size: 25px;color: #fff}
-        &.on .btn_view{display: inline-block;margin-left: 25px;width: 50px;@include alignMid(28px);font-size: 14px;text-align: center;font-family: NanumSqB;background: #fff}
+        &.on .btn_view{
+            display: inline-block;
+            .pj_type{display: inline-block;margin-left: 35px;font-size: 25px;color: #fff;}
+            .pj_view{display: inline-block;margin-left: 25px;width: 50px;@include alignMid(28px);font-size: 14px;text-align: center;font-family: NanumSqB;background: #fff;}
+        }
     }
-    .tit_pj1 .btn_view{color: $pj1Color}
-    .tit_pj2 .btn_view{color: $pj2Color}
-    .tit_pj3 .btn_view{color: $pj3Color}
+    .tit_pj1 .btn_view .pj_view{color: $pj1Color}
+    .tit_pj2 .btn_view .pj_view{color: $pj2Color}
+    .tit_pj3 .btn_view .pj_view{color: $pj3Color}
 }
 #content #main .slider{
-    position: absolute; right: 5%;top: 0;width: 950px;height: 100%;
+    position: absolute; right: 0;top: 0;width: 950px;
     > div{
         position: absolute;@include opacity(0.7, 70%);
         &.slider_pj1{top: 132px;right: 0;width: 950px;height: 635px}
@@ -108,12 +111,15 @@ $pj3Color : #164556;
             .sub{display: inline-block}
         }
         img{
-            position: absolute;
-            &.main{right: 50px;top: 50px;z-index: 3}
-            &.sub1{right: 25px;top: 25px;z-index: 2}
-            &.sub2{right: 0px;top: 0;z-index: 1}
+            position: absolute;z-index: 99;
+            &.main{right: 50px;top: 50px;z-index: 4}
+            &.sub1{right: 25px;top: 25px;z-index: 3}
+            &.sub2{right: 0px;top: 0;z-index: 2}
+            &.sub3{right: -25px;top: -25px;z-index: 1}
         }
-        .sub, .mask{display: none;}
+        img.on{z-index: 100;}
+        .sub{display: none;}
+        .mask{@include opacity(0,0)}
         .mask:hover, .mask a:focus{background: #000;@include opacity(0.5, 50%);z-index: 5}
     }
 }
@@ -122,7 +128,7 @@ $pj3Color : #164556;
 #content #profile{
     @include pos(absolute, 0, 0);width: 100%;z-index: 300;
     .skills{
-        @include pos(absolute, 40%, 10%);z-index: 10;
+        @include pos(absolute, 40%, 8%);z-index: 10;
         button{
             display: block;font-size: 30px;
             + button{margin-top: 50px}
@@ -176,31 +182,45 @@ $pj3Color : #164556;
     }
     .img_graph{
         @include pos(absolute, 0, 0);margin: 0 0 0 40%;
-        .graph_coding, .graph_graphic{/* width: 600px;height: 600px; */@include opacity(0.7, 70%)}
-        .graph_coding{margin-left: 100px;}
-        .graph_graphic{@include pos(absolute, 155px, 45px);}
-        .graph_coding.on, .graph_graphic.on{@include opacity(1, 100%);z-index: 10}
+        .graph_coding, .graph_graphic{@include opacity(0.5, 50%)}
+        .graph_coding{
+            @include pos(absolute,0,100px);
+            polygon{stroke-dasharray: 1475; stroke-dashoffset: 1475;}//1472.7
+        }
+        .graph_graphic{
+            @include pos(absolute, 155px, 45px);
+            polygon{stroke-dasharray: 1320; stroke-dashoffset: 1320;}//1317
+        }
+        .graph_coding.on, .graph_graphic.on{
+            z-index: 10;animation: opacity 0.7s linear 2s forwards;
+            polygon{animation: svgBd 2s linear 0s forwards;}
+        }
     }
 }
 #content #profile .typing{
-    position: absolute;bottom: 142px;right: 10%;vertical-align: bottom;
+    position: absolute;bottom: 142px;right: 8%;vertical-align: bottom;
     > div{
         display: inline-block;width: 160px;height: 25px;margin-left: 5px;border-bottom: 1px solid #181616;overflow: hidden;margin-top: 5px;
         p{text-align: center;} 
     }
 }
 
-/* ============================ project common ============================= */
-
+/* ======================= project common =========================== */
+#content #pjImg > div{
+    @include pos(absolute, 0, 0);width: 100%;height: 0;background: no-repeat 50% 0;@include bgSizeCv;
+    &.pj1_top{background-image: url("../images/project1/pj1_topbg.jpg")}
+    &.pj2_top{background-image: url("../images/project2/pj2_topbg.jpg")}
+    &.pj3_top{background-image: url("../images/project3/pj3_topbg.jpg")}
+}
 #content article.pj_detail{
     .tit_top{
-        position: relative;background: fixed no-repeat 50% 0;z-index: 500;
-        .logo{@include pos(absolute, 80px, 10%);}
-        h3{position: absolute;bottom: 152px;left: 10%;font-size: 100px;font-family: NanumSqB;color: #fff;}
+        position: relative;background: fixed no-repeat 50% 0;@include opacity(0, 0);z-index: 500;
+        .logo{@include pos(absolute, 80px, 8%);}
+        h3{position: absolute;bottom: 152px;left: 8%;font-size: 100px;font-family: NanumSqB;color: #fff;}
     }
     .overview{position: relative;}
-    .overview > div{
-        position: relative;margin: 150px 0 150px 10%;
+    .overview .ov_txt{
+        position: relative;margin: 150px 0 150px 8%;
         > p{margin-top: 25px;font-size: 24px;line-height: 1.5;padding-bottom: 10px}
         > div > div{
             padding: 12px 0 12px 10px;font-size: 24px;
@@ -235,7 +255,7 @@ $pj3Color : #164556;
 /* ========================== #project1 ============================== */
 #content #project1{
     .tit_top{background-image: url("../images/project1/pj1_topbg.jpg")}
-    .overview > div{
+    .overview .ov_txt{
         width: 58%;
         > div > div{
             border-top: 1px solid $pj1Color;
@@ -246,16 +266,21 @@ $pj3Color : #164556;
         }
         .btn_site a{
             border: 1px solid $pj1Color;color: $pj1Color;
-            &:hover, &:focus{background: $pj1Color;}
+            &:hover, &:focus{background: $pj1Color;color: #fff}
             + a{margin-left: 20px}                
         }
+    }
+    .overview #cap div{
+        position: absolute;
+        &.cap1{bottom: 150px;right: 5%}
+        &.cap2{top: 250px;right: 18%}
+        &.cap3{top: 140px;right: 10%}
     }
     .cnt > div {
         padding-top: 150px;
         .cnt_tit{margin-bottom: 140px}
         strong{color: $pj1Color} 
     }
-    
 }
 #content #project1 .cnt_main{
     background: #1e1e1e;color: #fff;
@@ -273,7 +298,7 @@ $pj3Color : #164556;
 }
 #content #project1 .cnt_sub1{
     position: relative;height: 2737px;
-    > div{width: 625px;margin-left: 10%}
+    > div{width: 625px;margin-left: 8%}
     img{@include pos(absolute, 100px, auto);right: -60px;z-index: -1}
 }
 #content #project1 .cnt_sub2{
@@ -291,7 +316,7 @@ $pj3Color : #164556;
 /* ========================== #project2 ============================== */
 #content #project2{
     .tit_top{background-image: url("../images/project2/pj2_topbg.jpg")}
-    .overview > div{
+    .overview .ov_txt{
         width: 45%;
         > div > div{
             border-top: 1px solid $pj2Color;
@@ -302,7 +327,7 @@ $pj3Color : #164556;
             &:hover, &:focus{background: $pj2Color;color: #fff}
         }
     }
-    .overview > img{@include pos(absolute, 140px, auto);right: 0}
+    .overview #brush{@include pos(absolute, 140px, auto);right: 0}
     .cnt {
         padding-top: 150px;
         > div strong{color: $pj2Color}         
@@ -313,7 +338,7 @@ $pj3Color : #164556;
     background: #1e1e1e;color: #fff;height: 663px;
     > div{float: left}
     .main_img{
-        position: relative;margin-left: 10%;width: 889.2px;height: 513px;padding-right: 40px;overflow: hidden;
+        position: relative;margin-left: 8%;width: 889.2px;height: 513px;padding-right: 40px;overflow: hidden;
         ul {
             height: 2850px;
             li{
@@ -341,7 +366,7 @@ $pj3Color : #164556;
 #content #project2 .cnt_sub1{
     position: relative;width: 100%;height: 3033px;
     .cnt_txt{
-        position: relative;width: 35%;height: 537px;margin-left: 10%;
+        position: relative;width: 35%;height: 537px;margin-left: 8%;
         .cnt_tit{margin-bottom: 100px;}
         .text2{
             @include pos(absolute, 95px, 0);@include opacity(0, 0);
@@ -382,7 +407,7 @@ $pj3Color : #164556;
 #content #project2 .cnt_sub3{
     position: relative;height: 2975px;overflow: hidden;
     .cnt_txt{
-        margin-left: 10%;width: 30%;
+        margin-left: 8%;width: 30%;
         .cnt_tit{margin-bottom: 1650px}
     }
     img{@include pos(absolute, 100px, auto);right: -50px}
@@ -392,7 +417,7 @@ $pj3Color : #164556;
 /* ========================== #project3 ============================== */
 #content #project3{
     .tit_top{background-image: url("../images/project3/pj3_topbg.jpg")}
-    .overview > div{
+    .overview .ov_txt {
         width: 50%;
         > div > div{
             border-top: 1px solid $pj3Color;
@@ -404,11 +429,13 @@ $pj3Color : #164556;
             &:hover, &:focus{background: $pj3Color;color: #fff}
         }
     }
+    .overview #flash{
+        @include pos(absolute, 0, auto);right: 0;overflow: hidden;
+        img{margin-right: -100px}
+    }
     .cnt > div {
         strong{color: $pj3Color} 
     }
-    .overview > img{@include pos(absolute, 0, auto);right: 0}
-
 }
 #content #project3 .cnt_main{
     position: relative;width: 100%;padding-left: 3%;height: 800px;background: #1e1e1e;color: #fff;padding-top: 150px;overflow: hidden;
@@ -428,7 +455,7 @@ $pj3Color : #164556;
 #content #project3 .cnt_sub1{
     position: relative;    
     .cnt_txt{
-        padding-top: 150px;margin-left: 10%;width: 30%;
+        padding-top: 150px;margin-left: 8%;width: 30%;
         .cnt_tit{margin-bottom: 140px;}
         .sub1_txt2{@include pos(absolute, 1000px,60%);width: 550px;}
     }
@@ -448,4 +475,15 @@ $pj3Color : #164556;
 
 
 /* ========================== #footer ============================== */
-#footer p{position: absolute;bottom: 80px;right: 10%;font-size: 14px}
+#footer p{position: absolute;bottom: 80px;right: 8%;font-size: 14px}
+
+/* @keyframes */
+@keyframes svgBd{
+    to{stroke-dashoffset: 0;stroke-width: 0}
+}
+@keyframes svgBdW{
+    to{stroke-width: 0}
+}
+@keyframes opacity{
+    to{opacity: 1;filter: Alpha(opacity=100);}
+}

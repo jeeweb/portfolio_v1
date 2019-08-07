@@ -9,10 +9,11 @@ $(document).ready(function() {
     var $mainSlider = $('#content #main .slider') 
     var $profile = $('#content #profile');
     var $profGrph = $profile.find('.graph');
-    var $pj1 = $('#content #project1');
-    var $pj2 = $('#content #project2');
-    var $pj2Main = $('#content #project2 .cnt_main .main_img ul');
-    var $pj3 = $('#content #project3');
+    var $pjTop = $('#content #pjWrap #pjImg > div');
+    var $pj1 = $('#content #pjWrap #project1');
+    var $pj2 = $('#content #pjWrap #project2');
+    var $pj2Main = $('#content #pjWrap #project2 .cnt_main .main_img ul');
+    var $pj3 = $('#content #pjWrap #project3');
 
     /* ====================== #main ======================== */
     var i = 0;
@@ -20,12 +21,16 @@ $(document).ready(function() {
     var current = 0;
     var nextPj;
     
+    $('#header .logo a').on('click', function() {
+        location.reload();        
+    });
+
     var bgImgArr = [['bg_pj1.jpg','100% 50%'], ['bg_pj2.jpg','100% 100%'], ['bg_pj3.jpg','350px 100%']];
     var bgColArr = [['rotate(145, 850, 200)','#ee1c25'], ['rotate(120, 800, 200)','#99001c'], ['rotate(70, 700, 200)','#164556']]
     //console.log(bgImgArr,bgColArr);
 
     $mainBg.css({height: winH});
-    
+    $mainSlider.css({height: winH,overflow:'hidden'});
     $mainTit.find('.show').on('click', function(e) {
         e.preventDefault();
         nextPj = $(this).parent().index();
@@ -48,10 +53,22 @@ $(document).ready(function() {
     });
     
     function active () {
+        var arr1 = [0,1,2];
+        var arr2 = new Array();
+
         var nextPj2 = nextPj + 1;
         if (nextPj2 == $mainTit.children().length) nextPj2 = 0;
+        
+        arr2[0] = current;
+        arr2[1] = nextPj;
+        //console.log(arr2);
+
         if (nextPj2 == current) {
-            console.log('같다');
+            //console.log('같다');
+            arr1 = arr1.filter(function(val) {
+                return arr2.indexOf(val) == -1;
+            });
+            nextPj2 = arr1[0];
         }
 
         $mainSlider.children().eq(nextPj).addClass('on').stop().animate({top: 132,right: 0,width: 950,height: 635}).find('.sub').removeAttr('style').parent().siblings().removeClass('on');
@@ -79,6 +96,24 @@ $(document).ready(function() {
     };
     playTimer ();
 
+    $('#content #main .slider > div img').on('click', function () {
+		$(this).addClass('on').siblings().removeClass('on');
+    });
+    
+    $mainTit.find('> div > .btn_view').on('click', function (e) {
+        e.preventDefault();
+        clearInterval(timer);
+        $main.hide();
+        $('#header').hide();
+
+        var pjNum = $(this).parent().index();
+        //console.log(pjNum);
+        $pjTop.eq(pjNum).stop().animate({height: winH}, 'slow', function() {
+            $('#pjWrap > article').eq(pjNum).show().find('.tit_top').css({height: winH}).delay(300).animate({opacity: 1, filter:'Alpha(opacity=100)'});
+            $(this).delay(500).animate({height: 0});
+        });
+    });
+
     /* ====================== #profile ======================== */
     $profile.hide();
     
@@ -98,19 +133,33 @@ $(document).ready(function() {
             var btnNum = $(this).index();
             
             $(this).css({fontSize: 40,fontFamily: 'NanumSqB'}).siblings().removeAttr('style');
-            $profGrph.children().eq(btnNum+1).addClass('on').siblings().removeClass('on');
+            $profGrph.children().eq(btnNum+1).addClass('on').children().removeAttr('style').parent().siblings().removeClass('on').children().css({color: '#ddd', fontSize: '18px'});
             $profGrph.find('.img_graph > svg').eq(btnNum).addClass('on').siblings().removeClass('on');
         });
 
         $profile.find('.skills a').on('click', function(e) {
             e.preventDefault();
             $profile.hide();
-            $main.show();
+            $main.slideDown();
             playTimer();
+            $mainTit.find('p').css({color: '#fff'});
+            $('#header .util ul li a').css({color: '#fff'});
             $('#header .util ul .profile a .fa-off').css({display: 'block'}).next('.fa-on').removeAttr('style').next('.msg').text('ABOUT ME').removeAttr('style');
+            $('#header .logo a .img_logo').attr({src: 'images/common/logo_w.png'});
         })
 
-        function typing () {
+        var typing = $('#aboutMe');
+        var typewriter = new Typewriter(typing, {loop: true});
+
+        typewriter.typeString('a coffee lover').pauseFor(2000).deleteChars(12)
+            .typeString('dog person').pauseFor(2000).deleteChars(10)
+            .typeString('beer holic').pauseFor(2000).deleteChars(10)
+            .typeString('traveller').pauseFor(2000).deleteChars(10)
+            .typeString('n Apple user').pauseFor(2000).deleteChars(12)
+            .typeString('hard worker').pauseFor(2000).deleteChars(11)
+            .typeString('quick-learner').pauseFor(2000).deleteAll()
+            .typeString('passionate').pauseFor(2000).deleteAll();
+       /*  function typing () {
             timer = setInterval(function () {
                 var $word = $profile.find('.typing > div > div');
                 
@@ -120,30 +169,34 @@ $(document).ready(function() {
                 });
             }, 2000)
         } 
-        typing();
+        typing(); */
     })
 
     /* ====================== #project1 ======================== */
     $pj1.slideUp();
-    $mainTit.find('.tit_pj1 .btn_view').on('click', function(e) {
-        e.preventDefault();
-        clearInterval(timer);
-
-        $main.hide();
-        $('#header').hide();
-        $pj1.slideDown().find('.tit_top').css({height: winH});
+    var $cap = $pj1.find('.overview #cap div');
+    var capArr = new Array();
+    
+    //console.log(capArr);
+    $(window).on('scroll', function() {
+        scrollT = $(this).scrollTop();
         
-    });
+        $cap.each(function (i) {
+            capArr.push($(this).position().top);
+
+            var start = $pj1.find('.overview').offset().top;
+            var end = $pj1.find('.cnt_main').offset().top;
+            var min = capArr[i];
+            var max = capArr[i] + 150 * i + 100
+
+            var y = (scrollT - start) * (max - min) / (end - start) + min;
+            $(this).css({top: y})
+        });
+    })
 
     /* ====================== #project2 ======================== */
     $pj2.slideUp();
-    $mainTit.find('.tit_pj2 .btn_view').on('click', function(e) {
-        e.preventDefault();
-        clearInterval(timer);
-        $main.hide();
-        $('#header').hide();
-        $pj2.slideDown().find('.tit_top').css({height: winH});
-    });
+    var $brush = $pj2.find('.overview #brush');
 
     $pj2.find('.cnt_main .main_img div button').on('click', function() {
         if ($pj2Main.is(':animated')) return false;
@@ -160,10 +213,14 @@ $(document).ready(function() {
 
     $(window).on('scroll', function() {
         clearTimeout(timer);
-        
         scrollT = $(this).scrollTop();
+
+        var overviewT = $pj2.find('.overview').offset().top;
+        var y = 140 - (scrollT - overviewT)*0.2;
+        //console.log(scrollT,y);
+        $brush.css({top: y})
+
         var sub1T = $pj2.find('.cnt_sub1').offset().top;
-        //var sub1ImgT = $pj2.find('.cnt_sub1 .sub_img').outerHeight(); //3093
         //console.log(sub1T,scrollT);
 
         if (scrollT >= sub1T && scrollT < (sub1T + 2200)) $pj2.find('.cnt_sub1 .cnt_txt').css({position: 'fixed',top: 150});
@@ -218,18 +275,23 @@ $(document).ready(function() {
 
     /* ====================== #project3 ======================== */
     $pj3.slideUp();
-    $mainTit.find('.tit_pj3 .btn_view').on('click', function(e) {
-        e.preventDefault();
-        clearInterval(timer);
-        $main.hide();
-        $('#header').hide();
-        $pj3.slideDown().find('.tit_top').css({height: winH});
-    });
+    
     var timerWheel = 0;
     var $cntDetail = $pj3.find('.cnt_main .main_img div');
     var tgIdx = 0;
     var total = $cntDetail.length;
     //console.log(total);
+    var $flash = $pj3.find('.overview #flash img');
+
+    $(window).on('scroll', function () {
+        clearTimeout(timer);
+        scrollT = $(this).scrollTop();
+
+        var overviewT = $pj3.find('.overview').offset().top;
+        var x = 100 - (scrollT - overviewT)*0.2;
+        //console.log(scrollT,y);
+        $flash.css({marginRight: -x});
+    });
 
     $pj3.find('.cnt_main').on('mousewheel DOMMouseScroll', function (e) {
         e.preventDefault();
