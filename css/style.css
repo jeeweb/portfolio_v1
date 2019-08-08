@@ -565,10 +565,10 @@
     float: left; }
   #content #project1 .cnt_sub2 > img:first-child {
     margin-top: 120px; }
-  #content #project1 .cnt_sub2 > div {
+  #content #project1 .cnt_sub2 .sub2_txt {
     position: relative;
     width: 670px; }
-    #content #project1 .cnt_sub2 > div:before {
+    #content #project1 .cnt_sub2 .sub2_txt:before {
       content: "";
       position: absolute;
       top: 176px;
@@ -576,13 +576,13 @@
       height: 5px;
       width: 80px;
       background: #ee1c25; }
-    #content #project1 .cnt_sub2 > div .cnt_tit {
+    #content #project1 .cnt_sub2 .sub2_txt .cnt_tit {
       margin-bottom: 330px;
       text-align: right; }
-    #content #project1 .cnt_sub2 > div + img {
-      position: absolute;
-      bottom: 150px;
-      right: 50px; }
+  #content #project1 .cnt_sub2 .cap_modal {
+    position: absolute;
+    bottom: 150px;
+    right: 50px; }
 
 #content #project1 .bg_btm {
   background-image: url("../images/project1/pj1_btmbg.jpg"); }

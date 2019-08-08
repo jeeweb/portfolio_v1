@@ -310,11 +310,14 @@ $pj3Color : #164556;
     position: relative;background: #e0e0e2;height: 1580px;
     > *{float: left}
     > img:first-child{margin-top: 120px}
-    > div{
+    .sub2_txt{
         position: relative;width: 670px;
         &:before{content: "";@include pos(absolute, 176px, 0px);height: 5px;width: 80px;background: $pj1Color;}
         .cnt_tit{margin-bottom: 330px;text-align: right;}
-        + img{position: absolute;bottom: 150px;right: 50px}
+    }
+    .cap_modal{
+        position: absolute;bottom: 150px;right: 50px;
+        button{}
     }
 }
 #content #project1 .bg_btm{background-image: url("../images/project1/pj1_btmbg.jpg");}
