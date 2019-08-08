@@ -148,6 +148,10 @@ $(document).ready(function() {
             $('#header .logo a .img_logo').attr({src: 'images/common/logo_w.png'});
         })
 
+        var typing = ['a coffee lover','a dog person', 'beer holic', 'a traveller', 'an Apple user', 'a hard worker', 'a quick-learner', 'passionate'];
+        $('#aboutMe').humanTyping(typing);
+        
+/*
         var typing = $('#aboutMe');
         var typewriter = new Typewriter(typing, {loop: true});
 
@@ -159,7 +163,7 @@ $(document).ready(function() {
             .typeString('hard worker').pauseFor(2000).deleteChars(11)
             .typeString('quick-learner').pauseFor(2000).deleteAll()
             .typeString('passionate').pauseFor(2000).deleteAll();
-       /*  function typing () {
+         function typing () {
             timer = setInterval(function () {
                 var $word = $profile.find('.typing > div > div');
                 
