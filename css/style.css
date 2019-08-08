@@ -327,23 +327,22 @@
       z-index: 10;
       animation: opacity 0.7s linear 2s forwards; }
       #content #profile .graph .img_graph .graph_coding.on polygon, #content #profile .graph .img_graph .graph_graphic.on polygon {
-        animation: svgBd 2s linear 0s forwards; }
+        animation: svgBd 2s linear 0s; }
 
 #content #profile .typing {
   position: absolute;
   bottom: 142px;
   right: 8%;
   vertical-align: bottom; }
-  #content #profile .typing > div {
+  #content #profile .typing #aboutMe {
     display: inline-block;
     width: 160px;
     height: 25px;
     margin-left: 5px;
     border-bottom: 1px solid #181616;
     overflow: hidden;
-    margin-top: 5px; }
-    #content #profile .typing > div p {
-      text-align: center; }
+    margin-top: 5px;
+    text-align: center; }
 
 /* ======================= project common =========================== */
 #content #pjImg > div {
@@ -434,11 +433,12 @@
         border-radius: 0;
         color: #fff; }
 #content article.pj_detail .cnt > div .cnt_tit {
-  font-size: 40px; }
+  font-size: 50px; }
 #content article.pj_detail .cnt > div strong, #content article.pj_detail .cnt > div p {
   line-height: 1.5; }
 #content article.pj_detail .cnt > div strong {
-  font-size: 24px; }
+  font-size: 35px;
+  margin-bottom: 5px; }
 #content article.pj_detail .cnt > div p {
   word-break: keep-all;
   margin-bottom: 25px; }
@@ -504,8 +504,6 @@
     height: 2209px; }
     #content #project1 .cnt_main > div > * {
       float: left; }
-    #content #project1 .cnt_main > div > img {
-      margin-top: -40px; }
   #content #project1 .cnt_main > div > div {
     position: relative;
     width: 633px;
@@ -513,11 +511,13 @@
     #content #project1 .cnt_main > div > div:before {
       content: "";
       position: absolute;
-      top: 25px;
-      left: -9px;
+      top: 26px;
+      left: 0;
       height: 5px;
       width: 120px;
       background: #ee1c25; }
+    #content #project1 .cnt_main > div > div h3 {
+      padding-left: 140px; }
     #content #project1 .cnt_main > div > div + img {
       position: absolute;
       top: 610px;
@@ -527,15 +527,24 @@
 #content #project1 .cnt_sub1 {
   position: relative;
   height: 2737px; }
-  #content #project1 .cnt_sub1 > div {
-    width: 625px;
-    margin-left: 8%; }
-  #content #project1 .cnt_sub1 img {
+  #content #project1 .cnt_sub1 .sub1_txt {
+    width: 600px;
+    margin-left: 8%;
+    z-index: 1; }
+  #content #project1 .cnt_sub1 .sub1_img {
     position: absolute;
     top: 100px;
     left: auto;
-    right: -60px;
-    z-index: -1; }
+    right: 0;
+    overflow: hidden;
+    width: 1144px;
+    height: 2737px; }
+    #content #project1 .cnt_sub1 .sub1_img img {
+      position: absolute;
+      top: 0;
+      left: auto;
+      right: -60px;
+      z-index: -1; }
 
 #content #project1 .cnt_sub2 {
   position: relative;
@@ -860,8 +869,7 @@
 /* @keyframes */
 @keyframes svgBd {
   to {
-    stroke-dashoffset: 0;
-    stroke-width: 0; } }
+    stroke-dashoffset: 0; } }
 @keyframes svgBdW {
   to {
     stroke-width: 0; } }
