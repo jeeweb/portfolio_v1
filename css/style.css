@@ -124,7 +124,7 @@
   #content #main .slider > div {
     position: absolute;
     opacity: 0.7;
-    filter: Alpha(opacity=70%); }
+    filter: Alpha(opacity=70); }
     #content #main .slider > div.slider_pj1 {
       top: 132px;
       right: 0;
@@ -147,7 +147,7 @@
       -ms-transform: scale(0.8);
       transform: scale(0.8);
       opacity: 1;
-      filter: Alpha(opacity=100%);
+      filter: Alpha(opacity=100);
       right: 0; }
       #content #main .slider > div.on .sub {
         display: inline-block; }
@@ -180,7 +180,7 @@
     #content #main .slider > div .mask:hover, #content #main .slider > div .mask a:focus {
       background: #000;
       opacity: 0.5;
-      filter: Alpha(opacity=50%);
+      filter: Alpha(opacity=50);
       z-index: 5; }
 
 /* ============================ #profile ============================= */
@@ -308,7 +308,7 @@
     margin: 0 0 0 40%; }
     #content #profile .graph .img_graph .graph_coding, #content #profile .graph .img_graph .graph_graphic {
       opacity: 0.5;
-      filter: Alpha(opacity=50%); }
+      filter: Alpha(opacity=50); }
     #content #profile .graph .img_graph .graph_coding {
       position: absolute;
       top: 0;
