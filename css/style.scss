@@ -34,7 +34,8 @@
     border-radius: $val;
 }
 @mixin opacity($val1, $val2){
-    opacity: $val1; filter: Alpha(opacity = $val2);
+    opacity: $val1;
+    filter: Alpha(opacity=$val2);
 }
 
 $pj1Color : #ee1c25;
@@ -243,8 +244,8 @@ $pj3Color : #164556;
     .cnt > div{            
         .cnt_tit{font-size: 50px;}
         strong, p{line-height: 1.5;}
-        strong{font-size: 35px;margin-bottom: 5px;}
-        p{word-break: keep-all;margin-bottom: 25px}
+        strong{font-size: 35px;margin-bottom: 10px;}
+        p{word-break: keep-all}
     }
     .bg_btm{background: no-repeat 50% 50%;@include bgSizeCv;width: 100%;height: 800px;}
 }
@@ -285,17 +286,21 @@ $pj3Color : #164556;
     > div{
         position: relative;height: 2209px;
         > *{float: left}
+        img{margin-top: -40px;}
     }
     > div > div{
         position: relative; width: 633px;margin-left: -100px;
         &:before{content: "";@include pos(absolute, 26px, 0);height: 5px;width: 120px;background: $pj1Color;}
-        h3{padding-left: 140px;}
-        + img{@include pos(absolute, 610px, auto);right: 25px}
+        .cnt_tit{padding-left: 140px;}
+        + img{@include pos(absolute, 650px, auto);right: 25px}
     }
 }
 #content #project1 .cnt_sub1{
     position: relative;height: 2737px;
-    .sub1_txt{width: 600px;margin-left: 8%;z-index: 1}
+    .sub1_txt{
+        position: relative;width: 600px;margin-left: 8%;z-index: 1;
+        &:before{content: "";@include pos(absolute, 176px, auto);right: 0px;height: 5px;width: 250px;background: $pj1Color;}
+    }
     .sub1_img{
         @include pos(absolute, 100px, auto);right: 0;overflow: hidden;width: 1144px;height: 2737px;
         img{@include pos(absolute, 0, auto);right: -60px;z-index: -1;}
@@ -306,8 +311,9 @@ $pj3Color : #164556;
     > *{float: left}
     > img:first-child{margin-top: 120px}
     > div{
-        width: 670px;
-        .cnt_tit{margin-bottom: 330px}
+        position: relative;width: 670px;
+        &:before{content: "";@include pos(absolute, 176px, 0px);height: 5px;width: 80px;background: $pj1Color;}
+        .cnt_tit{margin-bottom: 330px;text-align: right;}
         + img{position: absolute;bottom: 150px;right: 50px}
     }
 }

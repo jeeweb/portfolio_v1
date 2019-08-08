@@ -438,10 +438,9 @@
   line-height: 1.5; }
 #content article.pj_detail .cnt > div strong {
   font-size: 35px;
-  margin-bottom: 5px; }
+  margin-bottom: 10px; }
 #content article.pj_detail .cnt > div p {
-  word-break: keep-all;
-  margin-bottom: 25px; }
+  word-break: keep-all; }
 #content article.pj_detail .bg_btm {
   background: no-repeat 50% 50%;
   -webkit-background-size: cover;
@@ -504,6 +503,8 @@
     height: 2209px; }
     #content #project1 .cnt_main > div > * {
       float: left; }
+    #content #project1 .cnt_main > div img {
+      margin-top: -40px; }
   #content #project1 .cnt_main > div > div {
     position: relative;
     width: 633px;
@@ -516,11 +517,11 @@
       height: 5px;
       width: 120px;
       background: #ee1c25; }
-    #content #project1 .cnt_main > div > div h3 {
+    #content #project1 .cnt_main > div > div .cnt_tit {
       padding-left: 140px; }
     #content #project1 .cnt_main > div > div + img {
       position: absolute;
-      top: 610px;
+      top: 650px;
       left: auto;
       right: 25px; }
 
@@ -528,9 +529,19 @@
   position: relative;
   height: 2737px; }
   #content #project1 .cnt_sub1 .sub1_txt {
+    position: relative;
     width: 600px;
     margin-left: 8%;
     z-index: 1; }
+    #content #project1 .cnt_sub1 .sub1_txt:before {
+      content: "";
+      position: absolute;
+      top: 176px;
+      left: auto;
+      right: 0px;
+      height: 5px;
+      width: 250px;
+      background: #ee1c25; }
   #content #project1 .cnt_sub1 .sub1_img {
     position: absolute;
     top: 100px;
@@ -555,9 +566,19 @@
   #content #project1 .cnt_sub2 > img:first-child {
     margin-top: 120px; }
   #content #project1 .cnt_sub2 > div {
+    position: relative;
     width: 670px; }
+    #content #project1 .cnt_sub2 > div:before {
+      content: "";
+      position: absolute;
+      top: 176px;
+      left: 0px;
+      height: 5px;
+      width: 80px;
+      background: #ee1c25; }
     #content #project1 .cnt_sub2 > div .cnt_tit {
-      margin-bottom: 330px; }
+      margin-bottom: 330px;
+      text-align: right; }
     #content #project1 .cnt_sub2 > div + img {
       position: absolute;
       bottom: 150px;
