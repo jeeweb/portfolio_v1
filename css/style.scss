@@ -240,7 +240,8 @@ $pj3Color : #164556;
                 &:hover, &:focus{@include bdRadius(0);color: #fff}
             } 
         }
-    }
+    }    
+    .cnt .color, .cnt .line{@include transition(all, 1s)}
     .cnt > div{            
         .cnt_tit{font-size: 50px;}
         strong, p{line-height: 1.5;}
@@ -273,6 +274,10 @@ $pj3Color : #164556;
         &.cap1{bottom: 150px;right: 5%}
         &.cap2{top: 250px;right: 18%}
         &.cap3{top: 140px;right: 10%}
+    }
+    .cnt.on{
+        .color{color: $pj1Color}
+        .line:after{content: "";@include pos(absolute, auto, 0);bottom: -5px;height: 2px;background: $pj1Color}
     }
     .cnt > div:first-child {
         padding-top: 150px;
@@ -313,7 +318,7 @@ $pj3Color : #164556;
     .sub2_txt{
         position: relative;width: 670px;
         &:before{content: "";@include pos(absolute, 176px, 0px);height: 5px;width: 80px;background: $pj1Color;}
-        .cnt_tit{margin-bottom: 330px;text-align: right;}
+        .cnt_tit{margin: 150px 0 330px;text-align: right;}
     }
     button{
         margin-top: 50px;

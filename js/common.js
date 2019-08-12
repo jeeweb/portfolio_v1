@@ -159,15 +159,17 @@ $(document).ready(function() {
     //console.log(capArr);
     var $pj1Cnt = $pj1.find('.cnt');
     var pj1CntArr = new Array();
-    console.log($pj1.find('.cnt_main').offset().top);
+    //console.log($pj1.find('.cnt_main').offset().top);
+
     $pj1Cnt.each(function (j) {
-        pj1CntArr.push($(this).offset().top);
+        pj1CntArr.push($(this).offset().top + winH);
     })
     //console.log(pj1CntArr);
 
     $(window).on('scroll', function() {
         scrollT = $(this).scrollTop();
-        //console.log(scrollT)
+        //console.log(scrollT);
+
         $cap.each(function (i) {
             capArr.push($(this).position().top);
 
@@ -179,10 +181,10 @@ $(document).ready(function() {
             var y = (scrollT - start) * (max - min) / (end - start) + min;
             $(this).css({top: y})
         });
-        console.log(scrollT, pj1CntArr[0],pj1CntArr[1],pj1CntArr[2])
-        if (scrollT == pj1CntArr[0]) $pj1Cnt.eq(0).addClass('on').siblings().removeClass('on');
-        else if (scrollT == pj1CntArr[1]) $pj1Cnt.eq(1).addClass('on').siblings().removeClass('on');
-        else if (scrollT == pj1CntArr[2]) $pj1Cnt.eq(2).addClass('on').siblings().removeClass('on');
+        //console.log(scrollT, pj1CntArr[0],pj1CntArr[1],pj1CntArr[2])
+        if (scrollT >= pj1CntArr[0] && scrollT < pj1CntArr[1]) $pj1Cnt.eq(0).addClass('on').siblings().removeClass('on');
+        else if (scrollT >= pj1CntArr[1] && scrollT < pj1CntArr[2]) $pj1Cnt.eq(1).addClass('on').siblings().removeClass('on');
+        else if (scrollT >= pj1CntArr[2]) $pj1Cnt.eq(2).addClass('on').siblings().removeClass('on');
 
     })
 
