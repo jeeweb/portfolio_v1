@@ -150,30 +150,6 @@ $(document).ready(function() {
 
         var typing = ['a coffee lover','a dog person', 'beer holic', 'a traveller', 'an Apple user', 'a hard worker', 'a quick-learner', 'passionate'];
         $('#aboutMe').humanTyping(typing);
-        
-/*
-        var typing = $('#aboutMe');
-        var typewriter = new Typewriter(typing, {loop: true});
-
-        typewriter.typeString('a coffee lover').pauseFor(2000).deleteChars(12)
-            .typeString('dog person').pauseFor(2000).deleteChars(10)
-            .typeString('beer holic').pauseFor(2000).deleteChars(10)
-            .typeString('traveller').pauseFor(2000).deleteChars(10)
-            .typeString('n Apple user').pauseFor(2000).deleteChars(12)
-            .typeString('hard worker').pauseFor(2000).deleteChars(11)
-            .typeString('quick-learner').pauseFor(2000).deleteAll()
-            .typeString('passionate').pauseFor(2000).deleteAll();
-         function typing () {
-            timer = setInterval(function () {
-                var $word = $profile.find('.typing > div > div');
-                
-                if ($word.is(':animated')) return false;
-                $word.append($word.children().first().clone()).animate({marginTop: -23}, function() {
-                    $(this).children().first().remove();
-                });
-            }, 2000)
-        } 
-        typing(); */
     })
 
     /* ====================== #project1 ======================== */
@@ -191,7 +167,7 @@ $(document).ready(function() {
 
     $(window).on('scroll', function() {
         scrollT = $(this).scrollTop();
-        
+        //console.log(scrollT)
         $cap.each(function (i) {
             capArr.push($(this).position().top);
 
