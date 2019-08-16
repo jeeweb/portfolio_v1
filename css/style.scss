@@ -413,15 +413,18 @@ $pj3Color : #164556;
     .sub1_img{@include pos(absolute, 60px, auto);right: 10px;}    
 }
 #content #project2 .cnt_sub2{
-    background: #e0e0e2; height: 2025px;
-    > *{float: left}
+    position: relative;background: #e0e0e2; height: 2025px;
+    > *{position: absolute;}
     .sub_img{
-        margin-top: -25px;height: 2050px;width: 1000px;overflow: hidden;
+        top: 120px;height: 2050px;width: 1000px;overflow: hidden;
         img{margin-left: -30px;}
     }
     .cnt_txt{
-        width: 35%;
-        .cnt_tit{margin-bottom: 600px;}
+        width: 35%; top: 150px; left: 65%;
+        .cnt_tit{
+            position: relative;margin-bottom: 600px; text-align: right; 
+            &:before{content: "";@include pos(absolute, 25px, 0);width: 150px;height: 5px;background: $pj2Color}
+        }
         .sub2_txt2{
             margin-top: 300px;
             .open_btn{display: inline-block;width: 150px;height: 150px;margin-top: 50px;}
@@ -444,7 +447,7 @@ $pj3Color : #164556;
 #content #project2 .cnt_sub3{
     position: relative;height: 2975px;overflow: hidden;
     .cnt_txt{
-        margin-left: 8%;width: 30%;
+        margin-left: 8%;width: 30%;z-index: 10;
         .cnt_tit{margin-bottom: 1650px}
     }
     img{@include pos(absolute, 100px, auto);right: -50px}
@@ -531,6 +534,7 @@ $pj3Color : #164556;
 /* ========== Responsive ========== */
 /* laptop 1440px */
 @media screen and (max-width: 1440px) {
+    body{font-size: 18px;}
     /* #main */
     #content #main .tit div{
         .pj_tit{font-size: 25px}
@@ -658,24 +662,35 @@ $pj3Color : #164556;
         height: 2400px;
         .cnt_txt{
             width: 32%;
-            &:before{width: 150px;} 
+            &:before{width: 150px;}
+            .cnt_tit{margin-bottom: 50px;} 
+            .text2 .sub1_txt3{margin-top: 50px;}
         }
         .sub1_img img{width: 800px;height: auto;}
     }
-    #content #project2 .cnt_sub3{
-        /* height:  */
-        .cnt_txt .cnt_tit{margin-bottom: 1000px;}
-        img{width: 800px;height: auto;}
+    #content #project2 .cnt_sub2{
+        height: 1900px;
+        .sub_img img{width: 800px; height: auto;margin-left: 0}
+        .cnt_txt{
+            left: 55%;
+            .cnt_tit{margin-bottom: 400px;}
+            .sub2_txt2{margin-top: 200px}
+        }
     }
-    /* 
+    
+
+    /* #project3 */
+
+    /*
     #content #project2 .cnt_sub3{
     position: relative;height: 2975px;overflow: hidden;
     .cnt_txt{
-        margin-left: 8%;width: 30%;
+        margin-left: 8%;width: 30%;z-index: 10;
         .cnt_tit{margin-bottom: 1650px}
     }
     img{@include pos(absolute, 100px, auto);right: -50px}
 }
+#content #project2 .bg_btm{background-image: url("../images/project2/pj2_btmbg.jpg");}
     */
 
     #footer p{position: absolute;bottom: 70px;right: 8%;font-size: 12px}   
