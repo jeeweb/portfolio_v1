@@ -235,7 +235,6 @@ $(document).ready(function() {
     /* ====================== #project2 ======================== */
     var $brush = $pj2.find('.overview #brush');
     var $pj2Cnt = $pj2.find('.cnt');
-    var pj2CntArr = new Array();
     
     $pj2.slideUp();
     $pj2.find('.cnt_main .main_img div button').on('click', function() {
@@ -248,7 +247,10 @@ $(document).ready(function() {
         else if (btnMain == 1 && current >= 4) return false;
         
         btnMain == 0? current-- : current++;
-        $pj2Main.stop().animate({marginTop: -513 * current}, 500)
+        
+        if ($pj2Main.height() == 2850) $pj2Main.stop().animate({marginTop: -513 * current}, 500);
+        else if ($pj2Main.height() == 2019) $pj2Main.stop().animate({marginTop: -403.8 * current}, 500)
+        
     });
 
     $(window).on('scroll', function() {

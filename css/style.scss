@@ -327,15 +327,15 @@ $pj3Color : #164556;
 }
 #content #project1 .cnt_sub2{
     position: relative;background: #e0e0e2;height: 1580px;
-    > *{float: left}
-    > img:first-child{margin-top: 120px}
+    > *{position: absolute;}
+    > img:first-child{top: 120px;left: -20px;}
     .sub2_txt{
-        position: relative;width: 670px;
-        &:before{content: "";@include pos(absolute, 176px, 0px);height: 5px;width: 80px;background: $pj1Color;}
-        .cnt_tit{margin: 150px 0 330px;text-align: right;}
+        width: 670px;left: 65%;top: 150px;
+        &:before{content: "";@include pos(absolute, 25px, 0px);height: 5px;width: 80px;background: $pj1Color;}
+        .cnt_tit{margin-bottom: 330px;text-align: right;}
     }
     button{
-        margin-top: 50px;
+        top: 740px;left: 65%;
         span{display: inline-block;margin-left: 10px;margin-top: 55px;font-size: 16px;}
     }
     .cap_modal{
@@ -371,10 +371,10 @@ $pj3Color : #164556;
     
 }
 #content #project2 .cnt_main{
-    background: #1e1e1e;color: #fff;height: 663px;
-    > div{float: left}
+    position: relative;background: #1e1e1e;color: #fff;height: 663px;
+    > div{position: absolute;top: 150px;}
     .main_img{
-        position: relative;margin-left: 8%;width: 889.2px;height: 513px;padding-right: 40px;overflow: hidden;
+        left: 8%;width: 889.2px;height: 513px;padding-right: 40px;overflow: hidden;
         ul {
             height: 2850px;
             li{
@@ -395,14 +395,15 @@ $pj3Color : #164556;
         }
     }
     .cnt_txt{  
-        width: 30%;margin-left: 20px;
+        width: 30%;top: 150px;left: 65%;
         .cnt_tit{margin-bottom: 170px}
     }
 }
 #content #project2 .cnt_sub1{
     position: relative;width: 100%;height: 3033px;
     .cnt_txt{
-        position: relative;width: 35%;height: 537px;margin-left: 8%;
+        position: relative;width: 35%;height: 537px;margin-left: 8%;z-index: 10;
+        &:before{content: "";@include pos(absolute, 25px, auto);right: 0px;height: 5px;width: 230px;background: $pj2Color;}
         .cnt_tit{margin-bottom: 100px;}
         .text2{
             @include pos(absolute, 95px, 0);@include opacity(0, 0);
@@ -528,8 +529,9 @@ $pj3Color : #164556;
 }
 
 /* ========== Responsive ========== */
-/* 데스크탑 1440px */
+/* laptop 1440px */
 @media screen and (max-width: 1440px) {
+    /* #main */
     #content #main .tit div{
         .pj_tit{font-size: 25px}
         &.on .pj_tit{font-size: 35px;}
@@ -544,6 +546,8 @@ $pj3Color : #164556;
             &.slider_pj3{top:-400px;right: 155px;width: 500px;height: 325px}
         }
     }
+
+    /* #profile */
     #content #profile .skills{
         top: 35%;
         button{font-size: 25px;}
@@ -576,6 +580,7 @@ $pj3Color : #164556;
         #aboutMe{width: 140px;height: 20px;}
     }
 
+    /* article.pj_detail */
     #content article.pj_detail{
         .overview .ov_txt{
             margin: 100px 0 100px 8%;
@@ -592,6 +597,7 @@ $pj3Color : #164556;
         }
     }
 
+    /* #project1 */
     #content #project1{
         .overview .ov_txt{
             width: 50%;
@@ -612,8 +618,64 @@ $pj3Color : #164556;
             .cnt .cnt_tit{margin-bottom: 100px;}
         }
     }
-    /* 
+    #content #project1 .cnt_sub1{
+        height: 2220px;
+        .sub1_txt{
+            width: 490px;
+            &:before{width: 150px}
+        }
+        .sub1_img{
+            width: 900px;
+            img{width: 900px;height: auto;}
+        }
+    } 
+    #content #project1 .cnt_sub2{
+        height: 1300px;
+        > img:first-child{width: 850px;height: auto;left: -50px;}
+        .sub2_txt{
+            left: 55%; width: 600px;
+            &:before{width: 70px;}
+            .cnt_tit{font-size: 45px;}
+        }
+        button{left: 55%;}
+        .cap_modal{top: 850px}
+    }
 
+    /* #project2 */
+    #content #project2 .overview .ov_txt{width: 48%;}
+    #content #project2 .cnt_main{
+        .main_img, .main_img ul li{width: 700px;height: 403.8px;}
+        .main_img {
+            ul{height: 2019px}
+            div{top: 160px}
+        }
+        .cnt_txt {
+            left: 62%;
+            .cnt_tit{margin-bottom: 60px;}
+        }
+    }
+    #content #project2 .cnt_sub1{
+        height: 2400px;
+        .cnt_txt{
+            width: 32%;
+            &:before{width: 150px;} 
+        }
+        .sub1_img img{width: 800px;height: auto;}
+    }
+    #content #project2 .cnt_sub3{
+        /* height:  */
+        .cnt_txt .cnt_tit{margin-bottom: 1000px;}
+        img{width: 800px;height: auto;}
+    }
+    /* 
+    #content #project2 .cnt_sub3{
+    position: relative;height: 2975px;overflow: hidden;
+    .cnt_txt{
+        margin-left: 8%;width: 30%;
+        .cnt_tit{margin-bottom: 1650px}
+    }
+    img{@include pos(absolute, 100px, auto);right: -50px}
+}
     */
 
     #footer p{position: absolute;bottom: 70px;right: 8%;font-size: 12px}   
