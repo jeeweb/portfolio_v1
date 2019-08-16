@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ============================ #main ============================= */
 #header {
   position: relative;
@@ -74,7 +75,8 @@
 #content #main .tit {
   position: absolute;
   top: 35%;
-  left: 8%; }
+  left: 8%;
+  z-index: 10; }
   #content #main .tit div * {
     vertical-align: middle;
     -webkit-transition: all 0.3s;
@@ -226,7 +228,6 @@
 #content #profile .graph {
   position: relative;
   width: 100%;
-  height: 100%;
   text-align: center; }
   #content #profile .graph .graph_bg {
     width: 600px;
@@ -366,6 +367,10 @@
 #content article.pj_detail .tit_top {
   position: relative;
   background: fixed no-repeat 50% 0;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   opacity: 0;
   filter: Alpha(opacity=0);
   z-index: 500; }
@@ -437,6 +442,16 @@
   -moz-transition: all 1s;
   -o-transition: all 1s;
   transition: all 1s; }
+#content article.pj_detail .cnt .line:after {
+  content: "";
+  position: absolute;
+  top: auto;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px; }
+#content article.pj_detail .cnt.on .line {
+  width: 100%; }
 #content article.pj_detail .cnt > div .cnt_tit {
   font-size: 50px; }
 #content article.pj_detail .cnt > div strong, #content article.pj_detail .cnt > div p {
@@ -446,6 +461,8 @@
   margin-bottom: 10px; }
 #content article.pj_detail .cnt > div p {
   word-break: keep-all; }
+  #content article.pj_detail .cnt > div p .line {
+    position: relative; }
 #content article.pj_detail .bg_btm {
   background: no-repeat 50% 50%;
   -webkit-background-size: cover;
@@ -454,6 +471,12 @@
   background-size: cover;
   width: 100%;
   height: 800px; }
+
+#content .quick_menu button {
+  width: 100%;
+  font-size: 16px;
+  border-top: 2px solid #000;
+  /* &:hover,&:focus{} */ }
 
 /* ========================== #project1 ============================== */
 #content #project1 .tit_top {
@@ -464,12 +487,6 @@
     border-top: 1px solid #ee1c25; }
     #content #project1 .overview .ov_txt > div > div strong {
       color: #ee1c25; }
-    #content #project1 .overview .ov_txt > div > div.ov3 .pl {
-      padding-left: 176px; }
-    #content #project1 .overview .ov_txt > div > div.ov4 .pl {
-      padding-left: 79.64px; }
-    #content #project1 .overview .ov_txt > div > div.ov6 .pl {
-      padding-left: 264.56px; }
   #content #project1 .overview .ov_txt .btn_site a {
     border: 1px solid #ee1c25;
     color: #ee1c25; }
@@ -481,7 +498,7 @@
 #content #project1 .overview #cap div {
   position: absolute; }
   #content #project1 .overview #cap div.cap1 {
-    bottom: 150px;
+    bottom: 140px;
     right: 5%; }
   #content #project1 .overview #cap div.cap2 {
     top: 250px;
@@ -492,18 +509,12 @@
 #content #project1 .cnt.on .color {
   color: #ee1c25; }
 #content #project1 .cnt.on .line:after {
-  content: "";
-  position: absolute;
-  top: auto;
-  left: 0;
-  bottom: -5px;
-  height: 2px;
   background: #ee1c25; }
 #content #project1 .cnt > div:first-child {
   padding-top: 150px; }
-  #content #project1 .cnt > div:first-child .cnt_tit {
-    margin-bottom: 140px; }
-  #content #project1 .cnt > div:first-child strong {
+#content #project1 .cnt .cnt_tit {
+  margin-bottom: 140px; }
+  #content #project1 .cnt .cnt_tit + strong {
     color: #ee1c25; }
 
 #content #project1 .cnt_main {
@@ -517,13 +528,14 @@
     position: relative;
     height: 2209px; }
     #content #project1 .cnt_main > div > * {
-      float: left; }
+      position: absolute; }
     #content #project1 .cnt_main > div img {
-      margin-top: -40px; }
+      left: 0;
+      top: -100px; }
   #content #project1 .cnt_main > div > div {
-    position: relative;
     width: 633px;
-    margin-left: -100px; }
+    left: 65%;
+    top: 150px; }
     #content #project1 .cnt_main > div > div:before {
       content: "";
       position: absolute;
@@ -575,8 +587,7 @@
 #content #project1 .cnt_sub2 {
   position: relative;
   background: #e0e0e2;
-  height: 1580px;
-  /* height: 391px */ }
+  height: 1580px; }
   #content #project1 .cnt_sub2 > * {
     float: left; }
   #content #project1 .cnt_sub2 > img:first-child {
@@ -604,15 +615,25 @@
       font-size: 16px; }
   #content #project1 .cnt_sub2 .cap_modal {
     position: absolute;
-    bottom: 150px;
+    top: 900px;
     right: 100px;
     width: 800px;
     height: 0;
-    background: url("../images/project1/pj1_sub2_modal.jpg") no-repeat 50% 50%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; }
+    -webkit-transition: height 0.5s;
+    -moz-transition: height 0.5s;
+    -o-transition: height 0.5s;
+    transition: height 0.5s; }
+    #content #project1 .cnt_sub2 .cap_modal.open {
+      height: 391px;
+      background: url("../images/project1/pj1_sub2_modal.jpg") no-repeat 50% 50%;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      -webkit-transition: height 0.5s;
+      -moz-transition: height 0.5s;
+      -o-transition: height 0.5s;
+      transition: height 0.5s; }
 
 #content #project1 .bg_btm {
   background-image: url("../images/project1/pj1_btmbg.jpg"); }
@@ -641,6 +662,10 @@
   padding-top: 150px; }
   #content #project2 .cnt > div strong {
     color: #99001c; }
+  #content #project2 .cnt.on .color {
+    color: #99001c; }
+  #content #project2 .cnt.on .line:after {
+    background: #99001c; }
 
 #content #project2 .cnt_main {
   background: #1e1e1e;
@@ -736,14 +761,15 @@
       margin-bottom: 600px; }
     #content #project2 .cnt_sub2 .cnt_txt .sub2_txt2 {
       margin-top: 300px; }
-      #content #project2 .cnt_sub2 .cnt_txt .sub2_txt2 i {
-        font-size: 30px;
-        margin-left: 10px; }
-      #content #project2 .cnt_sub2 .cnt_txt .sub2_txt2 span {
+      #content #project2 .cnt_sub2 .cnt_txt .sub2_txt2 .open_btn {
         display: inline-block;
-        font-size: 18px;
-        padding-left: 10px;
-        height: 30px; }
+        width: 150px;
+        height: 150px;
+        margin-top: 50px; }
+      #content #project2 .cnt_sub2 .cnt_txt .sub2_txt2 .photo_modal {
+        display: inline-block;
+        font-size: 16px;
+        margin-left: 10px; }
     #content #project2 .cnt_sub2 .cnt_txt .mask, #content #project2 .cnt_sub2 .cnt_txt .modal_cnt {
       display: none;
       position: fixed;
@@ -821,13 +847,16 @@
   overflow: hidden; }
   #content #project3 .overview #flash img {
     margin-right: -100px; }
+#content #project3 .cnt.on .color {
+  color: #ee1c25; }
+#content #project3 .cnt.on .line:after {
+  background: #ee1c25; }
 #content #project3 .cnt > div strong {
   color: #164556; }
 
 #content #project3 .cnt_main {
   position: relative;
   width: 100%;
-  padding-left: 3%;
   height: 800px;
   background: #1e1e1e;
   color: #fff;
@@ -870,7 +899,8 @@
       color: #ee1c25; }
 
 #content #project3 .cnt_sub1 {
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
   #content #project3 .cnt_sub1 .cnt_txt {
     padding-top: 150px;
     margin-left: 8%;
@@ -928,5 +958,158 @@
   to {
     opacity: 1;
     filter: Alpha(opacity=100); } }
+/* 데스크탑 1440px */
+@media screen and (max-width: 1440px) {
+  #content #main .tit div .pj_tit {
+    font-size: 25px; }
+  #content #main .tit div.on .pj_tit {
+    font-size: 35px; }
+  #content #main .tit div.on .btn_view .pj_type {
+    font-size: 20px;
+    margin-left: 28px; }
+
+  #content #main .slider {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 900px; }
+    #content #main .slider > div {
+      position: absolute;
+      opacity: 0.7;
+      filter: Alpha(opacity=70); }
+      #content #main .slider > div.slider_pj1 {
+        top: 32px;
+        right: 0;
+        width: 900px;
+        height: 585px; }
+      #content #main .slider > div.slider_pj2 {
+        top: 800px;
+        right: 155px;
+        width: 500px;
+        height: 325px; }
+      #content #main .slider > div.slider_pj3 {
+        top: -400px;
+        right: 155px;
+        width: 500px;
+        height: 325px; }
+
+  #content #profile .skills {
+    top: 35%; }
+    #content #profile .skills button {
+      font-size: 25px; }
+    #content #profile .skills a {
+      font-size: 20px;
+      bottom: -110px; }
+
+  #content #profile .graph {
+    margin-top: -10px; }
+    #content #profile .graph .graph_bg {
+      margin: 8% 0 0 45%; }
+    #content #profile .graph .coding, #content #profile .graph .graphic {
+      height: 750px;
+      left: calc(45% - 100px); }
+    #content #profile .graph .coding > div, #content #profile .graph .graphic > div {
+      font-size: 18px; }
+    #content #profile .graph .coding.on > div, #content #profile .graph .graphic.on > div {
+      font-size: 20px; }
+    #content #profile .graph .coding .html {
+      top: 40px; }
+    #content #profile .graph .coding .css {
+      left: 155px;
+      bottom: 70px; }
+    #content #profile .graph .coding .js {
+      left: 10px;
+      bottom: 230px; }
+    #content #profile .graph .coding .jq {
+      right: 33px; }
+    #content #profile .graph .coding .sass {
+      right: 163px;
+      bottom: 70px; }
+    #content #profile .graph .coding .bs {
+      left: 115px;
+      top: 108px; }
+    #content #profile .graph .graphic .ps {
+      right: 10px;
+      bottom: 230px; }
+    #content #profile .graph .graphic .ai {
+      left: 10px; }
+    #content #profile .graph .graphic .zeplin {
+      bottom: 0px;
+      left: calc(50% - 23px); }
+    #content #profile .graph .graphic .xd {
+      top: 96px;
+      right: 118px; }
+    #content #profile .graph .img_graph {
+      margin: 0 0 0 45%; }
+
+  #content #profile .typing {
+    bottom: 80px;
+    left: 350px;
+    font-size: 18px; }
+    #content #profile .typing #aboutMe {
+      width: 140px;
+      height: 20px; }
+
+  #content article.pj_detail .overview .ov_txt {
+    margin: 100px 0 100px 8%; }
+    #content article.pj_detail .overview .ov_txt > p {
+      margin-top: 25px;
+      font-size: 20px;
+      line-height: 1.5;
+      padding-bottom: 10px; }
+    #content article.pj_detail .overview .ov_txt > div > div {
+      font-size: 20px; }
+      #content article.pj_detail .overview .ov_txt > div > div.ov3 .pl {
+        padding-left: 150px; }
+      #content article.pj_detail .overview .ov_txt > div > div.ov4 .pl {
+        padding-left: 70px; }
+      #content article.pj_detail .overview .ov_txt > div > div.ov6 .pl {
+        padding-left: 225px; }
+    #content article.pj_detail .overview .ov_txt .btn_site a {
+      display: block;
+      font-size: 18px; }
+
+  #content #project1 .overview .ov_txt {
+    width: 50%; }
+    #content #project1 .overview .ov_txt .btn_site {
+      top: 40px; }
+      #content #project1 .overview .ov_txt .btn_site a + a {
+        margin-top: 10px;
+        margin-left: 0; }
+
+  #content #project1 .cnt_main > div img {
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
+    margin-left: -180px; }
+  #content #project1 .cnt_main > div > div {
+    width: 500px;
+    margin-left: -100px; }
+
+    /* 
+#content #project1 .cnt_main{
+    background: #1e1e1e;color: #fff;
+    &:after{content: "";display: block;clear: both;}
+    > div{
+        position: relative;height: 2209px;
+        > *{float: left}
+        img{margin-top: -40px;}
+    }
+    > div > div{
+        position: relative; width: 633px;margin-left: -100px;
+        &:before{content: "";@include pos(absolute, 26px, 0);height: 5px;width: 120px;background: $pj1Color;}
+        .cnt_tit{padding-left: 140px;}
+        + img{@include pos(absolute, 650px, auto);right: 25px}
+    }
+}
+
+    */
+  #footer p {
+    position: absolute;
+    bottom: 70px;
+    right: 8%;
+    font-size: 12px; } }
 
 /*# sourceMappingURL=style.css.map */

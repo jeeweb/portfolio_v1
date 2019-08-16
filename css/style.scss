@@ -83,7 +83,7 @@ $pj3Color : #164556;
     }
 }
 #content #main .tit{
-    @include pos(absolute, 35%, 8%);
+    @include pos(absolute, 35%, 8%);z-index: 10;
     div{
         *{vertical-align: middle;@include transition(all, 0.3s);}
         +div{margin-top: 50px}
@@ -142,7 +142,7 @@ $pj3Color : #164556;
     }
 }
 #content #profile .graph {
-    position: relative;width: 100%;height: 100%;text-align: center;
+    position: relative;width: 100%;text-align: center;
     .graph_bg{width: 600px;height: 600px;margin: 8% 0 0 40%;background: url("../images/profile/graph_bg.png") no-repeat 50% 50%;@include bgSizeCv;}
     .coding, .graphic{@include pos(absolute, -100px, calc(40% - 100px));width: 800px;height: 800px;}
     .coding > div, .graphic > div{
@@ -212,7 +212,7 @@ $pj3Color : #164556;
 }
 #content article.pj_detail{
     .tit_top{
-        position: relative;background: fixed no-repeat 50% 0;@include opacity(0, 0);z-index: 500;
+        position: relative;background: fixed no-repeat 50% 0;@include bgSizeCv;@include opacity(0, 0);z-index: 500;
         .logo{@include pos(absolute, 80px, 8%);}
         h3{position: absolute;bottom: 152px;left: 8%;font-size: 100px;font-family: NanumSqB;color: #fff;}
     }
@@ -242,13 +242,24 @@ $pj3Color : #164556;
         }
     }    
     .cnt .color, .cnt .line{@include transition(all, 1s)}
+    .cnt .line:after{content: "";@include pos(absolute, auto, 0);bottom: -4px;width: 0;height: 2px;}
+    .cnt.on .line{width: 100%}
     .cnt > div{            
         .cnt_tit{font-size: 50px;}
         strong, p{line-height: 1.5;}
         strong{font-size: 35px;margin-bottom: 10px;}
-        p{word-break: keep-all}
+        p{
+            word-break: keep-all;
+            .line{position: relative;}
+        }
     }
     .bg_btm{background: no-repeat 50% 50%;@include bgSizeCv;width: 100%;height: 800px;}
+}
+#content .quick_menu{
+    button{
+        width: 100%;font-size: 16px;border-top: 2px solid #000;
+        /* &:hover,&:focus{} */
+    }    
 }
 
 /* ========================== #project1 ============================== */
@@ -259,9 +270,6 @@ $pj3Color : #164556;
         > div > div{
             border-top: 1px solid $pj1Color;
             strong{color: $pj1Color}           
-            &.ov3 .pl{padding-left: 176px;}
-            &.ov4 .pl{padding-left: 79.64px}
-            &.ov6 .pl{padding-left: 264.56px}            
         }
         .btn_site a{
             border: 1px solid $pj1Color;color: $pj1Color;
@@ -271,18 +279,18 @@ $pj3Color : #164556;
     }
     .overview #cap div{
         position: absolute;
-        &.cap1{bottom: 150px;right: 5%}
+        &.cap1{bottom: 140px;right: 5%}
         &.cap2{top: 250px;right: 18%}
         &.cap3{top: 140px;right: 10%}
     }
     .cnt.on{
         .color{color: $pj1Color}
-        .line:after{content: "";@include pos(absolute, auto, 0);bottom: -5px;height: 2px;background: $pj1Color}
+        .line:after{background: $pj1Color}
     }
-    .cnt > div:first-child {
-        padding-top: 150px;
-        .cnt_tit{margin-bottom: 140px}
-        strong{color: $pj1Color} 
+    .cnt > div:first-child{padding-top: 150px;}
+    .cnt .cnt_tit{
+        margin-bottom: 140px;
+        + strong{color: $pj1Color} 
     }
 }
 #content #project1 .cnt_main{
@@ -290,11 +298,11 @@ $pj3Color : #164556;
     &:after{content: "";display: block;clear: both;}
     > div{
         position: relative;height: 2209px;
-        > *{float: left}
-        img{margin-top: -40px;}
+        > *{position: absolute;}
+        img{left: 0;top: -100px}
     }
     > div > div{
-        position: relative; width: 633px;margin-left: -100px;
+        width: 633px;left: 65%;top: 150px;
         &:before{content: "";@include pos(absolute, 26px, 0);height: 5px;width: 120px;background: $pj1Color;}
         .cnt_tit{padding-left: 140px;}
         + img{@include pos(absolute, 650px, auto);right: 25px}
@@ -324,7 +332,10 @@ $pj3Color : #164556;
         margin-top: 50px;
         span{display: inline-block;margin-left: 10px;margin-top: 55px;font-size: 16px;}
     }
-    .cap_modal{position: absolute;bottom: 150px;right: 100px;width: 800px;height: 0;background: url("../images/project1/pj1_sub2_modal.jpg") no-repeat 50% 50%;@include bgSizeCv;}/* height: 391px */
+    .cap_modal{
+        position: absolute;top: 900px;right: 100px;width: 800px;height: 0;@include transition(height, .5s);
+        &.open{height: 391px;background: url("../images/project1/pj1_sub2_modal.jpg") no-repeat 50% 50%;@include bgSizeCv;@include transition(height, .5s);}
+    }
 }
 #content #project1 .bg_btm{background-image: url("../images/project1/pj1_btmbg.jpg");}
 
@@ -343,9 +354,13 @@ $pj3Color : #164556;
         }
     }
     .overview #brush{@include pos(absolute, 140px, auto);right: 0}
-    .cnt {
+    .cnt{
         padding-top: 150px;
-        > div strong{color: $pj2Color}         
+        > div strong{color: $pj2Color}
+        &.on{
+            .color{color: $pj2Color}
+            .line:after{background: $pj2Color}
+        }         
     }
     
 }
@@ -402,8 +417,8 @@ $pj3Color : #164556;
         .cnt_tit{margin-bottom: 600px;}
         .sub2_txt2{
             margin-top: 300px;
-            i{font-size: 30px;margin-left: 10px;}
-            span{display: inline-block;font-size: 18px;padding-left: 10px;height: 30px;}
+            .open_btn{display: inline-block;width: 150px;height: 150px;margin-top: 50px;}
+            .photo_modal{display: inline-block;font-size: 16px;margin-left: 10px;}            
         }
         .mask, .modal_cnt{display: none;;position: fixed;z-indeX: 100}
         .mask{top: 0; left: 0; width: 100%;height: 100%;background: rgba(0,0,0,0.8)}
@@ -448,12 +463,16 @@ $pj3Color : #164556;
         @include pos(absolute, 0, auto);right: 0;overflow: hidden;
         img{margin-right: -100px}
     }
+    .cnt.on {
+        .color{color: $pj1Color}
+        .line:after{background: $pj1Color}
+    }
     .cnt > div {
         strong{color: $pj3Color} 
     }
 }
 #content #project3 .cnt_main{
-    position: relative;width: 100%;padding-left: 3%;height: 800px;background: #1e1e1e;color: #fff;padding-top: 150px;overflow: hidden;
+    position: relative;width: 100%;height: 800px;background: #1e1e1e;color: #fff;padding-top: 150px;overflow: hidden;
     .main_img{
         position: relative;width: 1000px;height: 650px;overflow: hidden;margin-left: 0;
         > div{position: absolute;left: 810px;top: 0;width: 1000px;height: 650px;background: no-repeat 50% 50%;@include bgSizeCv;@include opacity(0, 0)}
@@ -468,7 +487,7 @@ $pj3Color : #164556;
     }
 }
 #content #project3 .cnt_sub1{
-    position: relative;    
+    position: relative; overflow: hidden;   
     .cnt_txt{
         padding-top: 150px;margin-left: 8%;width: 30%;
         .cnt_tit{margin-bottom: 140px;}
@@ -501,4 +520,108 @@ $pj3Color : #164556;
 }
 @keyframes opacity{
     to{opacity: 1;filter: Alpha(opacity=100);}
+}
+
+/* 데스크탑 1440px */
+@media screen and (max-width: 1440px) {
+    #content #main .tit div{
+        .pj_tit{font-size: 25px}
+        &.on .pj_tit{font-size: 35px;}
+        &.on .btn_view .pj_type{font-size: 20px;margin-left: 28px;}
+    }
+    #content #main .slider{
+        position: absolute; right: 0;top: 0;width: 900px;
+        > div{
+            position: absolute;@include opacity(0.7, 70);
+            &.slider_pj1{top: 32px;right: 0;width: 900px;height: 585px}
+            &.slider_pj2{top: 800px;right: 155px;width: 500px;height: 325px}
+            &.slider_pj3{top:-400px;right: 155px;width: 500px;height: 325px}
+        }
+    }
+    #content #profile .skills{
+        top: 35%;
+        button{font-size: 25px;}
+        a{font-size: 20px;bottom: -110px}
+    }
+    #content #profile .graph{
+        margin-top: -10px;
+        .graph_bg{margin: 8% 0 0 45%;}
+        .coding, .graphic{height: 750px;left: calc(45% - 100px)}
+        .coding > div, .graphic > div{font-size: 18px}
+        .coding.on > div, .graphic.on > div{font-size: 20px;}
+        .coding{
+            .html{top: 40px}
+            .css{left: 155px;bottom: 70px;}
+            .js{left: 10px;bottom: 230px;}
+            .jq{right: 33px;}
+            .sass{right: 163px;bottom: 70px}
+            .bs{left: 115px;top: 108px}
+        }
+        .graphic{
+            .ps{right: 10px;bottom: 230px}
+            .ai{left: 10px;}
+            .zeplin{bottom: 0px;left: calc(50% - 23px)}
+            .xd{top: 96px; right: 118px}
+        }
+        .img_graph{margin: 0 0 0 45%;}
+    }
+    #content #profile .typing{
+        bottom: 80px;left: 350px;font-size: 18px;
+        #aboutMe{width: 140px;height: 20px;}
+    }
+
+    #content article.pj_detail{
+        .overview .ov_txt{
+            margin: 100px 0 100px 8%;
+            > p{margin-top: 25px;font-size: 20px;line-height: 1.5;padding-bottom: 10px}
+            > div > div{
+                font-size: 20px;
+                &.ov3 .pl{padding-left: 150px;}
+                &.ov4 .pl{padding-left: 70px}
+                &.ov6 .pl{padding-left: 225px}
+            }
+            .btn_site{
+                a{display: block;font-size: 18px;} 
+            }
+        }
+    }
+
+    #content #project1{
+        .overview .ov_txt{
+            width: 50%;
+            .btn_site {
+                top: 40px;
+                a + a{margin-top: 10px;margin-left: 0}
+            }
+        }
+    }
+
+    #content #project1 .cnt_main{
+        > div{
+            img{@include transform(scale(0.8));margin-left: -180px}
+        }
+        > div > div{
+            width: 500px;margin-left: -100px;
+        }
+    }
+    /* 
+#content #project1 .cnt_main{
+    background: #1e1e1e;color: #fff;
+    &:after{content: "";display: block;clear: both;}
+    > div{
+        position: relative;height: 2209px;
+        > *{float: left}
+        img{margin-top: -40px;}
+    }
+    > div > div{
+        position: relative; width: 633px;margin-left: -100px;
+        &:before{content: "";@include pos(absolute, 26px, 0);height: 5px;width: 120px;background: $pj1Color;}
+        .cnt_tit{padding-left: 140px;}
+        + img{@include pos(absolute, 650px, auto);right: 25px}
+    }
+}
+
+    */
+
+    #footer p{position: absolute;bottom: 70px;right: 8%;font-size: 12px}   
 }
