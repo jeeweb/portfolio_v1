@@ -266,12 +266,12 @@ $(document).ready(function() {
         var sub2T = $pj2.find('.cnt_sub2').offset().top;
         console.log(sub1T,sub2T, scrollT);
 
-        if (scrollT >= sub1T && scrollT < (sub2T - 700)) $pj2.find('.cnt_sub1 .cnt_txt').css({position: 'fixed',top: 150});
-        else if ( scrollT >= (sub2T - 700) || scrollT < sub1T ) $pj2.find('.cnt_sub1 .cnt_txt').css({position: 'relative',top: 0});
+        if (scrollT >= sub1T && scrollT < (sub2T - 1000)) $pj2.find('.cnt_sub1 .cnt_txt').css({position: 'fixed',top: 150});
+        else if ( scrollT >= (sub2T - 1000) || scrollT < sub1T ) $pj2.find('.cnt_sub1 .cnt_txt').css({position: 'relative',top: sub2T - sub1T - 1000 });
        /*  if (scrollT >= sub1T && scrollT < (sub1T + 2200)) $pj2.find('.cnt_sub1 .cnt_txt').css({position: 'fixed',top: 150});
         else if ( scrollT >= (sub1T + 2200) || scrollT < sub1T ) $pj2.find('.cnt_sub1 .cnt_txt').css({position: 'relative',top: 0}); */
 
-        if (scrollT >= (sub1T + 1000)) {
+        if (scrollT >= (sub1T * 1.3)) {
             $pj2.find('.cnt_sub1 .cnt_txt .sub1_txt1').stop().animate({marginTop: -50, opacity: 0, filter: 'Alpha(opacity=0)'},100);
             $pj2.find('.cnt_sub1 .cnt_txt .text2').stop().animate({marginTop: 0, opacity: 1, filter: 'Alpha(opacity=100)'},100);
         } else {
