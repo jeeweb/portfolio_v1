@@ -164,6 +164,39 @@ $(document).ready(function() {
         $('#aboutMe').humanTyping(typing);
     })
 
+    /* ====================== #content ======================== */
+    $('#content article .tit_top .logo a').on('click', function() {
+        location.reload();
+    });
+
+    $pjBtn.children('button').on('click', function (e) {
+        e.preventDefault();
+
+        var pjNum = $(this).index();
+        var currentPj = $('#content article.show').index() - 1;
+        //console.log(pjNum, currentPj);
+        if (pjNum == currentPj) return false;
+        else {
+            $pjTop.eq(pjNum).stop().animate({height: winH}, 'slow', function() {
+                $('#pjWrap > article').eq(pjNum).show().addClass('show').siblings('article').removeClass('show').hide();
+                $('#pjWrap > article').eq(pjNum).find('.tit_top').css({height: winH}).delay(300).animate({opacity: 1, filter:'Alpha(opacity=100)'});
+                $(this).delay(500).animate({height: 0});
+                $('#pjWrap > article').eq(pjNum).find('.cnt').each(function (i) {
+                    cntArr.push($(this).offset().top);
+                });
+                //console.log(cntArr);
+                $('html, body').stop().animate({scrollTop: 0});
+            });
+        }
+    });
+
+    $pjBtn.find('.top_btn').on('click', function (e) {
+        e.preventDefault();
+
+        $('html, body').stop().animate({scrollTop: winH});
+        $('#content article.show .overview').find('.btn_site a').focus();
+    });
+
     /* ====================== #project1 ======================== */
     $pj1.slideUp();
     var $cap = $pj1.find('.overview #cap div');
@@ -186,7 +219,7 @@ $(document).ready(function() {
 
             var y = (scrollT - start) * (max - min) / (end - start) + min;
             $(this).css({top: y})
-            console.log(capArr);
+            //console.log(capArr);
         });
         
         //console.log(scrollT, CntArr[0],CntArr[1],CntArr[2])
@@ -350,7 +383,5 @@ $(document).ready(function() {
     });
 
 
-   $('#content article .tit_top .logo a').on('click', function() {
-        location.reload();
-    });
+   
 });
