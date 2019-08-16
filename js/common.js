@@ -9,18 +9,23 @@ $(document).ready(function() {
     var $mainSlider = $('#content #main .slider') 
     var $profile = $('#content #profile');
     var $profGrph = $profile.find('.graph');
-    var $pjTop = $('#content #pjWrap #pjImg > div');
-    var $pj1 = $('#content #pjWrap #project1');
-    var $pj2 = $('#content #pjWrap #project2');
-    var $pj2Main = $('#content #pjWrap #project2 .cnt_main .main_img ul');
-    var $pj3 = $('#content #pjWrap #project3');
+    var $pjWrap = $('#content #pjWrap');
+    var $pjTop = $pjWrap.find('#pjImg > div');
+    var $pj1 = $pjWrap.find('#project1');
+    var $pj2 = $pjWrap.find('#project2');
+    var $pj2Main = $pj2.find('.cnt_main .main_img ul');
+    var $pj3 = $pjWrap.find('#project3');
+    var $pjBtn = $pjWrap.find('.quick_menu');
 
     /* ====================== #main ======================== */
     var i = 0;
     var timer;
     var current = 0;
     var nextPj;
-    
+    var cntArr = new Array();
+
+    $pjBtn.hide();
+
     $('#header .logo a').on('click', function() {
         location.reload();        
     });
@@ -31,6 +36,7 @@ $(document).ready(function() {
 
     $mainBg.css({height: winH});
     $mainSlider.css({height: winH,overflow:'hidden'});
+    
     $mainTit.find('.show').on('click', function(e) {
         e.preventDefault();
         nextPj = $(this).parent().index();
@@ -104,19 +110,25 @@ $(document).ready(function() {
         e.preventDefault();
         clearInterval(timer);
         $main.hide();
+        $pjBtn.show();
+
         $('#header').hide();
 
         var pjNum = $(this).parent().index();
         //console.log(pjNum);
         $pjTop.eq(pjNum).stop().animate({height: winH}, 'slow', function() {
-            $('#pjWrap > article').eq(pjNum).show().find('.tit_top').css({height: winH}).delay(300).animate({opacity: 1, filter:'Alpha(opacity=100)'});
+            $('#pjWrap > article').eq(pjNum).show().addClass('show').find('.tit_top').css({height: winH}).delay(300).animate({opacity: 1, filter:'Alpha(opacity=100)'});
             $(this).delay(500).animate({height: 0});
+            $('#pjWrap > article').eq(pjNum).find('.cnt').each(function (i) {
+                cntArr.push($(this).offset().top);
+            });
+            //console.log(cntArr);
         });
     });
 
     /* ====================== #profile ======================== */
     $profile.hide();
-    
+
     $('#header .util .profile a').on('click', function() {
         clearInterval(timer);
         $main.hide();
@@ -158,13 +170,7 @@ $(document).ready(function() {
     var capArr = new Array();
     //console.log(capArr);
     var $pj1Cnt = $pj1.find('.cnt');
-    var pj1CntArr = new Array();
     //console.log($pj1.find('.cnt_main').offset().top);
-
-    $pj1Cnt.each(function (j) {
-        pj1CntArr.push($(this).offset().top + winH);
-    })
-    //console.log(pj1CntArr);
 
     $(window).on('scroll', function() {
         scrollT = $(this).scrollTop();
@@ -180,18 +186,25 @@ $(document).ready(function() {
 
             var y = (scrollT - start) * (max - min) / (end - start) + min;
             $(this).css({top: y})
+            console.log(capArr);
         });
-        //console.log(scrollT, pj1CntArr[0],pj1CntArr[1],pj1CntArr[2])
-        if (scrollT >= pj1CntArr[0] && scrollT < pj1CntArr[1]) $pj1Cnt.eq(0).addClass('on').siblings().removeClass('on');
-        else if (scrollT >= pj1CntArr[1] && scrollT < pj1CntArr[2]) $pj1Cnt.eq(1).addClass('on').siblings().removeClass('on');
-        else if (scrollT >= pj1CntArr[2]) $pj1Cnt.eq(2).addClass('on').siblings().removeClass('on');
-
-    })
+        
+        //console.log(scrollT, CntArr[0],CntArr[1],CntArr[2])
+        if ($pj1.hasClass('show') && scrollT >= cntArr[0] - 100 && scrollT < cntArr[1]) $pj1Cnt.eq(0).addClass('on').siblings().removeClass('on');
+        else if ($pj1.hasClass('show') && scrollT >= cntArr[1] - 100 && scrollT < cntArr[2]) $pj1Cnt.eq(1).addClass('on').siblings().removeClass('on');
+        else if ($pj1.hasClass('show') && scrollT >= cntArr[2] - 100) $pj1Cnt.eq(2).addClass('on').siblings().removeClass('on');
+    });
+    $pj1.find('.cnt_sub2 button').on('click', function (e) {
+        e.preventDefault();
+        $(this).next().toggleClass('open');
+    });
 
     /* ====================== #project2 ======================== */
-    $pj2.slideUp();
     var $brush = $pj2.find('.overview #brush');
-
+    var $pj2Cnt = $pj2.find('.cnt');
+    var pj2CntArr = new Array();
+    
+    $pj2.slideUp();
     $pj2.find('.cnt_main .main_img div button').on('click', function() {
         if ($pj2Main.is(':animated')) return false;
         
@@ -227,6 +240,12 @@ $(document).ready(function() {
             $pj2.find('.cnt_sub1 .cnt_txt .sub1_txt1').stop().animate({marginTop: 0, opacity: 1, filter: 'Alpha(opacity=100)'},100);
             $pj2.find('.cnt_sub1 .cnt_txt .text2').stop().animate({marginTop: 0, opacity: 0, filter: 'Alpha(opacity= 0)'},100);
         }
+
+         //console.log(scrollT, cntArr[0],cntArr[1],cntArr[2],cntArr[3])
+         if ($pj2.hasClass('show') && scrollT >= cntArr[0] - 100 && scrollT < cntArr[1]) $pj2Cnt.eq(0).addClass('on').siblings().removeClass('on');
+         else if ($pj2.hasClass('show') && scrollT >= cntArr[1] - 100 && scrollT < cntArr[2]) $pj2Cnt.eq(1).addClass('on').siblings().removeClass('on');
+         else if ($pj2.hasClass('show') && scrollT >= cntArr[2] - 100 && scrollT < cntArr[3]) $pj2Cnt.eq(2).addClass('on').siblings().removeClass('on');
+         else if ($pj2.hasClass('show') && scrollT >= cntArr[3] - 100) $pj2Cnt.eq(3).addClass('on').siblings().removeClass('on');
     });
     
     function modal(){
@@ -268,14 +287,21 @@ $(document).ready(function() {
     modal();
 
     /* ====================== #project3 ======================== */
-    $pj3.slideUp();
-    
     var timerWheel = 0;
     var $cntDetail = $pj3.find('.cnt_main .main_img div');
+    var $pj3Cnt = $pj3.find('.cnt');
+    var pj3CntArr = new Array();
+
     var tgIdx = 0;
     var total = $cntDetail.length;
     //console.log(total);
     var $flash = $pj3.find('.overview #flash img');
+    
+    $pj3.slideUp();
+
+    $pj3Cnt.each(function (j) {
+        pj3CntArr.push($(this).offset().top + winH);
+    })
 
     $(window).on('scroll', function () {
         clearTimeout(timer);
@@ -285,6 +311,11 @@ $(document).ready(function() {
         var x = 100 - (scrollT - overviewT)*0.2;
         //console.log(scrollT,y);
         $flash.css({marginRight: -x});
+
+        //console.log(scrollT, cntArr[0], cntArr[1], cntArr[2])
+        if ($pj3.hasClass('show') && scrollT >= cntArr[0] - 100 && scrollT < cntArr[1]) $pj3Cnt.eq(0).addClass('on').siblings().removeClass('on');
+        else if ($pj3.hasClass('show') && scrollT >= cntArr[1] - 100 && scrollT < cntArr[2]) $pj3Cnt.eq(1).addClass('on').siblings().removeClass('on');
+        else if ($pj3.hasClass('show') && scrollT >= cntArr[2] - 100) $pj3Cnt.eq(2).addClass('on').siblings().removeClass('on');
     });
 
     $pj3.find('.cnt_main').on('mousewheel DOMMouseScroll', function (e) {
