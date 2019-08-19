@@ -962,6 +962,18 @@
     left: auto;
     left: 60%;
     width: 30%; }
+    #content #project3 .cnt_main .cnt_txt .cnt_tit {
+      position: relative;
+      padding-left: 140px;
+      margin-bottom: 100px; }
+      #content #project3 .cnt_main .cnt_txt .cnt_tit:before {
+        content: "";
+        position: absolute;
+        top: 25px;
+        left: 0;
+        width: 120px;
+        height: 5px;
+        background: #164556; }
     #content #project3 .cnt_main .cnt_txt strong {
       color: #ee1c25; }
 
@@ -969,40 +981,61 @@
   position: relative;
   overflow: hidden; }
   #content #project3 .cnt_sub1 .cnt_txt {
+    position: relative;
     padding-top: 150px;
     margin-left: 8%;
     width: 30%; }
+    #content #project3 .cnt_sub1 .cnt_txt:before {
+      content: "";
+      position: absolute;
+      top: 175px;
+      left: auto;
+      right: 0;
+      width: 90px;
+      height: 5px;
+      background: #164556; }
     #content #project3 .cnt_sub1 .cnt_txt .cnt_tit {
       margin-bottom: 140px; }
     #content #project3 .cnt_sub1 .cnt_txt .sub1_txt2 {
       position: absolute;
       top: 1000px;
-      left: 60%;
+      left: 160%;
       width: 550px; }
   #content #project3 .cnt_sub1 .sub1_img1 {
     position: absolute;
     top: 80px;
     left: 37%;
-    -webkit-transform: scale(0.9);
-    -moz-transform: scale(0.9);
-    -o-transform: scale(0.9);
-    -ms-transform: scale(0.9);
-    transform: scale(0.9); }
+    width: 900px;
+    height: auto; }
   #content #project3 .cnt_sub1 .sub1_img2 {
     margin-top: 200px; }
 
 #content #project3 .cnt_sub2 {
+  position: relative;
   background: #e0e0e2;
   height: 2066px;
   padding-top: 150px; }
   #content #project3 .cnt_sub2 > * {
-    float: left; }
+    position: absolute;
+    top: 150px; }
   #content #project3 .cnt_sub2 img {
+    left: 0;
     margin-top: -28px; }
   #content #project3 .cnt_sub2 .cnt_txt {
+    left: 60%;
     width: 30%; }
     #content #project3 .cnt_sub2 .cnt_txt .cnt_tit {
-      margin-bottom: 500px; }
+      position: relative;
+      margin-bottom: 500px;
+      padding-left: 50px; }
+      #content #project3 .cnt_sub2 .cnt_txt .cnt_tit:before {
+        content: "";
+        position: absolute;
+        top: 25px;
+        left: 0;
+        width: 40px;
+        height: 5px;
+        background: #164556; }
 
 #content #project3 .bg_btm {
   background-image: url("../images/project3/pj3_btmbg.jpg"); }
@@ -1246,6 +1279,32 @@
     right: 0; }
 
   /* #project3 */
+  #content #project3 .cnt_main .main_img, #content #project3 .cnt_main .main_img > div {
+    width: 800px;
+    height: 520px; }
+
+  #content #project3 .cnt_sub1 .sub1_img1 {
+    width: 800px;
+    height: auto;
+    left: 43%;
+    top: 130px; }
+  #content #project3 .cnt_sub1 .sub1_img2 {
+    width: 800px;
+    height: auto; }
+
+  #content #project3 .cnt_sub2 img {
+    width: 800px;
+    height: auto; }
+  #content #project3 .cnt_sub2 .cnt_txt {
+    width: 35%;
+    left: 58%; }
+    #content #project3 .cnt_sub2 .cnt_txt .cnt_tit {
+      font-size: 45px;
+      padding-left: 130px;
+      margin-bottom: 300px; }
+      #content #project3 .cnt_sub2 .cnt_txt .cnt_tit:before {
+        width: 110px; }
+
   #footer p {
     position: absolute;
     bottom: 70px;

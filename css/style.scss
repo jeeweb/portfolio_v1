@@ -74,7 +74,6 @@ $pj3Color : #164556;
 #content #main{
     .bg{    //스크립트로 height값 불러오기
         @include pos(fixed, 0, 0);width: 100%;height: 100%;
-        //&.on{display: block;}
         .bg_img{background-repeat: no-repeat;background-image: url("../images/main/bg_pj1.jpg");@include bgSizeCv;width: 100%;height: 100%;}
         .bg_color{
             @include pos(absolute, 0, 0);
@@ -497,26 +496,34 @@ $pj3Color : #164556;
     }
     .cnt_txt{
         @include pos(absolute, 150px, auto);left: 60%;width: 30%;
+        .cnt_tit{
+            position: relative;padding-left: 140px;margin-bottom: 100px;
+            &:before{content: "";@include pos(absolute, 25px, 0);width: 120px;height: 5px;background: $pj3Color}
+        }
         strong{color: $pj1Color}
     }
 }
 #content #project3 .cnt_sub1{
     position: relative; overflow: hidden;   
     .cnt_txt{
-        padding-top: 150px;margin-left: 8%;width: 30%;
+        position: relative;padding-top: 150px;margin-left: 8%;width: 30%;
+        &:before{content: "";@include pos(absolute, 175px, auto);right: 0;width: 90px;height: 5px; background: $pj3Color}
         .cnt_tit{margin-bottom: 140px;}
-        .sub1_txt2{@include pos(absolute, 1000px,60%);width: 550px;}
+        .sub1_txt2{@include pos(absolute, 1000px,160%);width: 550px;}
     }
-    .sub1_img1{@include pos(absolute, 80px, 37%);@include transform(scale(0.9))}
+    .sub1_img1{@include pos(absolute, 80px, 37%);width: 900px; height: auto}
     .sub1_img2{margin-top: 200px;}
 }
 #content #project3 .cnt_sub2{
-    background: #e0e0e2;height: 2066px;padding-top: 150px;
-    > *{float: left}
-    img{margin-top: -28px}
+    position: relative;background: #e0e0e2;height: 2066px;padding-top: 150px;
+    > *{position: absolute;top: 150px;}
+    img{left: 0;margin-top: -28px}
     .cnt_txt{
-        width: 30%;
-        .cnt_tit{margin-bottom: 500px;}
+        left: 60%;width: 30%;
+        .cnt_tit{
+            position: relative;margin-bottom: 500px;padding-left: 50px;
+            &:before{content: "";@include pos(absolute, 25px,0);width: 40px; height: 5px; background: $pj3Color}
+        }
     }
 }
 #content #project3 .bg_btm{background-image: url("../images/project3/pj3_btmbg.jpg");}
@@ -687,8 +694,21 @@ $pj3Color : #164556;
     }
 
     /* #project3 */
+    #content #project3 .cnt_main .main_img, #content #project3 .cnt_main .main_img > div{width: 800px;height: 520px;}
+    #content #project3 .cnt_sub1{
+        .sub1_img1{width: 800px; height: auto;left: 43%;top: 130px;}
+        .sub1_img2{width: 800px; height: auto}
+    }
+    #content #project3 .cnt_sub2{
+        img{width: 800px;height: auto;}
+        .cnt_txt{
+            width: 35%;left: 58%;
+            .cnt_tit{
+                font-size: 45px;padding-left: 130px;margin-bottom: 300px;
+                &:before{width: 110px;}
+            }
 
-    
-
+        }
+    }
     #footer p{position: absolute;bottom: 70px;right: 8%;font-size: 12px}   
 }
