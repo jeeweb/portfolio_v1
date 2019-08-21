@@ -18,6 +18,7 @@ $(document).ready(function() {
     var $pj3 = $pjWrap.find('#project3');
     var $pjBtn = $pjWrap.find('.quick_menu');
     var laptopSize = 1440;
+    var tabletSize = 768;
     var mobileSize = 828;
     var isLaptop = $(window).width() <= laptopSize? true : false;
     var isMobile = $(window).width() <= mobileSize? true : false;
@@ -97,10 +98,14 @@ $(document).ready(function() {
             $mainSlider.children().eq(nextPj).addClass('on').stop().animate({top: 132,right: 0,width: 950,height: 635}).find('.sub').removeAttr('style').parent().siblings().removeClass('on');
             $mainSlider.children().eq(nextPj2).stop().animate({top: 800,right: 175,width: 540,height: 351}).find('.sub').hide();
             $mainSlider.children().eq(current).stop().animate({top:-300,right: 175,width: 540,height: 351}).find('.sub').hide();
-        } else {
+        } else if (winWid <= laptopSize && winWid > tabletSize) {
             $mainSlider.children().eq(nextPj).addClass('on').stop().animate({top: 85,right: 0,width: 900,height: 585}).find('.sub').removeAttr('style').parent().siblings().removeClass('on');
             $mainSlider.children().eq(nextPj2).stop().animate({top: 700,right: 155,width: 500,height: 325}).find('.sub').hide();
             $mainSlider.children().eq(current).stop().animate({top:-300,right: 155,width: 500,height: 325}).find('.sub').hide();
+        } else if (winWid <= tabletSize) {
+            $mainSliderV.children().eq(nextPj).addClass('on').stop().animate({left: (winWid * 0.5 - 153),width: 350,height: '45%'}).siblings().removeClass('on');
+            $mainSliderV.children().eq(nextPj2).stop().animate({left: (winWid - 70),width: 250,height: '40%'});
+            $mainSliderV.children().eq(current).stop().animate({left:-180,width: 250,height: '40%'});
         }
                 
         current = nextPj;
