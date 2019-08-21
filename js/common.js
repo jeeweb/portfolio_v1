@@ -54,7 +54,6 @@ $(document).ready(function() {
 
     $mainBg.css({height: winH});
     $mainSlider.css({height: winH,overflow:'hidden'});
-    $mainSliderV.css({height: winH,overflow:'hidden'});
     
     $mainTit.find('.show').on('click', function(e) {
         e.preventDefault();
