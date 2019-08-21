@@ -21,7 +21,7 @@
     -o-transition: $val $sec;
     transition: $val $sec;
 }
-@mixin transform($val){
+@mixin transform($val){ 
     -webkit-transform: $val;
     -moz-transform: $val;
     -o-transform: $val;
@@ -43,22 +43,23 @@ $pj2Color : #99001c;
 $pj3Color : #164556;
 
 /* ============================ #main ============================= */
-
 #header{
     position: relative;color: #fff;z-index: 800;
     .logo{
         @include pos(fixed, 80px, 8%);
-        a .logo_w{@include pos(absolute, 0, 0);}
+        a{display: block;width: 71px;height: 57px;}
+        a img{@include pos(absolute, 0, 0);}
+        a .logo_b{display: none}
     }
     .util{
         @include pos(fixed, auto, 8%);bottom: 80px;
-        .project, .fa-on, .profile .fa-laugh, .profile span, .mail span{display: none}
+        .project, .fa-on, .profile .fa-laugh, ul li a span{display: none}
         ul li{
             position: relative;
             +li{margin-top: 25px}
             &:hover .fa-off, a:focus .fa-off{display: none}
-            &:hover .fa-on, a:focus .fa-on, &:hover span.msg{display: inline-block}
-            &.select .fa-on, &.select .msg{display: inline-block}
+            &:hover .fa-on, a:focus .fa-on, &:hover span.msg{display: block}
+            &.select .fa-on, &.select .msg{display: block}
             a{
                 display: inline-block;width: 180px;@include alignMid(36px);vertical-align: middle;
                 i{
@@ -123,7 +124,7 @@ $pj3Color : #164556;
         .mask:hover, .mask a:focus{background: #000;@include opacity(0.5, 50);z-index: 5}
     }
 }
-
+#content #main .slider_v{display: none;}
 /* ============================ #profile ============================= */
 #content #profile{
     @include pos(absolute, 0, 0);width: 100%;z-index: 300;
@@ -305,13 +306,13 @@ $pj3Color : #164556;
     > div{
         position: relative;height: 2209px;
         > *{position: absolute;}
-        img{left: 0;top: -100px}
+        img{left: 0;top: 110px}
     }
     > div > div{
-        width: 633px;left: 65%;top: 150px;
+        width: 633px;left: 60%;top: 150px;
         &:before{content: "";@include pos(absolute, 26px, 0);height: 5px;width: 120px;background: $pj1Color;}
         .cnt_tit{padding-left: 140px;}
-        + img{@include pos(absolute, 680px, 58%)}
+        + img{@include pos(absolute, 680px, 60%)}
     }
 }
 #content #project1 .cnt_sub1{
@@ -366,6 +367,10 @@ $pj3Color : #164556;
         &.on{
             .color{color: $pj2Color}
             .line:after{background: $pj2Color}
+        }
+        .cnt_txt{
+            position: relative;
+            &:before{content: "";position: absolute;height: 5px;background: $pj2Color;}
         }         
     }
     
@@ -395,15 +400,15 @@ $pj3Color : #164556;
         }
     }
     .cnt_txt{  
-        width: 30%;top: 150px;left: 65%;
-        .cnt_tit{margin-bottom: 170px}
+        width: 30%;top: 0px;left: 60%;
+        .cnt_tit{margin-bottom: 150px}
     }
 }
 #content #project2 .cnt_sub1{
     position: relative;width: 100%;height: 3033px;
     .cnt_txt{
-        position: relative;width: 35%;height: 537px;margin-left: 8%;
-        &:before{content: "";@include pos(absolute, 25px, auto);right: 0px;height: 5px;width: 230px;background: $pj2Color;}
+        width: 35%;height: 537px;margin-left: 8%;
+        &:before{top: 25px;right: 0px;width: 350px;}/* content: "";@include pos(absolute, 25px, auto);right: 0px;height: 5px;width: 230px;background: $pj2Color; */
         .cnt_tit{margin-bottom: 100px;}
         .text2{
             @include pos(absolute, 95px, 0);@include opacity(0, 0);
@@ -413,18 +418,16 @@ $pj3Color : #164556;
     .sub1_img{@include pos(absolute, 60px, auto);right: 10px;}    
 }
 #content #project2 .cnt_sub2{
-    position: relative;background: #e0e0e2; height: 2025px;
+    position: relative;background: #e0e0e2; height: 2020px;
     > *{position: absolute;}
     .sub_img{
-        top: 120px;height: 2050px;width: 1000px;overflow: hidden;
+        top: 120px;left: 5%;height: 2050px;width: 1000px;overflow: hidden;
         img{margin-left: -30px;}
     }
     .cnt_txt{
-        width: 35%; top: 150px; left: 65%;
-        .cnt_tit{
-            position: relative;margin-bottom: 600px; text-align: right; 
-            &:before{content: "";@include pos(absolute, 25px, 0);width: 150px;height: 5px;background: $pj2Color}
-        }
+        width: 30%; top: 150px; left: 60%;
+        &:before{top: 25px;left: 0;width: 200px;}/* content: "";@include pos(absolute, 25px, 0);width: 150px;height: 5px;background: $pj2Color */
+        .cnt_tit{margin-bottom: 600px; text-align: right;}
         .sub2_txt2{
             margin-top: 300px;
             .open_btn{display: inline-block;width: 150px;height: 150px;margin-top: 50px;}
@@ -448,10 +451,8 @@ $pj3Color : #164556;
     position: relative;height: 2975px;overflow: hidden;
     .cnt_txt{
         margin-left: 8%;width: 30%;
-        .cnt_tit{
-            position: relative;margin-bottom: 1650px;
-            &:before{content: "";@include pos(absolute, 25px, auto);right: 0;width: 110px;height: 5px;background: $pj2Color}
-        }
+        &:before{top: 25px;right: 0;width: 230px;}/* content: "";@include pos(absolute, 25px, auto);right: 0;width: 110px;height: 5px;background: $pj2Color */
+        .cnt_tit{margin-bottom: 1650px;}
     }
     img{@include pos(absolute, 100px, auto);right: -50px}
 }
@@ -476,12 +477,17 @@ $pj3Color : #164556;
         @include pos(absolute, 0, auto);right: 0;overflow: hidden;
         img{margin-right: -100px}
     }
-    .cnt.on {
-        .color{color: $pj1Color}
-        .line:after{background: $pj1Color}
-    }
-    .cnt > div {
-        strong{color: $pj3Color} 
+    .cnt{
+        &.on {
+            .color{color: $pj1Color}
+            .line:after{background: $pj1Color}
+        }
+        > div strong{color: $pj3Color} 
+        .cnt_txt{
+            position: relative;
+            &:before{content: "";position: absolute;height: 5px;background: $pj3Color}
+        }
+
     }
 }
 #content #project3 .cnt_main{
@@ -496,10 +502,7 @@ $pj3Color : #164556;
     }
     .cnt_txt{
         @include pos(absolute, 150px, auto);left: 60%;width: 30%;
-        .cnt_tit{
-            position: relative;padding-left: 140px;margin-bottom: 100px;
-            &:before{content: "";@include pos(absolute, 25px, 0);width: 120px;height: 5px;background: $pj3Color}
-        }
+        .cnt_tit{margin-bottom: 100px;}
         strong{color: $pj1Color}
     }
 }
@@ -507,29 +510,29 @@ $pj3Color : #164556;
     position: relative; overflow: hidden;   
     .cnt_txt{
         position: relative;padding-top: 150px;margin-left: 8%;width: 30%;
-        &:before{content: "";@include pos(absolute, 175px, auto);right: 0;width: 90px;height: 5px; background: $pj3Color}
+        &:before{top: 175px;right: 0; width: 200px;}/* content: "";@include pos(absolute, 175px, auto);right: 0;width: 90px;height: 5px; background: $pj3Color */
         .cnt_tit{margin-bottom: 140px;}
-        .sub1_txt2{@include pos(absolute, 1000px,160%);width: 550px;}
+        .sub1_txt2{@include pos(absolute, 1000px,170%);width: 550px;}
     }
-    .sub1_img1{@include pos(absolute, 80px, 37%);width: 900px; height: auto}
+    .sub1_img1{@include pos(absolute, 80px, 45%);width: 950px; height: auto}
     .sub1_img2{margin-top: 200px;}
 }
 #content #project3 .cnt_sub2{
-    position: relative;background: #e0e0e2;height: 2066px;padding-top: 150px;
+    position: relative;background: #e0e0e2;height: 2170px;
     > *{position: absolute;top: 150px;}
     img{left: 0;margin-top: -28px}
     .cnt_txt{
         left: 60%;width: 30%;
+        &:before{top: 25px;left: 0;width: 150px;}/* content: "";@include pos(absolute, 25px,0);width: 40px; height: 5px; background: $pj3Color */
         .cnt_tit{
-            position: relative;margin-bottom: 500px;padding-left: 50px;
-            &:before{content: "";@include pos(absolute, 25px,0);width: 40px; height: 5px; background: $pj3Color}
+            position: relative;margin-bottom: 500px;text-align: right
         }
     }
 }
 #content #project3 .bg_btm{background-image: url("../images/project3/pj3_btmbg.jpg");}
 
 /* ========================== #footer ============================== */
-#footer p{position: absolute;bottom: 80px;right: 8%;font-size: 14px}
+#footer{position: absolute;bottom: 80px;right: 8%;font-size: 14px;width: 100%;text-align: right}
 
 /* @keyframes */
 @keyframes svgBd{
@@ -543,25 +546,8 @@ $pj3Color : #164556;
 }
 
 /* ========== Responsive ========== */
-/* laptop 1440px */
-@media screen and (max-width: 1440px) {
-    body{font-size: 18px;}
-    /* #main */
-    #content #main .tit div{
-        .pj_tit{font-size: 25px}
-        &.on .pj_tit{font-size: 35px;}
-        &.on .btn_view .pj_type{font-size: 20px;margin-left: 28px;}
-    }
-    #content #main .slider{
-        position: absolute; right: 0;top: 0;width: 900px;
-        > div{
-            position: absolute;@include opacity(0.7, 70);
-            &.slider_pj1{top: 32px;right: 0;width: 900px;height: 585px}
-            &.slider_pj2{top: 800px;right: 155px;width: 500px;height: 325px}
-            &.slider_pj3{top:-400px;right: 155px;width: 500px;height: 325px}
-        }
-    }
-
+/* desktop 1680px */
+@media screen and (max-width: 1680px) {
     /* #profile */
     #content #profile .skills{
         top: 35%;
@@ -629,7 +615,7 @@ $pj3Color : #164556;
             > img:first-child{width: 900px;height: auto;top: 120px;margin-left: -20px;}
         }
         > div > div{
-            width: 500px;margin-left: -100px;
+            width: 500px;
             .cnt .cnt_tit{margin-bottom: 100px;}
         }
     }
@@ -707,8 +693,74 @@ $pj3Color : #164556;
                 font-size: 45px;padding-left: 130px;margin-bottom: 300px;
                 &:before{width: 110px;}
             }
-
         }
     }
-    #footer p{position: absolute;bottom: 70px;right: 8%;font-size: 12px}   
+    #footer{font-size: 12px}   
 }
+
+/* laptop 1440px */
+@media screen and (max-width: 1440px){
+    body{font-size: 18px;}
+    #content #main .tit div{
+        .pj_tit{font-size: 25px}
+        &.on .pj_tit{font-size: 35px;}
+        &.on .btn_view .pj_type{font-size: 20px;margin-left: 28px;}
+    }
+    #content #main .slider{
+        position: absolute; right: 0;top: 0;width: 900px;
+        > div{
+            position: absolute;@include opacity(0.7, 70);
+            &.slider_pj1{top: 85px;right: 0;width: 900px;height: 585px}
+            &.slider_pj2{top: 700px;right: 155px;width: 500px;height: 325px}
+            &.slider_pj3{top:-300px;right: 155px;width: 500px;height: 325px}
+        }
+    }
+}
+
+
+/* tablet 768px */
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    #header{
+        .logo{
+            a .logo_w{display: none}
+            a .logo_b{display: block;}
+        }
+        .util{
+            bottom: 120px;left: 50%;margin-left: -255px;
+            ul li{
+                float: left;
+                &.project{display: block;}
+                + li{margin-top: 0;margin-left: 100px;}
+                a{
+                    width: 120px;height: 60px;text-align: center;
+                    i{
+                        display: block;
+                        &.fa-on{position:static}
+                    }
+                    span{position:static;font-size: 18px;}
+                }
+            }
+        }
+    }
+    
+    /* 
+    #content #main{
+    .bg{    //스크립트로 height값 불러오기
+        @include pos(fixed, 0, 0);width: 100%;height: 100%;
+        .bg_img{background-repeat: no-repeat;background-image: url("../images/main/bg_pj1.jpg");@include bgSizeCv;width: 100%;height: 100%;}
+        .bg_color{
+            @include pos(absolute, 0, 0);
+            .rect{@include transition(all, 0.5s)}
+        }
+    }
+}
+    */
+
+    #content #main .slider{display: none;}
+    #content #main .slider_v{display: block;}
+
+}
+
+/* mobile */
+@media all and (min-width: 320px) and (max-width: 767px) {
+ }

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+    var winWid;
     var winH = $(window).height();
     //console.log(winH);
     var scrollT;    
@@ -16,6 +16,10 @@ $(document).ready(function() {
     var $pj2Main = $pj2.find('.cnt_main .main_img ul');
     var $pj3 = $pjWrap.find('#project3');
     var $pjBtn = $pjWrap.find('.quick_menu');
+    var laptopSize = 1440;
+    var mobileSize = 828;
+    var isLaptop = $(window).width() <= laptopSize? true : false;
+    var isMobile = $(window).width() <= mobileSize? true : false;
 
     /* ====================== #main ======================== */
     var i = 0;
@@ -28,6 +32,19 @@ $(document).ready(function() {
 
     $('#header .logo a').on('click', function() {
         location.reload();        
+    });
+
+    $(window).on('resize load', function () {
+        winWid = $(window).width();
+        
+        if ( winWid > mobileSize && isMobile == true ) {
+            $('#header *').removeAttr('style');
+            isMobile  = false;
+        }
+        else if ( winWid <= mobileSize && isMobile == false ) {
+            $('#header *').removeAttr('style');
+            isMobile  = true;
+        }
     });
 
     var bgImgArr = [['bg_pj1.jpg','100% 50%'], ['bg_pj2.jpg','100% 100%'], ['bg_pj3.jpg','350px 100%']];
@@ -45,7 +62,6 @@ $(document).ready(function() {
         $(this).parent().addClass('on').siblings().removeClass('on');
         $mainSlider.children().eq(nextPj).addClass('on').siblings().removeClass('on');
         
-        $('#header .logo a .img_logo').attr({src: 'images/common/logo_w.png'});
         $('#header .util ul li a').css({color: '#fff'});
         $mainTit.find('p').css({color: '#fff'});
 
@@ -76,10 +92,15 @@ $(document).ready(function() {
             });
             nextPj2 = arr1[0];
         }
-
-        $mainSlider.children().eq(nextPj).addClass('on').stop().animate({top: 132,right: 0,width: 950,height: 635}).find('.sub').removeAttr('style').parent().siblings().removeClass('on');
-        $mainSlider.children().eq(nextPj2).stop().animate({top: 800,right: 175,width: 540,height: 351}).find('.sub').hide();
-        $mainSlider.children().eq(current).stop().animate({top:-300,right: 175,width: 540,height: 351}).find('.sub').hide();
+        if (winWid > laptopSize) {
+            $mainSlider.children().eq(nextPj).addClass('on').stop().animate({top: 132,right: 0,width: 950,height: 635}).find('.sub').removeAttr('style').parent().siblings().removeClass('on');
+            $mainSlider.children().eq(nextPj2).stop().animate({top: 800,right: 175,width: 540,height: 351}).find('.sub').hide();
+            $mainSlider.children().eq(current).stop().animate({top:-300,right: 175,width: 540,height: 351}).find('.sub').hide();
+        } else {
+            $mainSlider.children().eq(nextPj).addClass('on').stop().animate({top: 85,right: 0,width: 900,height: 585}).find('.sub').removeAttr('style').parent().siblings().removeClass('on');
+            $mainSlider.children().eq(nextPj2).stop().animate({top: 700,right: 155,width: 500,height: 325}).find('.sub').hide();
+            $mainSlider.children().eq(current).stop().animate({top:-300,right: 155,width: 500,height: 325}).find('.sub').hide();
+        }
                 
         current = nextPj;
     }
@@ -132,7 +153,7 @@ $(document).ready(function() {
     $('#header .util .profile a').on('click', function() {
         clearInterval(timer);
         $main.hide();
-        $('#header .logo a .img_logo').attr({src: 'images/common/logo_b.png'});
+        $('#header .logo a .logo_w').attr({src: 'images/common/logo_b.png'});
         $('#header .util ul li a').css({color: '#181616'});
         $('#header .util ul .profile a .fa-off').css({display: 'none'}).next('.fa-on').css({display: 'block'}).next('.msg').text('HIRE ME!').css('display','block');
         $mainTit.find('p').css({color: '#181616'});
@@ -157,7 +178,7 @@ $(document).ready(function() {
             $mainTit.find('p').css({color: '#fff'});
             $('#header .util ul li a').css({color: '#fff'});
             $('#header .util ul .profile a .fa-off').css({display: 'block'}).next('.fa-on').removeAttr('style').next('.msg').text('ABOUT ME').removeAttr('style');
-            $('#header .logo a .img_logo').attr({src: 'images/common/logo_w.png'});
+            $('#header .logo a .logo_w').attr({src: 'images/common/logo_w.png'});
         })
 
         var typing = ['a coffee lover','a dog person', 'beer holic', 'a traveller', 'an Apple user', 'a hard worker', 'a quick-learner', 'passionate'];

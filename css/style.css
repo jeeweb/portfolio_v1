@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ============================ #main ============================= */
 #header {
   position: relative;
@@ -7,16 +8,22 @@
     position: fixed;
     top: 80px;
     left: 8%; }
-    #header .logo a .logo_w {
+    #header .logo a {
+      display: block;
+      width: 71px;
+      height: 57px; }
+    #header .logo a img {
       position: absolute;
       top: 0;
       left: 0; }
+    #header .logo a .logo_b {
+      display: none; }
   #header .util {
     position: fixed;
     top: auto;
     left: 8%;
     bottom: 80px; }
-    #header .util .project, #header .util .fa-on, #header .util .profile .fa-laugh, #header .util .profile span, #header .util .mail span {
+    #header .util .project, #header .util .fa-on, #header .util .profile .fa-laugh, #header .util ul li a span {
       display: none; }
     #header .util ul li {
       position: relative; }
@@ -25,9 +32,9 @@
       #header .util ul li:hover .fa-off, #header .util ul li a:focus .fa-off {
         display: none; }
       #header .util ul li:hover .fa-on, #header .util ul li a:focus .fa-on, #header .util ul li:hover span.msg {
-        display: inline-block; }
+        display: block; }
       #header .util ul li.select .fa-on, #header .util ul li.select .msg {
-        display: inline-block; }
+        display: block; }
       #header .util ul li a {
         display: inline-block;
         width: 180px;
@@ -183,6 +190,9 @@
       opacity: 0.5;
       filter: Alpha(opacity=50);
       z-index: 5; }
+
+#content #main .slider_v {
+  display: none; }
 
 /* ============================ #profile ============================= */
 #content #profile {
@@ -562,10 +572,10 @@
       position: absolute; }
     #content #project1 .cnt_main > div img {
       left: 0;
-      top: -100px; }
+      top: 110px; }
   #content #project1 .cnt_main > div > div {
     width: 633px;
-    left: 65%;
+    left: 60%;
     top: 150px; }
     #content #project1 .cnt_main > div > div:before {
       content: "";
@@ -580,7 +590,7 @@
     #content #project1 .cnt_main > div > div + img {
       position: absolute;
       top: 680px;
-      left: 58%; }
+      left: 60%; }
 
 #content #project1 .cnt_sub1 {
   position: relative;
@@ -699,6 +709,13 @@
     color: #99001c; }
   #content #project2 .cnt.on .line:after {
     background: #99001c; }
+  #content #project2 .cnt .cnt_txt {
+    position: relative; }
+    #content #project2 .cnt .cnt_txt:before {
+      content: "";
+      position: absolute;
+      height: 5px;
+      background: #99001c; }
 
 #content #project2 .cnt_main {
   position: relative;
@@ -748,29 +765,24 @@
           left: 0; }
   #content #project2 .cnt_main .cnt_txt {
     width: 30%;
-    top: 150px;
-    left: 65%; }
+    top: 0px;
+    left: 60%; }
     #content #project2 .cnt_main .cnt_txt .cnt_tit {
-      margin-bottom: 170px; }
+      margin-bottom: 150px; }
 
 #content #project2 .cnt_sub1 {
   position: relative;
   width: 100%;
   height: 3033px; }
   #content #project2 .cnt_sub1 .cnt_txt {
-    position: relative;
     width: 35%;
     height: 537px;
-    margin-left: 8%; }
+    margin-left: 8%;
+    /* content: "";@include pos(absolute, 25px, auto);right: 0px;height: 5px;width: 230px;background: $pj2Color; */ }
     #content #project2 .cnt_sub1 .cnt_txt:before {
-      content: "";
-      position: absolute;
       top: 25px;
-      left: auto;
       right: 0px;
-      height: 5px;
-      width: 230px;
-      background: #99001c; }
+      width: 350px; }
     #content #project2 .cnt_sub1 .cnt_txt .cnt_tit {
       margin-bottom: 100px; }
     #content #project2 .cnt_sub1 .cnt_txt .text2 {
@@ -790,32 +802,29 @@
 #content #project2 .cnt_sub2 {
   position: relative;
   background: #e0e0e2;
-  height: 2025px; }
+  height: 2020px; }
   #content #project2 .cnt_sub2 > * {
     position: absolute; }
   #content #project2 .cnt_sub2 .sub_img {
     top: 120px;
+    left: 5%;
     height: 2050px;
     width: 1000px;
     overflow: hidden; }
     #content #project2 .cnt_sub2 .sub_img img {
       margin-left: -30px; }
   #content #project2 .cnt_sub2 .cnt_txt {
-    width: 35%;
+    width: 30%;
     top: 150px;
-    left: 65%; }
+    left: 60%;
+    /* content: "";@include pos(absolute, 25px, 0);width: 150px;height: 5px;background: $pj2Color */ }
+    #content #project2 .cnt_sub2 .cnt_txt:before {
+      top: 25px;
+      left: 0;
+      width: 200px; }
     #content #project2 .cnt_sub2 .cnt_txt .cnt_tit {
-      position: relative;
       margin-bottom: 600px;
       text-align: right; }
-      #content #project2 .cnt_sub2 .cnt_txt .cnt_tit:before {
-        content: "";
-        position: absolute;
-        top: 25px;
-        left: 0;
-        width: 150px;
-        height: 5px;
-        background: #99001c; }
     #content #project2 .cnt_sub2 .cnt_txt .sub2_txt2 {
       margin-top: 300px; }
       #content #project2 .cnt_sub2 .cnt_txt .sub2_txt2 .open_btn {
@@ -867,19 +876,14 @@
   overflow: hidden; }
   #content #project2 .cnt_sub3 .cnt_txt {
     margin-left: 8%;
-    width: 30%; }
+    width: 30%;
+    /* content: "";@include pos(absolute, 25px, auto);right: 0;width: 110px;height: 5px;background: $pj2Color */ }
+    #content #project2 .cnt_sub3 .cnt_txt:before {
+      top: 25px;
+      right: 0;
+      width: 230px; }
     #content #project2 .cnt_sub3 .cnt_txt .cnt_tit {
-      position: relative;
       margin-bottom: 1650px; }
-      #content #project2 .cnt_sub3 .cnt_txt .cnt_tit:before {
-        content: "";
-        position: absolute;
-        top: 25px;
-        left: auto;
-        right: 0;
-        width: 110px;
-        height: 5px;
-        background: #99001c; }
   #content #project2 .cnt_sub3 img {
     position: absolute;
     top: 100px;
@@ -920,6 +924,13 @@
   background: #ee1c25; }
 #content #project3 .cnt > div strong {
   color: #164556; }
+#content #project3 .cnt .cnt_txt {
+  position: relative; }
+  #content #project3 .cnt .cnt_txt:before {
+    content: "";
+    position: absolute;
+    height: 5px;
+    background: #164556; }
 
 #content #project3 .cnt_main {
   position: relative;
@@ -963,17 +974,7 @@
     left: 60%;
     width: 30%; }
     #content #project3 .cnt_main .cnt_txt .cnt_tit {
-      position: relative;
-      padding-left: 140px;
       margin-bottom: 100px; }
-      #content #project3 .cnt_main .cnt_txt .cnt_tit:before {
-        content: "";
-        position: absolute;
-        top: 25px;
-        left: 0;
-        width: 120px;
-        height: 5px;
-        background: #164556; }
     #content #project3 .cnt_main .cnt_txt strong {
       color: #ee1c25; }
 
@@ -984,28 +985,24 @@
     position: relative;
     padding-top: 150px;
     margin-left: 8%;
-    width: 30%; }
+    width: 30%;
+    /* content: "";@include pos(absolute, 175px, auto);right: 0;width: 90px;height: 5px; background: $pj3Color */ }
     #content #project3 .cnt_sub1 .cnt_txt:before {
-      content: "";
-      position: absolute;
       top: 175px;
-      left: auto;
       right: 0;
-      width: 90px;
-      height: 5px;
-      background: #164556; }
+      width: 200px; }
     #content #project3 .cnt_sub1 .cnt_txt .cnt_tit {
       margin-bottom: 140px; }
     #content #project3 .cnt_sub1 .cnt_txt .sub1_txt2 {
       position: absolute;
       top: 1000px;
-      left: 160%;
+      left: 170%;
       width: 550px; }
   #content #project3 .cnt_sub1 .sub1_img1 {
     position: absolute;
     top: 80px;
-    left: 37%;
-    width: 900px;
+    left: 45%;
+    width: 950px;
     height: auto; }
   #content #project3 .cnt_sub1 .sub1_img2 {
     margin-top: 200px; }
@@ -1013,8 +1010,7 @@
 #content #project3 .cnt_sub2 {
   position: relative;
   background: #e0e0e2;
-  height: 2066px;
-  padding-top: 150px; }
+  height: 2170px; }
   #content #project3 .cnt_sub2 > * {
     position: absolute;
     top: 150px; }
@@ -1023,29 +1019,28 @@
     margin-top: -28px; }
   #content #project3 .cnt_sub2 .cnt_txt {
     left: 60%;
-    width: 30%; }
+    width: 30%;
+    /* content: "";@include pos(absolute, 25px,0);width: 40px; height: 5px; background: $pj3Color */ }
+    #content #project3 .cnt_sub2 .cnt_txt:before {
+      top: 25px;
+      left: 0;
+      width: 150px; }
     #content #project3 .cnt_sub2 .cnt_txt .cnt_tit {
       position: relative;
       margin-bottom: 500px;
-      padding-left: 50px; }
-      #content #project3 .cnt_sub2 .cnt_txt .cnt_tit:before {
-        content: "";
-        position: absolute;
-        top: 25px;
-        left: 0;
-        width: 40px;
-        height: 5px;
-        background: #164556; }
+      text-align: right; }
 
 #content #project3 .bg_btm {
   background-image: url("../images/project3/pj3_btmbg.jpg"); }
 
 /* ========================== #footer ============================== */
-#footer p {
+#footer {
   position: absolute;
   bottom: 80px;
   right: 8%;
-  font-size: 14px; }
+  font-size: 14px;
+  width: 100%;
+  text-align: right; }
 
 /* @keyframes */
 @keyframes svgBd {
@@ -1059,45 +1054,8 @@
     opacity: 1;
     filter: Alpha(opacity=100); } }
 /* ========== Responsive ========== */
-/* laptop 1440px */
-@media screen and (max-width: 1440px) {
-  body {
-    font-size: 18px; }
-
-  /* #main */
-  #content #main .tit div .pj_tit {
-    font-size: 25px; }
-  #content #main .tit div.on .pj_tit {
-    font-size: 35px; }
-  #content #main .tit div.on .btn_view .pj_type {
-    font-size: 20px;
-    margin-left: 28px; }
-
-  #content #main .slider {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 900px; }
-    #content #main .slider > div {
-      position: absolute;
-      opacity: 0.7;
-      filter: Alpha(opacity=70); }
-      #content #main .slider > div.slider_pj1 {
-        top: 32px;
-        right: 0;
-        width: 900px;
-        height: 585px; }
-      #content #main .slider > div.slider_pj2 {
-        top: 800px;
-        right: 155px;
-        width: 500px;
-        height: 325px; }
-      #content #main .slider > div.slider_pj3 {
-        top: -400px;
-        right: 155px;
-        width: 500px;
-        height: 325px; }
-
+/* desktop 1680px */
+@media screen and (max-width: 1680px) {
   /* #profile */
   #content #profile .skills {
     top: 35%; }
@@ -1193,8 +1151,7 @@
       top: 120px;
       margin-left: -20px; }
   #content #project1 .cnt_main > div > div {
-    width: 500px;
-    margin-left: -100px; }
+    width: 500px; }
     #content #project1 .cnt_main > div > div .cnt .cnt_tit {
       margin-bottom: 100px; }
 
@@ -1305,10 +1262,91 @@
       #content #project3 .cnt_sub2 .cnt_txt .cnt_tit:before {
         width: 110px; }
 
-  #footer p {
-    position: absolute;
-    bottom: 70px;
-    right: 8%;
+  #footer {
     font-size: 12px; } }
+/* laptop 1440px */
+@media screen and (max-width: 1440px) {
+  body {
+    font-size: 18px; }
+
+  #content #main .tit div .pj_tit {
+    font-size: 25px; }
+  #content #main .tit div.on .pj_tit {
+    font-size: 35px; }
+  #content #main .tit div.on .btn_view .pj_type {
+    font-size: 20px;
+    margin-left: 28px; }
+
+  #content #main .slider {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 900px; }
+    #content #main .slider > div {
+      position: absolute;
+      opacity: 0.7;
+      filter: Alpha(opacity=70); }
+      #content #main .slider > div.slider_pj1 {
+        top: 85px;
+        right: 0;
+        width: 900px;
+        height: 585px; }
+      #content #main .slider > div.slider_pj2 {
+        top: 700px;
+        right: 155px;
+        width: 500px;
+        height: 325px; }
+      #content #main .slider > div.slider_pj3 {
+        top: -300px;
+        right: 155px;
+        width: 500px;
+        height: 325px; } }
+/* tablet 768px */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  #header .logo a .logo_w {
+    display: none; }
+  #header .logo a .logo_b {
+    display: block; }
+  #header .util {
+    bottom: 120px;
+    left: 50%;
+    margin-left: -255px; }
+    #header .util ul li {
+      float: left; }
+      #header .util ul li.project {
+        display: block; }
+      #header .util ul li + li {
+        margin-top: 0;
+        margin-left: 100px; }
+      #header .util ul li a {
+        width: 120px;
+        height: 60px;
+        text-align: center; }
+        #header .util ul li a i {
+          display: block; }
+          #header .util ul li a i.fa-on {
+            position: static; }
+        #header .util ul li a span {
+          position: static;
+          font-size: 18px; }
+
+    /* 
+    #content #main{
+    .bg{    //스크립트로 height값 불러오기
+        @include pos(fixed, 0, 0);width: 100%;height: 100%;
+        .bg_img{background-repeat: no-repeat;background-image: url("../images/main/bg_pj1.jpg");@include bgSizeCv;width: 100%;height: 100%;}
+        .bg_color{
+            @include pos(absolute, 0, 0);
+            .rect{@include transition(all, 0.5s)}
+        }
+    }
+}
+    */
+  #content #main .slider {
+    display: none; }
+
+  #content #main .slider_v {
+    display: block; } }
+/* mobile */
 
 /*# sourceMappingURL=style.css.map */
