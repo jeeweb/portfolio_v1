@@ -72,18 +72,18 @@ $pj3Color : #164556;
     }
 }
 
-#content #main{
-    .bg{    //스크립트로 height값 불러오기
-        @include pos(fixed, 0, 0);width: 100%;height: 100%;
-        .bg_img{background-repeat: no-repeat;background-image: url("../images/main/bg_pj1.jpg");@include bgSizeCv;width: 100%;height: 100%;}
-        .bg_color{
-            @include pos(absolute, 0, 0);
-            .rect{@include transition(all, 0.5s)}
-        }
+#content #main .bg{
+    //스크립트로 height값 불러오기
+    @include pos(fixed, 0, 0);width: 100%;height: 100%;
+    .bg_img{background-repeat: no-repeat;background-image: url("../images/main/bg_pj1.jpg");@include bgSizeCv;width: 100%;height: 100%;}
+    .bg_color{
+        @include pos(absolute, 0, 0);
+        .rect{@include transition(all, 0.5s)}
     }
 }
 #content #main .tit{
     @include pos(absolute, 35%, 8%);z-index: 10;
+    .tit_project{display: none}
     div{
         *{vertical-align: middle;@include transition(all, 0.3s);}
         +div{margin-top: 50px}
@@ -487,7 +487,6 @@ $pj3Color : #164556;
             position: relative;
             &:before{content: "";position: absolute;height: 5px;background: $pj3Color}
         }
-
     }
 }
 #content #project3 .cnt_main{
@@ -608,7 +607,6 @@ $pj3Color : #164556;
             }
         }
     }
-
     #content #project1 .cnt_main{
         > div{
             height: 1650px;
@@ -722,8 +720,9 @@ $pj3Color : #164556;
 @media screen and (min-width: 768px) and (max-width: 1024px){
     #header{
         .logo{
+            left: 20%;
             a .logo_w{display: none}
-            a .logo_b{display: block;}
+            a .logo_b{display: block;width: 50px;height: auto;}
         }
         .util{
             bottom: 120px;left: 50%;margin-left: -255px;
@@ -742,23 +741,72 @@ $pj3Color : #164556;
             }
         }
     }
-    
-    /* 
     #content #main{
-    .bg{    //스크립트로 height값 불러오기
-        @include pos(fixed, 0, 0);width: 100%;height: 100%;
-        .bg_img{background-repeat: no-repeat;background-image: url("../images/main/bg_pj1.jpg");@include bgSizeCv;width: 100%;height: 100%;}
-        .bg_color{
-            @include pos(absolute, 0, 0);
-            .rect{@include transition(all, 0.5s)}
+        .bg .bg_color{top: 60%;}
+        .tit{
+            color: #181616;width: 500px;left: 20%;top: 200px;
+            div{
+                float: left;width: 130px;text-align: center;
+                + div{margin-left: 55px;margin-top: 0}
+                //&.tit_pj1{text-align: left}
+                .show .pj_tit .m_txt{display: none}
+                &.on .show .pj_tit{
+                    font-size: 25px;
+                    .m_txt{display: block;padding-top: 5px}
+                }
+                &.on .btn_view{
+                    @include pos(absolute, auto,50%);bottom: -350px;width: 300px; margin-left: -150px;
+                    .pj_type{margin-left: 0}
+                    .pj_view{display: none}
+                }
+            }
         }
     }
+
+    /*
+    //1440
+    #content #main .slider{
+        position: absolute; right: 0;top: 0;width: 900px;
+        > div{
+            position: absolute;@include opacity(0.7, 70);
+            &.slider_pj1{top: 85px;right: 0;width: 900px;height: 585px}
+            &.slider_pj2{top: 700px;right: 155px;width: 500px;height: 325px}
+            &.slider_pj3{top:-300px;right: 155px;width: 500px;height: 325px}
+        }
+    }
+
+    #content #main .slider{
+    position: absolute; right: 0;top: 0;width: 950px;
+    > div{
+        position: absolute;@include opacity(0.7, 70);
+        &.slider_pj1{top: 132px;right: 0;width: 950px;height: 635px}
+        &.slider_pj2{top: 800px;right: 175px;width: 540px;height: 351px}
+        &.slider_pj3{top:-300px;right: 175px;width: 540px;height: 351px}
+        &.on{
+            @include transform(scale(0.8));@include opacity(1, 100);right: 0;
+            .sub{display: inline-block}
+        }
+        img{
+            position: absolute;z-index: 99;
+            &.main{right: 50px;top: 50px;z-index: 4}
+            &.sub1{right: 25px;top: 25px;z-index: 3}
+            &.sub2{right: 0px;top: 0;z-index: 2}
+            &.sub3{right: -25px;top: -25px;z-index: 1}
+        }
+        img.on{z-index: 100;}
+        .sub{display: none;}
+        .mask{@include opacity(0,0)}
+        .mask:hover, .mask a:focus{background: #000;@include opacity(0.5, 50);z-index: 5}
+    }
 }
+#content #main .slider_v{display: none;}
+ 
     */
 
     #content #main .slider{display: none;}
     #content #main .slider_v{display: block;}
 
+    #footer{font-size: 12px;color: #fff;text-align: center;right: 0} 
 }
 
 /* mobile */

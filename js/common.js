@@ -6,7 +6,8 @@ $(document).ready(function() {
     var $main = $('#content #main');
     var $mainBg = $('#content #main .bg');
     var $mainTit = $('#content #main .tit');
-    var $mainSlider = $('#content #main .slider') 
+    var $mainSlider = $('#content #main .slider'); 
+    var $mainSliderV = $('#content #main .slider_v'); 
     var $profile = $('#content #profile');
     var $profGrph = $profile.find('.graph');
     var $pjWrap = $('#content #pjWrap');
@@ -53,6 +54,7 @@ $(document).ready(function() {
 
     $mainBg.css({height: winH});
     $mainSlider.css({height: winH,overflow:'hidden'});
+    $mainSliderV.css({height: winH,overflow:'hidden'});
     
     $mainTit.find('.show').on('click', function(e) {
         e.preventDefault();
@@ -109,19 +111,27 @@ $(document).ready(function() {
         timer = setInterval(function() {
             nextPj = current + 1;
             if ( nextPj == $mainTit.children().length ) nextPj = 0;
+            console.log(nextPj, current, $mainTit.children().length);
             $mainTit.children().eq(nextPj).addClass('on').siblings().removeClass('on');
             
             $('#header .util ul li a').css({color: '#fff'});
-            $mainTit.find('p').css({color: '#fff'});
+
+            if (winWid > mobileSize) {
+                $mainTit.find('p').css({color: '#fff'})
+            } else {
+                $mainTit.find('p').css({color: '#181616'})
+            };
 
             $mainBg.find('.bg_img').css({backgroundImage: 'url("images/main/'+ bgImgArr[nextPj][0] + '")', backgroundPosition: bgImgArr[nextPj][1]});
             $mainBg.find('.bg_color svg .rect').attr({transform: bgColArr[nextPj][0], fill: bgColArr[nextPj][1]});
                         
             active ();
-
         }, 3000)
     };
     playTimer ();
+    /* 
+    var bgImgArr = [['bg_pj1.jpg','100% 50%'], ['bg_pj2.jpg','100% 100%'], ['bg_pj3.jpg','350px 100%']];
+    */
 
     $('#content #main .slider > div img').on('click', function () {
 		$(this).addClass('on').siblings().removeClass('on');
@@ -285,7 +295,7 @@ $(document).ready(function() {
 
         var sub1T = $pj2.find('.cnt_sub1').offset().top;
         var sub2T = $pj2.find('.cnt_sub2').offset().top;
-        console.log(sub1T,sub2T, scrollT);
+        //console.log(sub1T,sub2T, scrollT);
 
         if (scrollT >= sub1T && scrollT < (sub2T - 1000)) $pj2.find('.cnt_sub1 .cnt_txt').css({position: 'fixed',top: 150});
         else if ( scrollT >= (sub2T - 1000) || scrollT < sub1T ) $pj2.find('.cnt_sub1 .cnt_txt').css({position: 'relative',top: sub2T - sub1T - 1000 });
