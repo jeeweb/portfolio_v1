@@ -179,9 +179,13 @@ $(document).ready(function() {
             e.preventDefault();
             var btnNum = $(this).index();
             
-            $(this).css({fontSize: 40,fontFamily: 'NanumSqB'}).siblings().removeAttr('style');
-            $profGrph.children().eq(btnNum+1).addClass('on').children().removeAttr('style').parent().siblings().removeClass('on').children().css({color: '#ddd', fontSize: '18px'});
-            $profGrph.find('.img_graph > svg').eq(btnNum).addClass('on').siblings().removeClass('on');
+            if (winWid > tabletSize) {
+                $(this).css({fontSize: 40,fontFamily: 'NanumSqB'}).siblings().removeAttr('style');
+            } else {
+                $(this).css({fontSize: 20,fontFamily: 'NanumSqB'}).siblings().removeAttr('style');
+            }
+            $profGrph.children().eq(btnNum+1).addClass('on').children().removeAttr('style').parent().siblings().removeClass('on').children().css({color: '#ddd', fontSize: 18});
+                $profGrph.find('.img_graph > svg').eq(btnNum).addClass('on').siblings().removeClass('on');
         });
 
         $profile.find('.skills a').on('click', function(e) {
