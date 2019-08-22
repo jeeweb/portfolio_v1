@@ -18,7 +18,7 @@ $(document).ready(function() {
     var $pj3 = $pjWrap.find('#project3');
     var $pjBtn = $pjWrap.find('.quick_menu');
     var laptopSize = 1440;
-    var tabletSize = 768;
+    var tabletSize = 1024;
     var mobileSize = 828;
     var isLaptop = $(window).width() <= laptopSize? true : false;
     var isMobile = $(window).width() <= mobileSize? true : false;
@@ -31,14 +31,14 @@ $(document).ready(function() {
     var cntArr = new Array();
 
     $pjBtn.hide();
-
+    $('html, body').css({overflow: 'hidden'});
     $('#header .logo a').on('click', function() {
         location.reload();        
     });
 
     $(window).on('resize load', function () {
         winWid = $(window).width();
-        
+
         if ( winWid > mobileSize && isMobile == true ) {
             $('#header *').removeAttr('style');
             isMobile  = false;
@@ -48,6 +48,18 @@ $(document).ready(function() {
             isMobile  = true;
         }
     });
+
+    $('#header .util .project a').on('click', function (e) {
+        e.preventDefault();
+        $profile.hide();
+        $main.slideDown();
+        playTimer();
+        $mainTit.find('p').css({color: '#fff'});
+        $('#header .util ul li a').css({color: '#fff'});
+        $('#header .util ul .profile a > *').removeAttr('style');
+        $('#header .util ul .profile a .msg').text('ABOUT ME').removeAttr('style');
+        $('#header .logo a .logo_w').attr({src: 'images/common/logo_w.png'});
+    })
 
     var bgImgArr = [['bg_pj1.jpg','100% 50%'], ['bg_pj2.jpg','100% 100%'], ['bg_pj3.jpg','350px 100%']];
     var bgColArr = [['rotate(145, 850, 200)','#ee1c25'], ['rotate(120, 800, 200)','#99001c'], ['rotate(70, 700, 200)','#164556']]
@@ -65,7 +77,11 @@ $(document).ready(function() {
         $mainSlider.children().eq(nextPj).addClass('on').siblings().removeClass('on');
         
         $('#header .util ul li a').css({color: '#fff'});
-        $mainTit.find('p').css({color: '#fff'});
+        if (winWid > tabletSize) {
+            $mainTit.find('p').css({color: '#fff'})
+        } else {
+            $mainTit.find('p').css({color: '#181616'})
+        };
 
         clearInterval(timer);
         
@@ -102,8 +118,12 @@ $(document).ready(function() {
             $mainSlider.children().eq(nextPj).addClass('on').stop().animate({top: 85,right: 0,width: 900,height: 585}).find('.sub').removeAttr('style').parent().siblings().removeClass('on');
             $mainSlider.children().eq(nextPj2).stop().animate({top: 700,right: 155,width: 500,height: 325}).find('.sub').hide();
             $mainSlider.children().eq(current).stop().animate({top:-300,right: 155,width: 500,height: 325}).find('.sub').hide();
-        } else if (winWid <= tabletSize) {
-            $mainSliderV.children().eq(nextPj).addClass('on').stop().animate({left: (winWid * 0.5 - 153),width: 350,height: '45%'}).siblings().removeClass('on');
+        } else if (winWid <= tabletSize && winWid > mobileSize) {
+            $mainSliderV.children().eq(nextPj).addClass('on').stop().animate({left: (winWid * 0.5 - 175),width: 350,height: '50%'}).siblings().removeClass('on');
+            $mainSliderV.children().eq(nextPj2).stop().animate({left: (winWid - 70),width: 250,height: '40%'});
+            $mainSliderV.children().eq(current).stop().animate({left:-180,width: 250,height: '40%'});
+        } else {
+            $mainSliderV.children().eq(nextPj).addClass('on').stop().animate({left: (winWid * 0.5 - 175),width: 350,height: '45%'}).siblings().removeClass('on');
             $mainSliderV.children().eq(nextPj2).stop().animate({left: (winWid - 70),width: 250,height: '40%'});
             $mainSliderV.children().eq(current).stop().animate({left:-180,width: 250,height: '40%'});
         }
@@ -115,27 +135,30 @@ $(document).ready(function() {
         timer = setInterval(function() {
             nextPj = current + 1;
             if ( nextPj == $mainTit.children().length ) nextPj = 0;
-            console.log(nextPj, current, $mainTit.children().length);
+            //console.log(nextPj, current, $mainTit.children().length);
             $mainTit.children().eq(nextPj).addClass('on').siblings().removeClass('on');
             
             $('#header .util ul li a').css({color: '#fff'});
 
-            if (winWid > mobileSize) {
+            if (winWid > tabletSize) {
                 $mainTit.find('p').css({color: '#fff'})
             } else {
                 $mainTit.find('p').css({color: '#181616'})
             };
 
             $mainBg.find('.bg_img').css({backgroundImage: 'url("images/main/'+ bgImgArr[nextPj][0] + '")', backgroundPosition: bgImgArr[nextPj][1]});
-            $mainBg.find('.bg_color svg .rect').attr({transform: bgColArr[nextPj][0], fill: bgColArr[nextPj][1]});
-                        
+
+            if (winWid > tabletSize) {
+                $mainBg.find('.bg_color svg .rect').attr({transform: bgColArr[nextPj][0], fill: bgColArr[nextPj][1]});
+            } else {
+                $mainBg.find('.bg_color').css({width: winWid, overflow: 'hidden'});
+                $mainBg.find('.bg_color svg .rect').attr({fill: bgColArr[nextPj][1]});
+            }
+
             active ();
         }, 3000)
     };
     playTimer ();
-    /* 
-    var bgImgArr = [['bg_pj1.jpg','100% 50%'], ['bg_pj2.jpg','100% 100%'], ['bg_pj3.jpg','350px 100%']];
-    */
 
     $('#content #main .slider > div img').on('click', function () {
 		$(this).addClass('on').siblings().removeClass('on');
@@ -144,6 +167,7 @@ $(document).ready(function() {
     $mainTit.find('> div > .btn_view').on('click', function (e) {
         e.preventDefault();
         clearInterval(timer);
+        $('html, body').css({overflow: 'visible'});
         $main.hide();
         $pjBtn.show();
 
