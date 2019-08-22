@@ -1270,6 +1270,9 @@
   body {
     font-size: 18px; }
 
+  #content #main .bg .bg_color {
+    left: -350px; }
+
   #content #main .tit div .pj_tit {
     font-size: 25px; }
   #content #main .tit div.on .pj_tit {
@@ -1282,7 +1285,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    width: 900px; }
+    width: 850px; }
     #content #main .slider > div {
       position: absolute;
       opacity: 0.7;
@@ -1290,18 +1293,74 @@
       #content #main .slider > div.slider_pj1 {
         top: 85px;
         right: 0;
-        width: 900px;
-        height: 585px; }
+        width: 800px;
+        height: 520px; }
       #content #main .slider > div.slider_pj2 {
         top: 700px;
-        right: 155px;
-        width: 500px;
-        height: 325px; }
+        right: 150px;
+        width: 450px;
+        height: 291px; }
       #content #main .slider > div.slider_pj3 {
         top: -300px;
-        right: 155px;
-        width: 500px;
-        height: 325px; } }
+        right: 150px;
+        width: 450px;
+        height: 291px; }
+
+  #content #profile .graph .graph_bg {
+    margin: 5% 0 0 45%; }
+  #content #profile .graph .graph_bg, #content #profile .graph .img_graph {
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8); }
+  #content #profile .graph .coding, #content #profile .graph .graphic {
+    height: 600px;
+    width: 600px;
+    left: 45%;
+    top: 0; }
+    #content #profile .graph .coding > div, #content #profile .graph .graphic > div {
+      font-size: 16px; }
+    #content #profile .graph .coding.on > div, #content #profile .graph .graphic.on > div {
+      font-size: 18px; }
+  #content #profile .graph .coding .html {
+    top: 10px;
+    left: calc(50% - 25px); }
+  #content #profile .graph .coding .css {
+    left: 100px; }
+  #content #profile .graph .coding .js {
+    left: 0;
+    bottom: 200px; }
+  #content #profile .graph .coding .jq {
+    top: 200px;
+    right: 13px; }
+  #content #profile .graph .coding .sass {
+    right: 110px;
+    bottom: 65px; }
+  #content #profile .graph .coding .bs {
+    left: 80px;
+    top: 60px; }
+  #content #profile .graph .graphic .ps {
+    right: -10px;
+    bottom: 190px; }
+  #content #profile .graph .graphic .ai {
+    left: -10px;
+    top: 190px; }
+  #content #profile .graph .graphic .zeplin {
+    bottom: 10px; }
+  #content #profile .graph .graphic .xd {
+    top: 60px;
+    right: 80px; }
+  #content #profile .graph .img_graph .graph_coding {
+    left: 175px;
+    top: 75px; }
+  #content #profile .graph .img_graph .graph_graphic {
+    left: 120px;
+    top: 230px; }
+
+    /* 
+
+    */ }
 /* tablet */
 @media screen and (max-width: 1024px) {
   #header .logo {
@@ -1429,24 +1488,17 @@
   #content #profile .graph .graph_bg {
     margin: 9% auto 0; }
   #content #profile .graph .coding, #content #profile .graph .graphic {
-    height: 600px;
-    width: 600px;
-    left: 21%;
-    top: 0; }
-    #content #profile .graph .coding > div, #content #profile .graph .graphic > div {
-      font-size: 16px; }
-    #content #profile .graph .coding.on > div, #content #profile .graph .graphic.on > div {
-      font-size: 18px; }
+    left: 21%; }
   #content #profile .graph .coding .html {
     top: 35px; }
   #content #profile .graph .coding .css {
     left: 120px;
     bottom: 85px; }
   #content #profile .graph .coding .js {
-    left: 20px;
-    bottom: 200px; }
+    left: 20px; }
   #content #profile .graph .coding .jq {
-    top: 210px; }
+    top: 210px;
+    right: 33px; }
   #content #profile .graph .coding .sass {
     right: 125px;
     bottom: 90px; }
@@ -1454,10 +1506,10 @@
     left: 90px;
     top: 90px; }
   #content #profile .graph .graphic .ps {
-    right: 15px;
-    bottom: 190px; }
+    right: 15px; }
   #content #profile .graph .graphic .ai {
-    top: 205px; }
+    top: 205px;
+    left: 10px; }
   #content #profile .graph .graphic .zeplin {
     bottom: 35px; }
   #content #profile .graph .graphic .xd {
@@ -1468,7 +1520,8 @@
     width: 100%;
     height: 100%; }
     #content #profile .graph .img_graph .graph_coding {
-      left: 314px; }
+      left: 314px;
+      top: 0; }
     #content #profile .graph .img_graph .graph_graphic {
       left: 255px;
       top: 155px; }
@@ -1529,7 +1582,7 @@
     width: 100%;
     height: 100%; }
     #content #profile .graph .img_graph .graph_coding {
-      left: 185px; }
+      left: 180px; }
     #content #profile .graph .img_graph .graph_graphic {
       left: 129px; }
 
