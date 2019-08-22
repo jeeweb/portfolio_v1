@@ -61,8 +61,8 @@ $(document).ready(function() {
         $('#header .logo a .logo_w').attr({src: 'images/common/logo_w.png'});
     })
 
-    var bgImgArr = [['bg_pj1.jpg','100% 50%'], ['bg_pj2.jpg','100% 100%'], ['bg_pj3.jpg','350px 100%']];
-    var bgColArr = [['rotate(145, 850, 200)','#ee1c25'], ['rotate(120, 800, 200)','#99001c'], ['rotate(70, 700, 200)','#164556']]
+    var bgImgArr = [['bg_pj3.jpg','350px 100%'], ['bg_pj2.jpg','100% 100%'], ['bg_pj1.jpg','100% 50%'] ];
+    var bgColArr = [['rotate(70, 700, 200)','#164556'], ['rotate(120, 800, 200)','#99001c'], ['rotate(145, 850, 200)','#ee1c25']]
     //console.log(bgImgArr,bgColArr);
 
     $mainBg.css({height: winH});
@@ -160,8 +160,13 @@ $(document).ready(function() {
     };
     playTimer ();
 
-    $('#content #main .slider > div img').on('click', function () {
-		$(this).addClass('on').siblings().removeClass('on');
+    $mainSlider.find('> div > img').on('click', function () {
+        $(this).addClass('on').siblings().removeClass('on');
+        var pjNum = $(this).parent().index();
+        //console.log($(this).index(), pjNum); 
+        if ($(this).index() == 0) {
+            $mainTit.children().eq(pjNum).find('.btn_view').click();
+        };
     });
     
     $mainTit.find('> div > .btn_view').on('click', function (e) {
@@ -184,6 +189,10 @@ $(document).ready(function() {
             //console.log(cntArr);
         });
     });
+
+    $mainSlider.children('.on').on('click', function (e) {
+        e.preventDefault();
+    })
 
     /* ====================== #profile ======================== */
     $profile.hide();
