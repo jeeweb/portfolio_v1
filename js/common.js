@@ -316,7 +316,7 @@ $(document).ready(function() {
         var $cap = $pj1.find('.overview #cap div');
         var capArr = new Array();
 
-        /* $cap.each(function (i) {
+        $cap.each(function (i) {
             capArr.push($(this).position().top);
             console.log(capArr);
 
@@ -328,7 +328,7 @@ $(document).ready(function() {
             //console.log(scrollT, start, end, min, max, y)
             $(this).css({top: y})
 
-        }); */
+        });
 
 
     });
