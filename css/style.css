@@ -686,7 +686,7 @@ section.pj_detail .top_btn {
     height: auto; }
   #project3 .cnt_sub1 .sub1_video {
     margin: 50px 0 100px 8%;
-    width: 50%;
+    width: 711px;
     height: 350px;
     overflow: hidden; }
     #project3 .cnt_sub1 .sub1_video #player {
@@ -714,12 +714,12 @@ section.pj_detail .top_btn {
     #project3 .cnt_sub2 .cnt_txt .cnt_tit {
       position: relative;
       margin-bottom: 350px; }
-  #project3 .cnt_sub2 .sub1_img1 {
+  #project3 .cnt_sub2 .sub2_img1 {
     left: 45%;
     top: 122px; }
-  #project3 .cnt_sub2 .sub1_img2 {
+  #project3 .cnt_sub2 .sub2_img2 {
     left: 5%;
-    top: 630px;
+    top: 730px;
     width: 45%;
     height: auto; }
 
@@ -1236,7 +1236,7 @@ section.pj_detail .top_btn {
     width: 800px;
     height: auto; }
 
-  #project3 .cnt_sub2 img {
+  #project3 .cnt_sub2 .sub2_img1 {
     width: 800px;
     height: auto; }
   #project3 .cnt_sub2 .cnt_txt {
@@ -1470,8 +1470,10 @@ section.pj_detail .top_btn {
     height: 1400px; }
     #project3 .cnt_sub2 .cnt_txt .cnt_tit {
       margin-bottom: 250px; }
-    #project3 .cnt_sub2 img {
+    #project3 .cnt_sub2 .sub2_img1 {
       width: 700px; }
+    #project3 .cnt_sub2 .sub2_img2 {
+      top: 630px; }
 
   /* #project2 */
   #project2 .cnt_main .main_img {
