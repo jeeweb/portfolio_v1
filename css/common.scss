@@ -27,6 +27,7 @@ header, section, article, footer{display: block}
 
 .blind{font-size: 0; width: 1px; height: 1px; line-height: 0;overflow: hidden;position: absolute;top: 0;left: -9999px;text-indent: -9999px;}
 .area{width: 77.4%;margin: 0 auto}
+.p_r{position: relative;}
 
 $pj1Color : #ee1c25;
 $pj2Color : #99001c;

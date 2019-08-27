@@ -67,6 +67,9 @@ header, section, article, footer {
   width: 77.4%;
   margin: 0 auto; }
 
+.p_r {
+  position: relative; }
+
 #skip a {
   position: absolute;
   top: 0;
