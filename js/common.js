@@ -172,10 +172,11 @@ $(document).ready(function() {
         };
     });
     
-    $mainSlider.children('.on').on('click', function (e) {
+    $mainSlider.on('click', function (e) {
         e.preventDefault();
-        var pjNum = $(this).index();
-        $mainTit.find('> div').eq(pjNum).find('.btn_view').click();
+        var pjNum = $(this).find('.on').index();
+        console.log(pjNum, );
+        $(this).prev('.tit').children().eq(pjNum).children('a').click();
     });
 
     /* ====================== #profile ======================== */
